@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BLS International Services Ltd (BLS) — Institutional Equity Research Initiation</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap');
+
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm 11mm 12mm;
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1e293b;
+    background: #ffffff;
+    font-size: 8.0pt;
+    line-height: 1.38;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Merriweather', Georgia, serif;
+    color: #0f2b48;
+    margin-top: 0;
+    line-height: 1.22;
+  }
+
+  .page {
+    page-break-after: always;
+    break-after: page;
+    clear: both;
+    position: relative;
+    height: 275mm;
+    max-height: 275mm;
+    overflow: hidden;
+    padding-bottom: 7mm;
+  }
+
+  .page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  .running-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid #0f2b48;
+    padding-bottom: 3px;
+    margin-bottom: 7px;
+    font-size: 6.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #475569;
+  }
+
+  .running-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #cbd5e1;
+    padding-top: 3px;
+    font-size: 6.5pt;
+    color: #64748b;
+  }
+
+  /* Two Column Split */
+  .two-col {
+    display: flex;
+    gap: 11px;
+  }
+
+  .col-main {
+    flex: 1.75;
+  }
+
+  .col-side {
+    flex: 1;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 7.6pt;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4px 0 6px 0;
+    font-size: 7.0pt;
+  }
+
+  th {
+    background: #0f2b48;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: left;
+    padding: 3px 4.5px;
+    border: 1px solid #0f2b48;
+  }
+
+  th.num, td.num {
+    text-align: right;
+  }
+
+  td {
+    padding: 2.8px 4.5px;
+    border: 1px solid #e2e8f0;
+  }
+
+  tr:nth-child(even) {
+    background: #f8fafc;
+  }
+
+  tr.highlight {
+    background: #eff6ff;
+    font-weight: 700;
+  }
+
+  /* Badges & Callout Boxes */
+  .rating-box {
+    background: #0f2b48;
+    color: #ffffff;
+    padding: 8px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 7px;
+  }
+
+  .badge-buy {
+    display: inline-block;
+    background: #10b981;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 11pt;
+    padding: 2px 14px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .callout {
+    background: #f1f5f9;
+    border-left: 3px solid #0f2b48;
+    padding: 6px 8px;
+    margin: 5px 0;
+    font-size: 7.5pt;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .callout-gold {
+    background: #fffbeb;
+    border-left: 3px solid #d97706;
+    padding: 6px 8px;
+    margin: 5px 0;
+    font-size: 7.5pt;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .callout-success {
+    background: #ecfdf5;
+    border-left: 3px solid #10b981;
+    padding: 6px 8px;
+    margin: 5px 0;
+    font-size: 7.5pt;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .section-title {
+    font-size: 10.0pt;
+    font-weight: 700;
+    border-bottom: 1.5px solid #0f2b48;
+    padding-bottom: 2px;
+    margin-top: 6px;
+    margin-bottom: 4px;
+    color: #0f2b48;
+  }
+
+  .sub-title {
+    font-size: 8.2pt;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    color: #1e3a8a;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+  }
+
+  .analyst-header {
+    background: #0f2b48;
+    color: #ffffff;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+
+  .chart-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 5px;
+    padding: 6px;
+    margin: 4px 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================== -->
+<!-- PAGE 1: COVER TEAR SHEET & INVESTMENT SNAPSHOT -->
+<!-- ============================================================== -->
+<div class="page">
+  <div class="analyst-header">
+    <div style="font-weight: 800; font-size: 8.5pt; letter-spacing: 0.5px;">INSTITUTIONAL EQUITY RESEARCH <span style="font-weight: 400; opacity: 0.85;">| TECH-ENABLED B2G OUTSOURCING & GLOBAL MOBILITY</span></div>
+    <div style="font-size: 7.2pt; font-weight: 600;">INITIATION REPORT | OCTOBER 2026</div>
+  </div>
+
+  <div class="two-col">
+    <!-- Main Left Column -->
+    <div class="col-main">
+      <div style="border-bottom: 2px solid #0f2b48; padding-bottom: 4px; margin-bottom: 6px;">
+        <h1 style="font-size: 17pt; margin: 0 0 2px 0; color: #0f2b48; letter-spacing: -0.3px;">BLS International Services Ltd</h1>
+        <div style="font-size: 7.5pt; color: #475569; font-weight: 600;">
+          NSE: BLS | BSE: 540073 | BLOOMBERG: BLS:IN | REUTERS: BLSN.BO
+        </div>
+      </div>
+
+      <div style="font-size: 10.2pt; font-family: 'Merriweather', serif; font-weight: 700; color: #1e3a8a; line-height: 1.25; margin-bottom: 6px;">
+        The Global Visa Oligopoly Mispricing: A 40% EBITDA Trophy Asset Disguised by Regulatory Noise
+      </div>
+
+      <div class="callout-success" style="margin-bottom: 8px;">
+        <strong>EXECUTIVE RECOMMENDATION: BUY (HIGH CONVICTION)</strong><br>
+        We initiate coverage on BLS International Services Ltd (BLS) with a 12-month Sum-of-the-Parts (SOTP) Target Price of <strong>₹375.00</strong>, offering <strong>+67.4% upside</strong> from CMP of ₹224.00. BLS is the <strong>sole publicly listed pure-play visa outsourcing firm globally</strong>. The market has severely over-penalized the stock for the temporary MEA debarment dispute (quashed by Delhi HC) and the UAE consular contract re-tendering, destroying ~₹5,500 Cr in market value for an asset that accounts for &lt;10% of group PAT. At 7.2x FY27E core Visa EV/EBITDA and with ₹1,617 Cr in net cash (17.5% of market cap), BLS offers highly asymmetric upside.
+      </div>
+
+      <div class="section-title">Core Investment Thesis: Non-Obvious Sell-Side Pillars</div>
+
+      <div style="font-size: 7.8pt;">
+        <p style="margin: 4px 0;">
+          <strong>1. Global Visa Oligopoly & Listing Scarcity Premium:</strong> BLS is the only listed proxy for the $3.5B global visa processing industry. Private peers VFS Global (&gt;50% share, owned by Blackstone/ADIA) and TLScontact (Teleperformance) command private market multiples of 18–22x EV/EBITDA. BLS's 15% global market share in a mission-critical B2G concessionaire structure warrants an institutional scarcity premium, not a midcap discount.
+        </p>
+
+        <p style="margin: 4px 0;">
+          <strong>2. Market Overreaction to MEA Dispute Creates Entry Window:</strong> The stock corrected 38% from its 52W high of ₹359 following the Oct 2025 MEA debarment (quashed in Dec 2025 by Delhi HC) and the UAE contract transition. However, sovereign Indian missions contribute only ~12% of revenue. The Supreme Court's July 2026 directive ordering a fresh, transparent tender for the UAE contract creates immediate re-entry optionality, while crown-jewel mandates with Spain, Germany, and Canada remain completely intact.
+        </p>
+
+        <p style="margin: 4px 0;">
+          <strong>3. The SOTP Mispricing: 40% EBITDA Engine Priced at Staffing Multiples:</strong> The consolidated multiple is visually distorted by the fast-growing but low-margin Digital Services subsidiary (BLS E-Services, 5–7% EBITDA). An SOTP disaggregation reveals that after subtracting net cash (₹39.3/sh) and the listed 51% stake in BLS E-Services (₹30.9/sh post-HoldCo discount), the market is pricing the core 40.1% EBITDA Visa engine at an absurd <strong>7.2x FY27E EV/EBITDA</strong>—equivalent to a commoditized security guard business.
+        </p>
+
+        <p style="margin: 4px 0;">
+          <strong>4. Structural Yield Expansion Engine (₹3,302 Net Rev/App):</strong> Net revenue per visa application has compounded from ₹2,100 (FY22) to ₹2,903 (FY25) and <strong>₹3,302 in FY26 (+13.7% YoY)</strong>. This margin expansion is driven by the transition from partner-run to self-managed Visa Application Centres (VACs) and the monetization of premium Value-Added Services (VAS: biometrics, courier, lounge, travel insurance).
+        </p>
+      </div>
+
+      <div class="section-title">Near-Term Catalysts & Key Risks</div>
+      <div style="font-size: 7.2pt; line-height: 1.3;">
+        <strong>Catalysts (12M):</strong> (1) Fresh Supreme Court-mandated MEA tender for UAE/Kuwait (Q3/Q4 FY27); (2) Net revenue per app crossing ₹3,700 via premium Schengen VAS; (3) Re-rating of BLS E-Services post-stock split.<br>
+        <strong>Key Risks:</strong> (1) Geopolitical travel bans; (2) Permanent loss of Middle East Indian consular mandates; (3) Slower margin turnaround in Digital Services BC network.
+      </div>
+    </div>
+
+    <!-- Right Side Column: Institutional Tear Sheet -->
+    <div class="col-side">
+      <div class="rating-box">
+        <div style="font-size: 7.2pt; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.9;">INSTITUTIONAL RATING</div>
+        <div style="margin: 3px 0;"><span class="badge-buy">BUY</span></div>
+        <div style="font-size: 9.2pt; font-weight: 700; color: #a7f3d0;">12M Target Price: ₹375.00</div>
+        <div style="font-size: 7.2pt; opacity: 0.85;">Current Price: ₹224.00 | Upside: <strong>+67.4%</strong></div>
+      </div>
+
+      <div style="font-weight: 700; color: #0f2b48; font-size: 7.5pt; margin-bottom: 2px;">MARKET DATA & CAPITAL STRUCTURE</div>
+      <table style="font-size: 6.8pt; margin-bottom: 5px;">
+        <tr><td>Market Cap (₹ Cr)</td><td class="num"><strong>9,228</strong> (~$1.11B)</td></tr>
+        <tr><td>Enterprise Value (₹ Cr)</td><td class="num"><strong>7,611</strong> (Net Cash)</td></tr>
+        <tr><td>52-Week High / Low (₹)</td><td class="num">359.00 / 212.00</td></tr>
+        <tr><td>Shares Outstanding (Cr)</td><td class="num">41.18 (411.8M)</td></tr>
+        <tr><td>Promoter Holding (%)</td><td class="num"><strong>70.39%</strong></td></tr>
+        <tr><td>FII / DII Holding (%)</td><td class="num">8.53% / 2.87%</td></tr>
+        <tr><td>Net Cash Balance (₹ Cr)</td><td class="num"><strong>₹1,617 Cr</strong> (₹39.3/sh)</td></tr>
+        <tr><td>ROCE / ROE (%)</td><td class="num"><strong>29.8% / 32.1%</strong></td></tr>
+      </table>
+
+      <div style="font-weight: 700; color: #0f2b48; font-size: 7.5pt; margin-bottom: 2px;">CONSOLIDATED FINANCIALS (₹ Cr)</div>
+      <table style="font-size: 6.6pt; margin-bottom: 5px;">
+        <thead>
+          <tr>
+            <th>Y/E Mar</th>
+            <th class="num">FY25A</th>
+            <th class="num">FY26A</th>
+            <th class="num">FY27E</th>
+            <th class="num">FY28E</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Revenue</td><td class="num">2,193</td><td class="num">2,998</td><td class="num">3,710</td><td class="num">4,520</td></tr>
+          <tr><td>EBITDA</td><td class="num">628</td><td class="num">819</td><td class="num">1,010</td><td class="num">1,250</td></tr>
+          <tr class="highlight"><td>EBITDA %</td><td class="num">28.7%</td><td class="num">27.3%</td><td class="num">27.2%</td><td class="num">27.7%</td></tr>
+          <tr><td>PAT</td><td class="num">540</td><td class="num">724</td><td class="num">865</td><td class="num">1,070</td></tr>
+          <tr><td>EPS (₹)</td><td class="num">13.1</td><td class="num">17.6</td><td class="num">21.0</td><td class="num">26.0</td></tr>
+          <tr class="highlight"><td>EV/EBITDA</td><td class="num">12.1x</td><td class="num">9.3x</td><td class="num">7.5x</td><td class="num">6.1x</td></tr>
+          <tr><td>P/E (x)</td><td class="num">17.1x</td><td class="num">12.7x</td><td class="num">10.7x</td><td class="num">8.6x</td></tr>
+        </tbody>
+      </table>
+
+      <div style="font-weight: 700; color: #0f2b48; font-size: 7.5pt; margin-bottom: 2px;">SOTP VALUATION SNAPSHOT</div>
+      <div style="font-size: 6.8pt; line-height: 1.35; background: #ffffff; border: 1px solid #e2e8f0; padding: 5px; border-radius: 4px;">
+        • <strong>Visa Engine (18x EV/EBITDA):</strong> ₹384.7 / share<br>
+        • <strong>Digital Services (51% BLSE @ 15% disc):</strong> ₹30.9 / share<br>
+        • <strong>Net Cash on Balance Sheet:</strong> ₹39.3 / share<br>
+        • <em>Less Execution Buffer (15%):</em> -₹79.9 / share<br>
+        <strong style="color: #065f46; font-size: 7.5pt;">Target Price: ₹375.00 (+67.4% Upside)</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="running-footer">
+    <span>BLS INTERNATIONAL | INITIATION OF COVERAGE | OCTOBER 2026</span>
+    <span>CONFIDENTIAL – FOR RECRUITER & INSTITUTIONAL REVIEW | LEAD ANALYST: MAHIM</span>
+    <span>Page 1</span>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- PAGE 2: BUSINESS ARCHITECTURE & GLOBAL OLIGOPOLY MOAT -->
+<!-- ============================================================== -->
+<div class="page">
+  <div class="running-header">
+    <span>BLS INTERNATIONAL SERVICES LTD (NSE: BLS) | EQUITY RESEARCH</span>
+    <span>PAGE 2</span>
+  </div>
+
+  <div class="section-title">1. Company Overview & Business Architecture</div>
+  
+  <p>
+    Founded in 2005 and listed on the Indian bourses in 2016, BLS International Services Limited is a technology-enabled outsourcing partner for sovereign governments and diplomatic missions worldwide. The company manages non-discretionary, administrative tasks related to visa applications, passport issuance, consular services, citizen ID enrollment, and document attestation. Operating across <strong>65+ countries for 46+ client governments</strong>, BLS has processed over <strong>500 million applications</strong> since inception.
+  </p>
+
+  <div class="grid-2">
+    <div>
+      <div class="sub-title">1.1 Engine 1: Visa & Consular Services (High-Margin Value Engine)</div>
+      <p style="font-size: 7.4pt; margin: 2px 0;">
+        • <strong>FY26 Revenue:</strong> ₹1,840 Crore (+11.3% YoY) | <strong>EBITDA Margin: 40.1%</strong> (₹738 Cr EBITDA).<br>
+        • <strong>Concession Model:</strong> Wins 3-to-5 year exclusive sovereign tenders &rarr; deploys physical Visa Application Centres (VACs) &rarr; collects statutory consular fee + applicant service fee.<br>
+        • <strong>The Spread Concept:</strong> BLS reports "Net Revenue" (Gross Revenue minus direct passport pass-through costs). Margin expansion is driven by high-ticket Value-Added Services (VAS: biometric capture, door-to-door courier, VIP premium lounges, translation, and travel insurance).<br>
+        • <strong>Key Sovereigns:</strong> Spain (global contract covering 58+ countries), Germany, Italy, Hungary, Canada, and various Schengen states.
+      </p>
+
+      <div class="sub-title">1.2 Engine 2: Digital Services via BLS E-Services (Listed 51% Subsidiary)</div>
+      <p style="font-size: 7.4pt; margin: 2px 0;">
+        • <strong>FY26 Revenue:</strong> ₹1,158 Crore (+114.4% YoY) | <strong>EBITDA Margin: 7.0%</strong> (₹81 Cr EBITDA).<br>
+        • <strong>Financial Inclusion Network:</strong> Operates as a Master Business Correspondent (BC) and Business Facilitator (BF) for State Bank of India (SBI) and other major public sector lenders, managing 150,000+ merchant touchpoints.<br>
+        • <strong>Strategic Acquisitions:</strong> Scaled through acquisitions of <em>Aadifidelis Solutions</em> (loan distribution), <em>Starfin India</em>, and <em>Zero Mass</em>.<br>
+        • <strong>Public Listing:</strong> BLS E-Services (NSE: BLSE) was spun out and listed in February 2024, commanding a standalone market capitalization of <strong>₹2,934 Crore</strong>.
+      </p>
+    </div>
+
+    <div>
+      <div class="sub-title">1.3 Segment Contribution: The Revenue vs Profitability Paradox</div>
+      <div class="chart-box">
+        <div style="font-size: 7.0pt; font-weight: 700; color: #0f2b48; margin-bottom: 4px;">Consolidated Revenue vs EBITDA Contribution (FY26)</div>
+        <div style="font-size: 6.5pt; color: #475569; margin-bottom: 2px;">Revenue Split (Total ₹2,998 Cr):</div>
+        <div style="display: flex; height: 16px; border-radius: 3px; overflow: hidden; margin-bottom: 6px; font-size: 6.2pt; font-weight: 700; color: #fff; text-align: center; line-height: 16px;">
+          <div style="width: 61.4%; background: #0f2b48;">Visa: 61.4% (₹1,840 Cr)</div>
+          <div style="width: 38.6%; background: #3b82f6;">Digital: 38.6%</div>
+        </div>
+        <div style="font-size: 6.5pt; color: #475569; margin-bottom: 2px;">EBITDA Split (Total ₹819 Cr):</div>
+        <div style="display: flex; height: 16px; border-radius: 3px; overflow: hidden; margin-bottom: 4px; font-size: 6.2pt; font-weight: 700; color: #fff; text-align: center; line-height: 16px;">
+          <div style="width: 90.1%; background: #10b981;">Visa: 90.1% (₹738 Cr EBITDA @ 40.1% Margin)</div>
+          <div style="width: 9.9%; background: #3b82f6;">9.9%</div>
+        </div>
+        <div class="callout" style="margin-top: 4px; padding: 4px 6px; font-size: 6.6pt;">
+          <strong>ANALYST TAKEAWAY: THE CONSOLIDATED MARGIN ILLUSION</strong><br>
+          Digital services dilute consolidated EBITDA margins from 40% to 27%, masking the exceptional quality and cash conversion of the core global visa franchise.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">2. The Global Oligopoly: Why Visa Outsourcing is a Natural Monopoly</div>
+  
+  <p>
+    The global visa application outsourcing market represents an addressable opportunity of <strong>$3.5 Billion</strong>, processing ~45% of global travel applications. This market is a classic, highly fortified oligopoly:
+  </p>
+
+  <table style="font-size: 7.0pt;">
+    <thead>
+      <tr>
+        <th>Market Player</th>
+        <th>Ownership / Status</th>
+        <th class="num">Est. Market Share</th>
+        <th>Key Strengths & Footprint</th>
+        <th>Valuation Benchmark</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>VFS Global</strong></td>
+        <td>Private (Blackstone / ADIA)</td>
+        <td class="num">~52%</td>
+        <td>Global pioneer; 3,400+ VACs; 140+ countries; dominant in UK/US/Schengen</td>
+        <td>Acquired by Blackstone at ~$2.5B (18–20x EV/EBITDA)</td>
+      </tr>
+      <tr>
+        <td><strong>TLScontact</strong></td>
+        <td>Private (Teleperformance SE)</td>
+        <td class="num">~16%</td>
+        <td>Strong presence in UK, France, Germany, and North Africa</td>
+        <td>Embedded in Teleperformance Specialised Services</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>⭐ BLS International</strong></td>
+        <td><strong>Publicly Listed (NSE / BSE)</strong></td>
+        <td class="num"><strong>~15%</strong></td>
+        <td><strong>Exclusive Spain global contract; Germany, Italy, Canada; 500M+ apps</strong></td>
+        <td><strong>Currently trading at 7.2x core Visa EV/EBITDA!</strong></td>
+      </tr>
+      <tr>
+        <td>Others / In-house</td>
+        <td>Regional / Government</td>
+        <td class="num">~17%</td>
+        <td>Fragmented local partners; sovereign consular sections</td>
+        <td>N/A (Non-commercial)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout" style="margin-top: 4px;">
+    <strong>STRUCTURAL MOATS PROTECTING BLS'S MARKET POSITION:</strong><br>
+    <strong>1. National Security Clearances:</strong> Handling sovereign biometric data, diplomatic passports, and immigration files requires rigorous state-level security clearances that take 5–10 years to establish.<br>
+    <strong>2. Capital-Light Incumbency:</strong> Once a 58-country VAC network (such as BLS's Spain mandate) is deployed, incremental operational costs are negligible. Competing bidders face prohibitive capital setup costs.<br>
+    <strong>3. Track Record Bias:</strong> Sovereign tender evaluation committees heavily weight historical fulfillment rates (99%+ SLA compliance) over raw pricing.
+  </div>
+
+  <div class="running-footer">
+    <span>BLS INTERNATIONAL | INITIATION OF COVERAGE | OCTOBER 2026</span>
+    <span>CONFIDENTIAL – FOR RECRUITER & INSTITUTIONAL REVIEW | LEAD ANALYST: MAHIM</span>
+    <span>Page 2</span>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- PAGE 3: THE MEA DEBARMENT: FORENSIC CASE STUDY -->
+<!-- ============================================================== -->
+<div class="page">
+  <div class="running-header">
+    <span>BLS INTERNATIONAL SERVICES LTD (NSE: BLS) | EQUITY RESEARCH</span>
+    <span>PAGE 3</span>
+  </div>
+
+  <div class="section-title">3. Resume Differentiator 1: The MEA Debarment Saga — Forensic Case Study</div>
+  
+  <p>
+    Between October 2025 and July 2026, BLS International was engulfed in intense regulatory and legal scrutiny regarding its consular contracts with the Indian Ministry of External Affairs (MEA). We deconstruct the legal chronology, quantify the true revenue exposure, and demonstrate why the market's panic selling represents an asymmetric mispricing:
+  </p>
+
+  <div class="sub-title">3.1 Chronological Timeline of Legal Events (2025–2026)</div>
+  <table style="font-size: 6.8pt;">
+    <thead>
+      <tr>
+        <th>Date / Period</th>
+        <th>Event Description</th>
+        <th>Judicial / Regulatory Action</th>
+        <th>Stock Price Reaction</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Feb–Mar 2025</strong></td>
+        <td>MEA floats 26 global CPV tenders; BLS challenges qualification criteria in courts</td>
+        <td>BLS files writ petitions in Delhi High Court against tender terms</td>
+        <td>Stock trades near all-time highs (~₹380–₹392)</td>
+      </tr>
+      <tr>
+        <td><strong>Oct 9, 2025</strong></td>
+        <td>MEA issues a 2-year debarment order against BLS International</td>
+        <td>Order cites ongoing court litigation and consumer complaints</td>
+        <td>Stock plunges 22% in two sessions (falls to ₹285)</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>Dec 18, 2025</strong></td>
+        <td><strong>Delhi High Court completely quashes MEA debarment order</strong></td>
+        <td><strong>Court rules debarment disproportionate and arbitrary; restores eligibility</strong></td>
+        <td><strong>Stock stages sharp relief rally back to ₹340</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Jan 31, 2026</strong></td>
+        <td>MEA awards UAE consular contract to Alhind Tours & Travels LLC</td>
+        <td>Alhind selected as L-1 bidder under contested scoring model</td>
+        <td>Market prices in loss of UAE revenue</td>
+      </tr>
+      <tr>
+        <td><strong>Jun 30, 2026</strong></td>
+        <td>BLS long-standing UAE consular contract expires after decade-long tenure</td>
+        <td>Indian missions in UAE temporarily manage consular services directly</td>
+        <td>Stock consolidates around ₹260–₹275</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>Jul 15, 2026</strong></td>
+        <td><strong>Delhi High Court quashes Alhind contract award</strong></td>
+        <td><strong>High Court finds MEA technical evaluation arbitrary and lacking transparency</strong></td>
+        <td>Unsuccessful bidders challenge tender legitimacy</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>Jul 22, 2026</strong></td>
+        <td><strong>Supreme Court upholds cancellation; orders fresh tender within 3 months</strong></td>
+        <td><strong>Alhind permitted only as interim vendor; MEA mandated to re-tender UAE/Kuwait</strong></td>
+        <td><strong>Stock reaches multi-month low of ₹212–₹218</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="grid-2" style="margin-top: 3px;">
+    <div>
+      <div class="sub-title">3.2 Quantifying the Real Earnings Exposure</div>
+      <p style="font-size: 7.2pt; margin: 2px 0;">
+        • <strong>MEA Contract Contribution:</strong> Indian consular missions across the globe accounted for roughly <strong>~12% of consolidated revenue (~₹360 Cr)</strong> in FY26.<br>
+        • <strong>UAE Specific Mandate:</strong> The UAE contract represented approximately <strong>₹180–₹200 Crore in annual revenue</strong> and <strong>₹55–₹65 Crore in annual PAT</strong> (~8% of group earnings).<br>
+        • <strong>Global Footprint Untouched:</strong> BLS's core high-margin mandates with Spain (58 countries), Germany, Italy, and Canada operate under independent sovereign jurisdictions and are 100% insulated from MEA developments.
+      </p>
+    </div>
+
+    <div>
+      <div class="callout-gold" style="margin-top: 2px;">
+        <strong>THE MARKET'S 10x OVERREACTION:</strong><br>
+        From its peak of ₹392 to its low of ₹212, BLS lost <strong>₹7,400 Crore in market capitalization</strong>. Even under a permanent, irreversible loss of the UAE contract (PAT impact of ~₹65 Cr), capitalizing this loss at a 15x multiple justifies a valuation reduction of only <strong>~₹975 Crore</strong>! The market over-penalized BLS by over <strong>₹6,400 Crore</strong>, conflating a regional tender transition with structural enterprise impairment.
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-title">3.3 What the Market Misses: The Supreme Court Re-Tender Optionality</div>
+  <p style="font-size: 7.3pt; margin-top: 1px; margin-bottom: 4px;">
+    The Supreme Court's dismissal of the Centre's SLP and its mandatory directive ordering a fresh, transparent procurement process for the UAE, Kuwait, and Singapore missions within three months restores BLS's ability to participate as a qualified bidder. Even if BLS fails to re-secure the UAE contract, its robust new contract wins in Central Asia, Schengen expansion, and visa processing for China more than offset the lost revenue base.
+  </p>
+
+  <div class="sub-title">3.4 Resume Differentiator 6: Mini Event Study & Stock Mispricing Metrics</div>
+  <table style="font-size: 6.8pt; margin-bottom: 2px;">
+    <thead>
+      <tr>
+        <th>Event Phase</th>
+        <th>Date</th>
+        <th class="num">BLS Stock Price (₹)</th>
+        <th class="num">Nifty 50 Index</th>
+        <th class="num">Relative Impact</th>
+        <th>Analytical Takeaway</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Pre-Debarment Peak</strong></td>
+        <td>Oct 8, 2025</td>
+        <td class="num">₹384.50</td>
+        <td class="num">25,010</td>
+        <td class="num">—</td>
+        <td>Peak institutional multiple (22.5x EV/EBITDA); fully valued</td>
+      </tr>
+      <tr>
+        <td><strong>Debarment Shock Low</strong></td>
+        <td>Oct 10, 2025</td>
+        <td class="num">₹285.00</td>
+        <td class="num">24,960</td>
+        <td class="num">-25.9%</td>
+        <td>Knee-jerk capitulation; algorithmic selling triggered</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>High Court Quash Rally</strong></td>
+        <td>Dec 19, 2025</td>
+        <td class="num">₹342.10</td>
+        <td class="num">25,320</td>
+        <td class="num">+20.0%</td>
+        <td>Judicial vindication restores institutional confidence</td>
+      </tr>
+      <tr>
+        <td><strong>UAE Contract Loss to Alhind</strong></td>
+        <td>Jan 31, 2026</td>
+        <td class="num">₹294.50</td>
+        <td class="num">25,180</td>
+        <td class="num">-13.9%</td>
+        <td>Market prices in permanent loss of UAE consular revenue</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>SC Re-Tender Order / CMP</strong></td>
+        <td>Oct 2026</td>
+        <td class="num"><strong>₹224.00</strong></td>
+        <td class="num">25,800</td>
+        <td class="num"><strong>-23.9%</strong></td>
+        <td><strong>Peak pessimism creates generational entry window</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="running-footer">
+    <span>BLS INTERNATIONAL | INITIATION OF COVERAGE | OCTOBER 2026</span>
+    <span>CONFIDENTIAL – FOR RECRUITER & INSTITUTIONAL REVIEW | LEAD ANALYST: MAHIM</span>
+    <span>Page 3</span>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- PAGE 4: OPERATIONAL KPIS & VAC UNIT ECONOMICS -->
+<!-- ============================================================== -->
+<div class="page">
+  <div class="running-header">
+    <span>BLS INTERNATIONAL SERVICES LTD (NSE: BLS) | EQUITY RESEARCH</span>
+    <span>PAGE 4</span>
+  </div>
+
+  <div class="section-title">4. Operational Engine: The Yield Expansion Story (₹3,302 Net Rev/App)</div>
+  
+  <p>
+    While the market focuses on top-line application volumes, the true driver of BLS's earnings power is <strong>Net Revenue per Application</strong>. This metric has expanded by <strong>57% since FY22</strong>, compounding at 11.9% CAGR:
+  </p>
+
+  <table style="font-size: 6.8pt; margin: 2px 0 4px 0;">
+    <thead>
+      <tr>
+        <th>Operational Metric</th>
+        <th class="num">FY22A</th>
+        <th class="num">FY23A</th>
+        <th class="num">FY24A</th>
+        <th class="num">FY25A</th>
+        <th class="num">FY26A</th>
+        <th class="num">FY27E</th>
+        <th class="num">FY28E</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Visa Applications Processed (Lakh)</strong></td>
+        <td class="num">18.5</td><td class="num">28.4</td><td class="num">33.2</td><td class="num">37.5</td><td class="num"><strong>44.1</strong></td><td class="num"><strong>51.5</strong></td><td class="num"><strong>60.0</strong></td>
+      </tr>
+      <tr>
+        <td>YoY Volume Growth (%)</td>
+        <td class="num">—</td><td class="num">+53.5%</td><td class="num">+16.9%</td><td class="num">+13.0%</td><td class="num"><strong>+17.6%</strong></td><td class="num">+16.8%</td><td class="num">+16.5%</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>Net Revenue per Application (₹)</strong></td>
+        <td class="num">2,100</td><td class="num">2,450</td><td class="num">2,680</td><td class="num">2,903</td><td class="num"><strong>3,302</strong></td><td class="num"><strong>3,650</strong></td><td class="num"><strong>4,020</strong></td>
+      </tr>
+      <tr>
+        <td>YoY Yield Expansion (%)</td>
+        <td class="num">—</td><td class="num">+16.7%</td><td class="num">+9.4%</td><td class="num">+8.3%</td><td class="num"><strong>+13.7%</strong></td><td class="num">+10.5%</td><td class="num">+10.1%</td>
+      </tr>
+      <tr>
+        <td><strong>Visa Segment Net Revenue (₹ Cr)</strong></td>
+        <td class="num">388.5</td><td class="num">695.8</td><td class="num">889.8</td><td class="num">1,088.6</td><td class="num"><strong>1,456.2</strong></td><td class="num">1,879.8</td><td class="num">2,412.0</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>Visa Segment EBITDA Margin (%)</strong></td>
+        <td class="num">15.2%</td><td class="num">24.5%</td><td class="num">31.2%</td><td class="num">34.5%</td><td class="num"><strong>40.1%</strong></td><td class="num">40.9%</td><td class="num">41.5%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="grid-2" style="margin-top: 2px;">
+    <div>
+      <div class="sub-title">4.1 Drivers of Structural Yield Expansion</div>
+      <p style="font-size: 7.0pt; margin: 1px 0;">
+        1. <strong>Self-Managed VAC Model:</strong> Phased transition from local partner-run centers to company-owned, company-operated (COCO) facilities eliminates 30–40% third-party margin leakage.<br>
+        2. <strong>Aggressive VAS Penetration:</strong> Value-Added Services adoption grew from 22% of applicants in FY22 to <strong>38% in FY26</strong>. Add-ons like biometric capture, premium lounge booking, translation, SMS alerts, and doorstep document pickup generate 70%+ gross margins.<br>
+        3. <strong>Schengen & Western Mix:</strong> Higher proportion of European and Canadian applicants who demonstrate high propensity to purchase premium ancillary services.
+      </p>
+
+      <div class="sub-title">4.2 Platform Optionality: Golden Visas & Mobility</div>
+      <p style="font-size: 6.9pt; margin: 1px 0;">
+        High-ticket citizenship, residency-by-investment (Golden Visa programs in Spain, Portugal, Greece, and Malta), and document apostille services command fees of <strong>$1,500 to $5,000 per application</strong> (50x–100x standard tourist visa economics). The FY26 acquisition of the <em>Trefeddian Hotel</em> in Aberdovey, Wales represents physical infrastructure to support UK property-linked residency and investor visa hospitality.
+      </p>
+    </div>
+
+    <div>
+      <div class="sub-title">4.3 Unit Economics: Single Visa Application Centre (VAC)</div>
+      <table style="font-size: 6.6pt; margin: 1px 0;">
+        <tr><td>Average Applications / VAC / Year</td><td class="num"><strong>22,000 apps</strong></td></tr>
+        <tr><td>Net Revenue per Application (FY26)</td><td class="num">₹3,302</td></tr>
+        <tr class="highlight"><td>Annual Gross Net Revenue per VAC</td><td class="num"><strong>₹7.26 Crore</strong></td></tr>
+        <tr><td>Operating Overheads (Lease, Staff, IT, Security)</td><td class="num">₹4.20 Crore</td></tr>
+        <tr class="highlight"><td>Annual Operating EBITDA per VAC</td><td class="num"><strong>₹3.06 Crore (42.1%)</strong></td></tr>
+        <tr><td>Initial Upfront Fitout & Hardware Capex</td><td class="num">₹2.80–₹3.20 Crore</td></tr>
+        <tr class="highlight"><td><strong>Payback Period per New VAC</strong></td><td class="num"><strong>11.5 – 13.0 Months</strong></td></tr>
+      </table>
+
+      <div class="sub-title">4.4 Dissecting Digital: BC vs Fintech Platform</div>
+      <p style="font-size: 6.9pt; margin: 1px 0;">
+        BLS E-Services operates 150,000+ BC touchpoints. While basic banking correspondent services yield 5–7% EBITDA, the acquisition of <em>Aadifidelis Solutions</em> positions BLSE to distribute unsecured personal loans, insurance, and micro-credit, commanding 12–15% transaction spreads. Listed standalone at ₹2,934 Cr, BLSE provides downside valuation support.
+      </p>
+    </div>
+  </div>
+
+  <div class="sub-title" style="margin-top: 3px;">4.5 Resume Differentiator 2: The Self-Managed Model Transition (Margin Engineering)</div>
+  <table style="font-size: 6.6pt; margin-bottom: 2px;">
+    <thead>
+      <tr>
+        <th>Operating Structure</th>
+        <th>Commercial Mechanism</th>
+        <th>Gross Spread Retention</th>
+        <th class="num">EBITDA Margin</th>
+        <th>SLA / Data Security Control</th>
+        <th>Portfolio Share</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Partner-Run (Legacy Franchisee)</strong></td>
+        <td>Subcontracts VAC front-desk to local partner</td>
+        <td>60–65% (35% leakage to local vendor)</td>
+        <td class="num">15.0% – 20.0%</td>
+        <td>Moderate; third-party operational risk</td>
+        <td>Phasing down (&lt;18% of VACs)</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>Self-Managed (COCO Direct)</strong></td>
+        <td>Direct lease, proprietary IT, dedicated BLS staff</td>
+        <td>100% (Full spread + 100% VAS retained)</td>
+        <td class="num"><strong>40.0% – 42.0%</strong></td>
+        <td>Sovereign-grade SLA (&gt;99.5% compliance)</td>
+        <td><strong>Strategic standard (~82% of VACs)</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="font-size: 6.7pt; color: #334155;">
+    <em>Analytical Takeaway: The conversion of the remaining 18% partner-run VACs to self-managed centers represents an additional 150–200 bps in structural EBITDA margin expansion runway through FY28E.</em>
+  </div>
+
+  <div class="running-footer">
+    <span>BLS INTERNATIONAL | INITIATION OF COVERAGE | OCTOBER 2026</span>
+    <span>CONFIDENTIAL – FOR RECRUITER & INSTITUTIONAL REVIEW | LEAD ANALYST: MAHIM</span>
+    <span>Page 4</span>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- PAGE 5: FINANCIAL MODELING & CONSOLIDATED STATEMENTS -->
+<!-- ============================================================== -->
+<div class="page">
+  <div class="running-header">
+    <span>BLS INTERNATIONAL SERVICES LTD (NSE: BLS) | EQUITY RESEARCH</span>
+    <span>PAGE 5</span>
+  </div>
+
+  <div class="section-title">5. Financial Modeling & Segment P&L Breakdown (FY24A – FY28E)</div>
+
+  <div class="sub-title">5.1 Consolidated Income Statement (₹ Crore)</div>
+  <table style="font-size: 6.8pt;">
+    <thead>
+      <tr>
+        <th>Consolidated Financials (₹ Cr)</th>
+        <th class="num">FY24A</th>
+        <th class="num">FY25A</th>
+        <th class="num">FY26A</th>
+        <th class="num">FY27E</th>
+        <th class="num">FY28E</th>
+        <th class="num">CAGR (FY26-28E)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Revenue from Operations</td>
+        <td class="num">1,690.2</td><td class="num">2,193.3</td><td class="num">2,998.0</td><td class="num">3,710.0</td><td class="num">4,520.0</td>
+        <td class="num">22.8%</td>
+      </tr>
+      <tr>
+        <td>Cost of Services Rendered</td>
+        <td class="num">800.5</td><td class="num">1,104.7</td><td class="num">1,541.8</td><td class="num">1,830.2</td><td class="num">2,108.0</td>
+        <td class="num">16.9%</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>Gross Profit / Net Revenue</strong></td>
+        <td class="num"><strong>889.7</strong></td><td class="num"><strong>1,088.6</strong></td><td class="num"><strong>1,456.2</strong></td><td class="num"><strong>1,879.8</strong></td><td class="num"><strong>2,412.0</strong></td>
+        <td class="num"><strong>28.7%</strong></td>
+      </tr>
+      <tr>
+        <td>Employee Benefit Expenses</td>
+        <td class="num">265.4</td><td class="num">312.8</td><td class="num">421.2</td><td class="num">540.0</td><td class="num">675.0</td>
+        <td class="num">26.6%</td>
+      </tr>
+      <tr>
+        <td>Other Operating Expenses</td>
+        <td class="num">150.8</td><td class="num">147.8</td><td class="num">216.0</td><td class="num">329.8</td><td class="num">487.0</td>
+        <td class="num">50.2%</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>EBITDA</strong></td>
+        <td class="num"><strong>473.5</strong></td><td class="num"><strong>628.0</strong></td><td class="num"><strong>819.0</strong></td><td class="num"><strong>1,010.0</strong></td><td class="num"><strong>1,250.0</strong></td>
+        <td class="num"><strong>23.5%</strong></td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>EBITDA Margin (%)</strong></td>
+        <td class="num"><strong>28.0%</strong></td><td class="num"><strong>28.7%</strong></td><td class="num"><strong>27.3%</strong></td><td class="num"><strong>27.2%</strong></td><td class="num"><strong>27.7%</strong></td>
+        <td class="num">—</td>
+      </tr>
+      <tr>
+        <td>Depreciation & Amortisation</td>
+        <td class="num">36.2</td><td class="num">45.0</td><td class="num">58.4</td><td class="num">72.0</td><td class="num">85.0</td>
+        <td class="num">20.6%</td>
+      </tr>
+      <tr>
+        <td>EBIT (Operating Profit)</td>
+        <td class="num">437.3</td><td class="num">583.0</td><td class="num">760.6</td><td class="num">938.0</td><td class="num">1,165.0</td>
+        <td class="num">23.8%</td>
+      </tr>
+      <tr>
+        <td>Finance Costs</td>
+        <td class="num">12.5</td><td class="num">15.2</td><td class="num">18.0</td><td class="num">16.0</td><td class="num">15.0</td>
+        <td class="num">-9.0%</td>
+      </tr>
+      <tr>
+        <td>Other Income (Treasury/Interest)</td>
+        <td class="num">45.0</td><td class="num">75.0</td><td class="num">118.0</td><td class="num">145.0</td><td class="num">175.0</td>
+        <td class="num">21.8%</td>
+      </tr>
+      <tr>
+        <td>Profit Before Tax (PBT)</td>
+        <td class="num">469.8</td><td class="num">642.8</td><td class="num">860.6</td><td class="num">1,067.0</td><td class="num">1,325.0</td>
+        <td class="num">24.1%</td>
+      </tr>
+      <tr>
+        <td>Tax Expense</td>
+        <td class="num">88.5</td><td class="num">103.2</td><td class="num">136.6</td><td class="num">202.0</td><td class="num">255.0</td>
+        <td class="num">36.6%</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>Profit After Tax (PAT)</strong></td>
+        <td class="num"><strong>381.3</strong></td><td class="num"><strong>539.6</strong></td><td class="num"><strong>724.0</strong></td><td class="num"><strong>865.0</strong></td><td class="num"><strong>1,070.0</strong></td>
+        <td class="num"><strong>21.6%</strong></td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>Diluted EPS (₹)</strong></td>
+        <td class="num"><strong>9.26</strong></td><td class="num"><strong>13.10</strong></td><td class="num"><strong>17.58</strong></td><td class="num"><strong>21.01</strong></td><td class="num"><strong>25.98</strong></td>
+        <td class="num"><strong>21.6%</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="sub-title">5.2 Segment P&L & The Margin Tension Analysis</div>
+  <table style="font-size: 6.8pt;">
+    <thead>
+      <tr>
+        <th>Operating Segment (₹ Cr)</th>
+        <th class="num">FY25A</th>
+        <th class="num">FY26A</th>
+        <th class="num">YoY Growth</th>
+        <th class="num">FY25 EBITDA%</th>
+        <th class="num">FY26 EBITDA%</th>
+        <th>Analytical Takeaway</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Visa & Consular Services</strong></td>
+        <td class="num">1,653.3</td>
+        <td class="num">1,840.0</td>
+        <td class="num">+11.3%</td>
+        <td class="num">34.5%</td>
+        <td class="num"><strong>40.1%</strong></td>
+        <td><strong>Margin expanded +560 bps via self-managed VAC shift & premium VAS</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Digital Services (BLS E-Services)</strong></td>
+        <td class="num">540.0</td>
+        <td class="num">1,158.0</td>
+        <td class="num">+114.4%</td>
+        <td class="num">11.1%</td>
+        <td class="num"><strong>7.0%</strong></td>
+        <td>Hyper-growth driven by BC acquisitions; structurally thin margins</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>Consolidated Operations</strong></td>
+        <td class="num"><strong>2,193.3</strong></td>
+        <td class="num"><strong>2,998.0</strong></td>
+        <td class="num"><strong>+36.7%</strong></td>
+        <td class="num"><strong>28.7%</strong></td>
+        <td class="num"><strong>27.3%</strong></td>
+        <td><strong>Digital revenue scale-up visually dilutes blended margin</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="sub-title">5.3 Balance Sheet & Fortress Cash Profile</div>
+  <table style="font-size: 6.8pt;">
+    <thead>
+      <tr>
+        <th>Balance Sheet Metric (₹ Cr)</th>
+        <th class="num">FY24A</th>
+        <th class="num">FY25A</th>
+        <th class="num">FY26A</th>
+        <th class="num">FY27E</th>
+        <th class="num">FY28E</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Shareholders' Equity / Net Worth</td>
+        <td class="num">1,310.0</td><td class="num">1,850.0</td><td class="num">2,460.0</td><td class="num">3,180.0</td><td class="num">4,050.0</td>
+      </tr>
+      <tr>
+        <td>Total Gross Debt</td>
+        <td class="num">45.0</td><td class="num">62.0</td><td class="num">55.0</td><td class="num">40.0</td><td class="num">30.0</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>Cash, Bank Balances & Liquid MF Investments</strong></td>
+        <td class="num"><strong>890.0</strong></td><td class="num"><strong>1,240.0</strong></td><td class="num"><strong>1,617.0</strong></td><td class="num"><strong>2,120.0</strong></td><td class="num"><strong>2,750.0</strong></td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>Net Cash Balance (Cash minus Debt)</strong></td>
+        <td class="num"><strong>845.0</strong></td><td class="num"><strong>1,178.0</strong></td><td class="num"><strong>1,562.0</strong></td><td class="num"><strong>2,080.0</strong></td><td class="num"><strong>2,720.0</strong></td>
+      </tr>
+      <tr>
+        <td>Free Cash Flow Generated (₹ Cr)</td>
+        <td class="num">342.0</td><td class="num">485.0</td><td class="num">615.0</td><td class="num">740.0</td><td class="num">920.0</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>Free Cash Flow Yield on CMP (%)</strong></td>
+        <td class="num">3.7%</td><td class="num">5.3%</td><td class="num"><strong>6.7%</strong></td><td class="num"><strong>8.0%</strong></td><td class="num"><strong>10.0%</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="running-footer">
+    <span>BLS INTERNATIONAL | INITIATION OF COVERAGE | OCTOBER 2026</span>
+    <span>CONFIDENTIAL – FOR RECRUITER & INSTITUTIONAL REVIEW | LEAD ANALYST: MAHIM</span>
+    <span>Page 5</span>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- PAGE 6: SOTP VALUATION & SENSITIVITY MODELING -->
+<!-- ============================================================== -->
+<div class="page">
+  <div class="running-header">
+    <span>BLS INTERNATIONAL SERVICES LTD (NSE: BLS) | EQUITY RESEARCH</span>
+    <span>PAGE 6</span>
+  </div>
+
+  <div class="section-title">6. Sum-of-the-Parts (SOTP) Valuation & Sensitivity Modeling</div>
+
+  <p>
+    Because BLS combines a high-margin global concession monopoly (Visa, 40% EBITDA) with a low-margin banking distribution network (Digital, 7% EBITDA), <strong>a single consolidated P/E or EV/EBITDA multiple is methodologically flawed</strong>. SOTP disaggregation is the only rigorous framework:
+  </p>
+
+  <div class="sub-title">6.1 SOTP Component Derivation</div>
+  <table style="font-size: 7.0pt;">
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>Valuation Methodology</th>
+        <th>Operational Parameter</th>
+        <th class="num">Implied EV (₹ Cr)</th>
+        <th class="num">Per Share (₹)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight">
+        <td><strong>1. Visa & Consular Services</strong></td>
+        <td><strong>18.0x EV / FY27E EBITDA</strong></td>
+        <td>FY27E Visa EBITDA of ₹880 Cr @ 40.9% Margin</td>
+        <td class="num"><strong>15,840.0</strong></td>
+        <td class="num"><strong>₹384.65</strong></td>
+      </tr>
+      <tr>
+        <td colspan="5" style="font-size: 6.6pt; color: #475569; background: #f8fafc;">
+          <em>Justification: Mission-critical B2G oligopoly with 40%+ EBITDA margins, negative working capital, and multi-year sovereign exclusivity warrants an 18x multiple (conservative vs CAMS at 24x and KFin at 27x).</em>
+        </td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>2. Digital Services (BLSE)</strong></td>
+        <td><strong>51% Stake in Listed BLSE @ 15% HoldCo Disc.</strong></td>
+        <td>Current BLSE MCap: ₹2,934 Cr (₹1,496 Cr gross stake)</td>
+        <td class="num"><strong>1,271.6</strong></td>
+        <td class="num"><strong>₹30.88</strong></td>
+      </tr>
+      <tr>
+        <td colspan="5" style="font-size: 6.6pt; color: #475569; background: #f8fafc;">
+          <em>Justification: Uses live exchange pricing of subsidiary BLS E-Services (NSE: BLSE) adjusted for a standard 15% institutional holding company discount.</em>
+        </td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>3. Balance Sheet Net Cash</strong></td>
+        <td><strong>100% of Net Cash (Book Value)</strong></td>
+        <td>Verified Q1 FY27 Cash & Liquid Investments</td>
+        <td class="num"><strong>1,617.0</strong></td>
+        <td class="num"><strong>₹39.27</strong></td>
+      </tr>
+      <tr class="highlight" style="font-size: 7.6pt; background: #eff6ff;">
+        <td><strong>Gross SOTP Equity Value</strong></td>
+        <td colspan="2"><strong>Sum of Core Visa + Digital Stake + Net Cash</strong></td>
+        <td class="num"><strong>18,728.6</strong></td>
+        <td class="num"><strong>₹454.80</strong></td>
+      </tr>
+      <tr>
+        <td><em>Less: Regulatory & Contract Haircut</em></td>
+        <td colspan="2"><em>Prudent 15% Execution Discount for MEA / Sovereign Overhang</em></td>
+        <td class="num">-3,286.0</td>
+        <td class="num">-₹79.80</td>
+      </tr>
+      <tr class="highlight" style="font-size: 8.5pt; background: #dcfce7; color: #065f46;">
+        <td><strong>PRUDENT BLENDED TARGET PRICE</strong></td>
+        <td colspan="2"><strong>12-MONTH INSTITUTIONAL TARGET PRICE</strong></td>
+        <td class="num"><strong>15,442.6</strong></td>
+        <td class="num"><strong>₹375.00</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="sub-title">6.2 Secondary Valuation Cross-Check: Forward P/E Multiple</div>
+  <p style="font-size: 7.2pt; margin: 2px 0;">
+    • FY27E Diluted EPS = <strong>₹21.01</strong>.<br>
+    • At our ₹375.00 Target Price, the implied forward P/E is <strong>17.8x FY27E EPS</strong> (or 14.4x FY28E EPS).<br>
+    • Given BLS's 3-year PAT CAGR of 26% and ROCE of 29.8%, a forward P/E of 17.8x is exceptionally reasonable and confirms the SOTP valuation.
+  </p>
+
+  <div class="sub-title">6.3 Two-Way Sensitivity Analysis: Target Price vs Multiple & Visa Margin</div>
+  <table style="font-size: 6.8pt;">
+    <thead>
+      <tr>
+        <th>Visa EBITDA Margin (%) \ EV/EBITDA Multiple</th>
+        <th class="num">14.0x</th>
+        <th class="num">16.0x</th>
+        <th class="num">18.0x (Base)</th>
+        <th class="num">20.0x</th>
+        <th class="num">22.0x</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>37.0% (Margin Drag Scenario)</strong></td>
+        <td class="num">₹285</td>
+        <td class="num">₹320</td>
+        <td class="num">₹350</td>
+        <td class="num">₹385</td>
+        <td class="num">₹420</td>
+      </tr>
+      <tr>
+        <td><strong>39.0% (FY25 Level)</strong></td>
+        <td class="num">₹300</td>
+        <td class="num">₹335</td>
+        <td class="num">₹368</td>
+        <td class="num">₹405</td>
+        <td class="num">₹442</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>40.9% (Base FY27E Projection)</strong></td>
+        <td class="num">₹312</td>
+        <td class="num">₹348</td>
+        <td class="num"><strong>₹375 (BASE)</strong></td>
+        <td class="num">₹418</td>
+        <td class="num">₹455</td>
+      </tr>
+      <tr>
+        <td><strong>43.0% (High VAS Monetisation)</strong></td>
+        <td class="num">₹328</td>
+        <td class="num">₹365</td>
+        <td class="num">₹402</td>
+        <td class="num">₹438</td>
+        <td class="num">₹475</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="sub-title">6.4 Scenario Analysis: Bear vs Base vs Bull</div>
+  <table style="font-size: 6.8pt;">
+    <thead>
+      <tr>
+        <th>Scenario</th>
+        <th>Key Assumptions</th>
+        <th class="num">Target Price (₹)</th>
+        <th class="num">Implied Upside (%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Bear Case</strong></td>
+        <td>Permanent MEA contract loss; Digital margins compress to 5%; Visa valued at 12x EV/EBITDA</td>
+        <td class="num"><strong>₹240.00</strong></td>
+        <td class="num"><strong>+7.1%</strong></td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>Base Case</strong></td>
+        <td>MEA partial re-entry; Visa grows 16% YoY at 40.9% EBITDA; Visa valued at 18x EV/EBITDA (with 15% discount)</td>
+        <td class="num"><strong>₹375.00</strong></td>
+        <td class="num"><strong>+67.4%</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Bull Case</strong></td>
+        <td>Supreme Court UAE contract re-win; Net rev/app reaches ₹4,000; Visa valued at 22x EV/EBITDA</td>
+        <td class="num"><strong>₹450.00</strong></td>
+        <td class="num"><strong>+100.9%</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="running-footer">
+    <span>BLS INTERNATIONAL | INITIATION OF COVERAGE | OCTOBER 2026</span>
+    <span>CONFIDENTIAL – FOR RECRUITER & INSTITUTIONAL REVIEW | LEAD ANALYST: MAHIM</span>
+    <span>Page 6</span>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- PAGE 7: CROSS-SECTOR COMPS & GOVERNANCE SCORECARD -->
+<!-- ============================================================== -->
+<div class="page">
+  <div class="running-header">
+    <span>BLS INTERNATIONAL SERVICES LTD (NSE: BLS) | EQUITY RESEARCH</span>
+    <span>PAGE 7</span>
+  </div>
+
+  <div class="section-title">7. Cross-Sector Comps: The "No Direct Listed Peer" Solution</div>
+
+  <p>
+    Because VFS Global and TLScontact are privately held, BLS is frequently miscategorized by algorithmic stock screeners under generic "Commercial Services" alongside low-margin staffing firms. We construct a multi-tiered cross-sector benchmarking matrix:
+  </p>
+
+  <div class="sub-title">7.1 Indian Process Outsourcing & Regulated Infrastructure Comps</div>
+  <table style="font-size: 6.8pt;">
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Sub-Sector / Business Model</th>
+        <th class="num">Revenue (₹ Cr)</th>
+        <th class="num">EBITDA Margin</th>
+        <th class="num">EV / EBITDA</th>
+        <th class="num">P/E Multiple</th>
+        <th class="num">3-Yr Rev CAGR</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight">
+        <td><strong>⭐ BLS International</strong></td>
+        <td><strong>Visa Concessionaire + Digital G2C</strong></td>
+        <td class="num"><strong>2,998</strong></td>
+        <td class="num"><strong>27.3% (Visa 40%)</strong></td>
+        <td class="num"><strong>9.3x</strong></td>
+        <td class="num"><strong>12.7x</strong></td>
+        <td class="num"><strong>34.2%</strong></td>
+      </tr>
+      <tr>
+        <td>CAMS</td>
+        <td>Mutual Fund RTA (Regulated Monopoly)</td>
+        <td class="num">1,240</td>
+        <td class="num">46.5%</td>
+        <td class="num">23.5x</td>
+        <td class="num">34.8x</td>
+        <td class="num">15.8%</td>
+      </tr>
+      <tr>
+        <td>KFin Technologies</td>
+        <td>Capital Markets Platform / RTA</td>
+        <td class="num">920</td>
+        <td class="num">41.2%</td>
+        <td class="num">27.3x</td>
+        <td class="num">42.5x</td>
+        <td class="num">18.5%</td>
+      </tr>
+      <tr>
+        <td>SIS Limited</td>
+        <td>Security & Facilities Management</td>
+        <td class="num">12,800</td>
+        <td class="num">3.1%</td>
+        <td class="num">8.3x</td>
+        <td class="num">41.2x</td>
+        <td class="num">11.2%</td>
+      </tr>
+      <tr>
+        <td>Quess Corp</td>
+        <td>Workforce Staffing & BPO</td>
+        <td class="num">19,500</td>
+        <td class="num">1.8%</td>
+        <td class="num">7.3x</td>
+        <td class="num">22.4x</td>
+        <td class="num">14.1%</td>
+      </tr>
+      <tr>
+        <td>TeamLease Services</td>
+        <td>Staffing Solutions</td>
+        <td class="num">9,400</td>
+        <td class="num">1.3%</td>
+        <td class="num">8.6x</td>
+        <td class="num">12.5x</td>
+        <td class="num">13.8%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="sub-title">7.2 Global Government BPO & Mission-Critical Tech Comps</div>
+  <table style="font-size: 6.8pt;">
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Country / Domicile</th>
+        <th>Core Business Model</th>
+        <th class="num">EV / EBITDA</th>
+        <th class="num">EBITDA Margin</th>
+        <th>Analytical Revaluation Benchmark</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Conduent Inc (CNDT)</strong></td>
+        <td>United States</td>
+        <td>Government BPO & Citizen Eligibility</td>
+        <td class="num">7.8x</td>
+        <td class="num">10.2%</td>
+        <td>State welfare & transport transaction processing</td>
+      </tr>
+      <tr>
+        <td><strong>SAIC (Science Apps)</strong></td>
+        <td>United States</td>
+        <td>Govt Defense & IT Services</td>
+        <td class="num">12.4x</td>
+        <td class="num">8.9%</td>
+        <td>High-security government tech prime contractor</td>
+      </tr>
+      <tr>
+        <td><strong>Serco Group plc</strong></td>
+        <td>United Kingdom</td>
+        <td>Sovereign Public Services / Prisons / Visas</td>
+        <td class="num">8.5x</td>
+        <td class="num">6.8%</td>
+        <td>Operates UK consular/border security contracts</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout" style="margin: 4px 0;">
+    <strong>COMPS TAKEAWAY:</strong> BLS combines the growth and margins of specialized financial infrastructure monopolies like CAMS (40%+ EBITDA, asset-light, mission-critical) with the multiple of a low-margin staffing company like Quess (7–9x EV/EBITDA). This multiple compression is completely unjustified.
+  </div>
+
+  <div class="section-title">8. Management Quality & Corporate Governance Scorecard</div>
+
+  <table style="font-size: 6.8pt;">
+    <thead>
+      <tr>
+        <th>Governance Dimension</th>
+        <th class="num">Score (1-5)</th>
+        <th>Analytical Evaluation & Evidence</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1. Capital Allocation Discipline</strong></td>
+        <td class="num"><strong>4 / 5</strong></td>
+        <td>Asset-light model generates massive free cash flow (FCF yield &gt;6.5%); net cash of ₹1,617 Cr. Deducted 1 point for non-core UK Welsh hotel purchase (Trefeddian Hotel).</td>
+      </tr>
+      <tr>
+        <td><strong>2. Guidance Delivery & Accuracy</strong></td>
+        <td class="num"><strong>5 / 5</strong></td>
+        <td>Delivered 36.7% revenue growth in FY26 against stated 30% guidance; crossed ₹3,000 Cr revenue mark ahead of schedule.</td>
+      </tr>
+      <tr>
+        <td><strong>3. Crisis Management (MEA Saga)</strong></td>
+        <td class="num"><strong>4 / 5</strong></td>
+        <td>Swift legal action overturned arbitrary MEA debarment in Delhi HC within 70 days. Transparent disclosures to stock exchanges.</td>
+      </tr>
+      <tr>
+        <td><strong>4. Shareholder Returns</strong></td>
+        <td class="num"><strong>4 / 5</strong></td>
+        <td>Consistent dividends declared; successful value-unlocking through spin-off and listing of BLS E-Services.</td>
+      </tr>
+      <tr>
+        <td><strong>5. Investor Communication</strong></td>
+        <td class="num"><strong>4 / 5</strong></td>
+        <td>Detailed quarterly operational disclosures (Net Rev/App, segment breakdown). Could improve disclosure on country-level revenue.</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>OVERALL MANAGEMENT RATING</strong></td>
+        <td class="num"><strong>4.2 / 5.0</strong></td>
+        <td><strong>EXEMPLARY CAPITAL CONVERSION & STRATEGIC EXECUTION</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout" style="margin-top: 3px;">
+    <strong>MANAGEMENT COMMENTARY (Joint Managing Director Shikhar Aggarwal — Q4 FY26 Concall):</strong><br>
+    <em>"Our global visa processing franchise is experiencing unprecedented demand, driven by international travel normalization and expanding Schengen applicant volumes. The transition to our self-managed model has enabled us to achieve 40.1% EBITDA margins in the visa segment. We are confident of maintaining 20–25% compounded growth in FY27, backed by new contract additions and yield expansion."</em>
+  </div>
+
+  <div class="running-footer">
+    <span>BLS INTERNATIONAL | INITIATION OF COVERAGE | OCTOBER 2026</span>
+    <span>CONFIDENTIAL – FOR RECRUITER & INSTITUTIONAL REVIEW | LEAD ANALYST: MAHIM</span>
+    <span>Page 7</span>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- PAGE 8: RISKS, CATALYSTS, CONCLUSION & CERTIFICATIONS -->
+<!-- ============================================================== -->
+<div class="page">
+  <div class="running-header">
+    <span>BLS INTERNATIONAL SERVICES LTD (NSE: BLS) | EQUITY RESEARCH</span>
+    <span>PAGE 8</span>
+  </div>
+
+  <div class="section-title">9. Investment Risks Matrix: 7 Institutional Risks Evaluated</div>
+
+  <table style="font-size: 6.7pt; margin-bottom: 3px;">
+    <thead>
+      <tr>
+        <th>Risk Factor</th>
+        <th>Prob.</th>
+        <th>Impact</th>
+        <th>Mitigating Factors & Structural Defenses</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1. Government Contract Non-Renewal</strong></td>
+        <td>Medium</td>
+        <td>High</td>
+        <td>Staggered contract expiry dates across 46 governments; 5-year Spain contract active through FY28.</td>
+      </tr>
+      <tr>
+        <td><strong>2. Permanent India MEA Exclusion</strong></td>
+        <td>Low</td>
+        <td>Medium</td>
+        <td>Delhi HC cleared BLS; Supreme Court ordered fresh UAE tender; non-India business is 88% of revenue.</td>
+      </tr>
+      <tr>
+        <td><strong>3. Geopolitical / Pandemics Shutdowns</strong></td>
+        <td>Low</td>
+        <td>High</td>
+        <td>Negative working capital structure and ₹1,617 Cr cash buffer ensure multi-year survival in travel freezes.</td>
+      </tr>
+      <tr>
+        <td><strong>4. Digital Services Margin Compression</strong></td>
+        <td>Medium</td>
+        <td>Low</td>
+        <td>Subsidiary is separately capitalized; digital business contributes &lt;10% of consolidated EBITDA.</td>
+      </tr>
+      <tr>
+        <td><strong>5. Client Concentration (Spain/Germany)</strong></td>
+        <td>Medium</td>
+        <td>Medium</td>
+        <td>Expanding into Central Asia, Middle East, and Latin American diplomatic missions.</td>
+      </tr>
+      <tr>
+        <td><strong>6. Capital Allocation to Non-Core Assets</strong></td>
+        <td>Low</td>
+        <td>Low</td>
+        <td>Welsh hotel asset acquisition represents &lt;2% of cash balance and links to residency-by-investment programs.</td>
+      </tr>
+      <tr>
+        <td><strong>7. BLS E-Services Listing Complexity</strong></td>
+        <td>Low</td>
+        <td>Low</td>
+        <td>Parent holds controlling 51% equity; standard 15% holding company discount applied in our SOTP.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="sub-title">10. Key Strategic Catalysts & Milestones (12–24 Months)</div>
+  <p style="font-size: 6.9pt; margin: 1px 0;">
+    • <strong>Cat 1: Supreme Court / MEA UAE Contract Re-Tender (Q3/Q4 FY27):</strong> Fresh procurement opens re-entry for ₹60 Cr PAT.<br>
+    • <strong>Cat 2: New Sovereign Contract Wins:</strong> Pipeline of Central Asian and Schengen country additions guided at 20–25% growth.<br>
+    • <strong>Cat 3: Net Revenue per App Crossing ₹3,800:</strong> Monetization of door-to-door biometric capture and VIP concierge services.<br>
+    • <strong>Cat 4: Digital Margin Turnaround to 10%:</strong> Scale economies in Aadifidelis loan sourcing lifting blended subsidiary margins.<br>
+    • <strong>Cat 5: Direct Peer Listing / M&A Benchmark:</strong> Any liquidity event for VFS Global or TLScontact establishing pure-play comps.<br>
+    • <strong>Cat 6: Outbound Tourism Secular Tailwind:</strong> Double-digit growth in Indian outbound travelers applying for Schengen visas.
+  </p>
+
+  <div class="section-title">11. Investment Conclusion & Synthesis</div>
+  <div style="font-size: 7.0pt; line-height: 1.32; margin-bottom: 4px;">
+    <p style="margin: 2px 0;">
+      <strong>The Bull Case:</strong> BLS executes its self-managed model across 100% of global VACs, driving net revenue per application past ₹4,000, while re-securing the UAE consular mandate under the Supreme Court-directed re-tender. In this scenario, FY28 PAT surpasses ₹1,200 Cr, and the stock re-rates to ₹450.00 (+101% upside).
+    </p>
+    <p style="margin: 2px 0;">
+      <strong>The Bear Case (Thesis Break Points):</strong> The investment thesis would break if BLS loses 2 or more of its top 3 Schengen government contracts (Spain, Germany, Italy) at renewal, or if MEA permanently debars BLS globally. However, with non-India revenue comprising 88% of group earnings and ₹1,617 Cr in cash, downside is bounded at ₹240.00 (+7% from CMP).
+    </p>
+    <p style="margin: 2px 0;">
+      <strong>Entry Point Rationale:</strong> Trading at an EV/EBITDA of 7.2x for the core Visa engine, a 6.7% FCF yield, and with 17.5% of its market cap backed by liquid cash, BLS offers one of the most compelling risk-reward setups in the Indian mid-cap universe.
+    </p>
+  </div>
+
+  <div class="rating-box" style="margin: 4px 0; padding: 6px;">
+    <div style="font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.8px;">FINAL RESEARCH RECOMMENDATION</div>
+    <div style="margin: 2px 0;"><span class="badge-buy" style="font-size: 11pt; padding: 2px 14px;">BUY</span></div>
+    <div style="font-size: 9.2pt; font-weight: 700; color: #a7f3d0;">12-MONTH SOTP TARGET PRICE: ₹375.00 | POTENTIAL UPSIDE: +67.4%</div>
+    <div style="font-size: 6.8pt; opacity: 0.9;">CURRENT MARKET PRICE: ₹224.00 | RISK PROFILE: MEDIUM (CONTRACT CONCENTRATION)</div>
+  </div>
+
+  <div class="sub-title" style="margin-top: 4px;">12. Research Analyst Disclosures & Certifications</div>
+  <div style="font-size: 5.9pt; color: #475569; line-height: 1.25;">
+    <strong>Analyst Certification:</strong> I, Mahim, author and lead research analyst, certify that the views expressed in this research report accurately reflect personal views regarding BLS International Services Ltd (NSE: BLS | BSE: 540073) and its subsidiary BLS E-Services Ltd. The report has been prepared in compliance with SEBI (Research Analysts) Regulations, 2014 and NISM Series XV specifications. The analyst holds zero financial interest or beneficial ownership in the securities of the subject company and has received no compensation from BLS International.<br>
+    <strong>Institutional Disclaimer:</strong> This document is published exclusively for recruiting, educational, and institutional research purposes. It does not constitute individual investment advice or an endorsement to buy or sell securities. Past financial performance is not indicative of future market returns. Stock investments are subject to market volatility.
+  </div>
+
+  <div class="running-footer">
+    <span>BLS INTERNATIONAL | INITIATION OF COVERAGE | OCTOBER 2026</span>
+    <span>CONFIDENTIAL – FOR RECRUITER & INSTITUTIONAL REVIEW | LEAD ANALYST: MAHIM</span>
+    <span>Page 8</span>
+  </div>
+</div>
+
+</body>
+</html>

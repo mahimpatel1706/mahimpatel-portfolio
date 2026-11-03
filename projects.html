@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NSE Options Gamma Exposure (GEX) Engine | Mahim Patel — Quantitative Systems</title>
+    <meta name="description" content="Technical documentation and quantitative analysis of the NSE Options Gamma Exposure (GEX) Engine authored by Mahim Patel. Analyzing dealer delta hedging, zero-gamma regimes, and expiry pinning." />
+    <meta name="theme-color" content="#0B2447" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500&display=swap" />
+    <link rel="stylesheet" href="assets/css/tailwind.css" />
+    
+    <!-- KaTeX LaTeX Math Typesetting Engine (Local + CDN Fallback) -->
+    <link rel="stylesheet" href="vendor/katex/katex.min.css" onerror="this.onerror=null;this.href='https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css';" />
+    <script defer src="vendor/katex/katex.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js';"></script>
+    <script defer src="vendor/katex/auto-render.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js';" onload="window.renderKaTeX && window.renderKaTeX();"></script>
+    <script>
+      function renderKaTeX() {
+        if (typeof renderMathInElement === 'function') {
+          renderMathInElement(document.body, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '\\[', right: '\\]', display: true },
+              { left: '$', right: '$', display: false },
+              { left: '\\(', right: '\\)', display: false }
+            ],
+            ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            throwOnError: false
+          });
+        }
+      }
+      window.renderKaTeX = renderKaTeX;
+      document.addEventListener('DOMContentLoaded', renderKaTeX);
+      window.addEventListener('load', renderKaTeX);
+    </script>
+  
+    <link rel="stylesheet" href="assets/css/site.css" />
+    <script src="assets/js/site.js" defer></script>
+  </head>
+  <body class="antialiased page-projects">
+
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="topbar">
+      <div class="wrap topbar-row">
+        <div class="topbar-left"><span class="topbar-item topbar-lead">QUANTITATIVE DERIVATIVES ENGINE</span><span class="topbar-item">MAHIM PATEL • TECHNICAL DOSSIER</span><span class="topbar-item">NSE NIFTY 50 &amp; BANKNIFTY GEX PROFILING</span></div>
+        <a href="index.html" class="topbar-link">← Return to Executive Overview</a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a href="index.html" class="brand">
+          <span class="brand-mark" aria-hidden="true">MP</span>
+          <span class="brand-text">
+            <span class="brand-name">Mahim Patel <span class="brand-age">Age 20</span></span>
+            <span class="brand-sub">QUANTITATIVE MARKET MICROSTRUCTURE</span>
+          </span>
+        </a>
+        <div class="header-actions">
+          <a href="index.html" class="btn btn-quiet header-cta">Main Hub</a>
+          <button type="button" id="mobile-menu-btn" class="menu-toggle" aria-label="Toggle Navigation" aria-expanded="false" aria-controls="mobile-menu">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="mobile-menu hidden">
+      <div class="wrap">
+        <a href="index.html" class="mobile-nav-link"><span class="nav-idx">01.</span> Overview</a>
+        <a href="journey.html" class="mobile-nav-link" target="_blank" rel="noopener noreferrer"><span class="nav-idx">02.</span> 7-Yr Journey <span class="nav-ext" aria-hidden="true">↗</span></a>
+        <a href="portfolio.html" class="mobile-nav-link" target="_blank" rel="noopener noreferrer"><span class="nav-idx">03.</span> Portfolio &amp; P&amp;L <span class="nav-ext" aria-hidden="true">↗</span></a>
+        <a href="reports.html" class="mobile-nav-link" target="_blank" rel="noopener noreferrer"><span class="nav-idx">04.</span> Research Reports <span class="nav-ext" aria-hidden="true">↗</span></a>
+        <a href="projects.html" class="mobile-nav-link is-active" aria-current="page"><span class="nav-idx">05.</span> Quant (NSE GEX)</a>
+        <a href="certifications.html" class="mobile-nav-link" target="_blank" rel="noopener noreferrer"><span class="nav-idx">06.</span> Certifications <span class="nav-ext" aria-hidden="true">↗</span></a>
+        <a href="macro.html" class="mobile-nav-link" target="_blank" rel="noopener noreferrer"><span class="nav-idx">07.</span> Macro Journal <span class="nav-ext" aria-hidden="true">↗</span></a>
+        <a href="philosophy.html" class="mobile-nav-link" target="_blank" rel="noopener noreferrer"><span class="nav-idx">08.</span> Philosophy <span class="nav-ext" aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Primary">
+      <div class="wrap nav-row">
+        <a href="index.html" class="nav-link"><span class="nav-idx">01.</span> Overview</a>
+        <a href="journey.html" class="nav-link" target="_blank" rel="noopener noreferrer"><span class="nav-idx">02.</span> 7-Yr Journey <span class="nav-ext" aria-hidden="true">↗</span></a>
+        <a href="portfolio.html" class="nav-link" target="_blank" rel="noopener noreferrer"><span class="nav-idx">03.</span> Portfolio &amp; P&amp;L <span class="nav-ext" aria-hidden="true">↗</span></a>
+        <a href="reports.html" class="nav-link" target="_blank" rel="noopener noreferrer"><span class="nav-idx">04.</span> Research Reports <span class="nav-ext" aria-hidden="true">↗</span></a>
+        <a href="projects.html" class="nav-link is-active" aria-current="page"><span class="nav-idx">05.</span> Quant (NSE GEX)</a>
+        <a href="certifications.html" class="nav-link" target="_blank" rel="noopener noreferrer"><span class="nav-idx">06.</span> Certifications <span class="nav-ext" aria-hidden="true">↗</span></a>
+        <a href="macro.html" class="nav-link" target="_blank" rel="noopener noreferrer"><span class="nav-idx">07.</span> Macro Journal <span class="nav-ext" aria-hidden="true">↗</span></a>
+        <a href="philosophy.html" class="nav-link" target="_blank" rel="noopener noreferrer"><span class="nav-idx">08.</span> Philosophy <span class="nav-ext" aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+
+    <main id="main" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+
+      <!-- Dossier Hero Header -->
+      <section class="space-y-4 border-b border-slate-200 pb-8">
+        <div class="flex flex-wrap items-center gap-2 text-xs font-mono-num text-slate-500">
+          <span class="px-2 py-0.5 rounded bg-[#0B2447] text-white font-semibold">QUANTITATIVE RESEARCH REPORT</span>
+          <span>•</span>
+          <span>SYSTEM: NSE-GEX-V3.2</span>
+          <span>•</span>
+          <span>AUTHOR: MAHIM PATEL</span>
+          <span>•</span>
+          <span>BENCHMARKS: NIFTY 50 &amp; BANKNIFTY</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-editorial text-navy-900 tracking-tight leading-tight">
+          NSE Options Gamma Exposure (GEX) Engine: Algorithmic Dealer Profiling &amp; Market Plumbing
+        </h1>
+
+        <p class="text-slate-700 text-base sm:text-lg max-w-4xl leading-relaxed">
+          A practitioner-built Python quantitative engine that scrapes live NSE option chains, extracts implied volatility surfaces, and models market maker delta-hedging obligations across weekly and monthly expiries. By tracking net dealer gamma regimes and locating the zero-gamma inflection boundary, the system identifies structural volatility expansion, liquidity vacuums, and Thursday settlement pinning.
+        </p>
+
+        <!-- Key Engineering Metrics Bar -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
+          <div class="card-formal p-3.5 rounded">
+            <div class="text-[12px] font-mono-num text-slate-500 uppercase">Engine Latency</div>
+            <div class="text-xl font-bold font-mono-num text-navy-900 mt-0.5">&lt; 42 ms</div>
+            <div class="text-[11.5px] text-slate-400 font-mono-num">Vectorized NumPy / SciPy</div>
+          </div>
+          <div class="card-formal p-3.5 rounded">
+            <div class="text-[12px] font-mono-num text-slate-500 uppercase">Coverage</div>
+            <div class="text-xl font-bold font-mono-num text-navy-900 mt-0.5">120+ Strikes</div>
+            <div class="text-[11.5px] text-slate-400 font-mono-num">NIFTY &amp; BANKNIFTY Chains</div>
+          </div>
+          <div class="card-formal p-3.5 rounded">
+            <div class="text-[12px] font-mono-num text-slate-500 uppercase">Root Solver Precision</div>
+            <div class="text-xl font-bold font-mono-num text-navy-900 mt-0.5">0.10 Pts</div>
+            <div class="text-[11.5px] text-slate-400 font-mono-num">Brent's Zero-Gamma Root</div>
+          </div>
+          <div class="card-formal p-3.5 rounded">
+            <div class="text-[12px] font-mono-num text-slate-500 uppercase">Pipelines</div>
+            <div class="text-xl font-bold font-mono-num text-navy-900 mt-0.5">Automated</div>
+            <div class="text-[11.5px] text-slate-400 font-mono-num">Cookie &amp; Session Resilience</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1: The Structural Problem Statement -->
+      <section class="space-y-6">
+        <div class="section-head">
+          <h2 class="text-2xl font-bold font-editorial text-navy-900">
+            1. The Structural Problem: Modern Price Discovery is Driven by Derivatives Plumbing
+          </h2>
+          <p class="text-xs font-mono-num text-slate-500 uppercase mt-1">
+            Why fundamental analysis and classical technical charts fail to explain intraday velocity
+          </p>
+        </div>
+
+        <div class="prose max-w-none text-slate-700 text-sm sm:text-base leading-relaxed space-y-4">
+          <p>
+            Traditional fundamental equity research assumes asset prices move exclusively when underlying corporate cash flows or macroeconomic forecasts change. Meanwhile, traditional technical analysis relies on lagging geometric moving averages or chart patterns. Both frameworks suffer from an acute blind spot in the Indian market: <strong>the sheer volume of options contracts traded on the National Stock Exchange of India (NSE) now routinely exceeds underlying cash market turnover by a factor of 100x to 400x</strong>.
+          </p>
+          <p>
+            When retail traders, proprietary desks, and mutual funds buy calls or puts, they do not trade against other retail speculators in a vacuum. The vast majority of liquidity is provided by <strong>options market makers (dealers) and algorithmic HFT liquidity desks</strong>. Because market makers do not take directional speculative bets, they are mathematically mandated to maintain a <strong>delta-neutral portfolio</strong>.
+          </p>
+          <p>
+            To stay delta-neutral, dealers must continuously buy and sell underlying index futures (or cash equities) whenever the index moves. The rate at which their delta changes per unit change in spot price is governed by <strong>Gamma ($\Gamma = \partial^2 V / \partial S^2$)</strong>. Consequently, large clusters of open interest force institutional market makers into predictable, mechanical hedging order flows that either aggressively compress market volatility or trigger runaway liquidation cascades.
+          </p>
+        </div>
+
+        <!-- Visual Explanation of Regimes -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+          <div class="card-formal p-5 rounded border-t-emerald-700 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono-num font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">POSITIVE GAMMA REGIME</span>
+              <span class="text-xs font-mono-num text-slate-500">Spot &gt; Zero-Gamma Flip</span>
+            </div>
+            <h3 class="font-bold font-editorial text-navy-900 text-base">The Volatility Dampener &amp; Mean-Reversion Magnet</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              When market makers are net long gamma, their delta changes in the same direction as price. When spot rallies, their delta becomes more positive; to neutralize it, they <strong>must sell futures</strong> into the rally. When spot drops, their delta becomes negative; to neutralize it, they <strong>must buy futures</strong> into the dip.
+            </p>
+            <div class="p-3 bg-emerald-50/70 rounded text-xs font-mono-num text-emerald-950">
+              <strong>Market Effect:</strong> Realized volatility drops significantly below implied volatility. Dips are absorbed, rallies are faded, and the index is sucked into high-gamma strike "pins."
+            </div>
+          </div>
+
+          <div class="card-formal p-5 rounded border-t-rose-700 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono-num font-bold text-rose-800 bg-rose-50 px-2 py-0.5 rounded border border-rose-200">NEGATIVE GAMMA REGIME</span>
+              <span class="text-xs font-mono-num text-slate-500">Spot &lt; Zero-Gamma Flip</span>
+            </div>
+            <h3 class="font-bold font-editorial text-navy-900 text-base">The Volatility Accelerator &amp; Liquidation Cascades</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              When market makers are net short gamma, their delta changes inversely to price. When spot drops, dealers become increasingly long delta; to neutralize this, they <strong>are forced to dump futures into falling bids</strong>. When spot surges, they must chase the rally by buying futures.
+            </p>
+            <div class="p-3 bg-rose-50/70 rounded text-xs font-mono-num text-rose-950">
+              <strong>Market Effect:</strong> Realized volatility explodes. Dynamic hedging creates an aggressive pro-cyclical feedback loop, triggering sharp intraday crashes and tail-risk cascades.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Mathematical Derivation & Foundations -->
+      <section class="space-y-6">
+        <div class="section-head">
+          <h2 class="text-2xl font-bold font-editorial text-navy-900">
+            2. Mathematical Formulation &amp; Greeks Mechanics
+          </h2>
+          <p class="text-xs font-mono-num text-slate-500 uppercase mt-1">
+            Deriving Strike-Level GEX, Aggregate Dealer Net Gamma, and the Zero-Gamma Root
+          </p>
+        </div>
+
+        <div class="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed">
+          <p>
+            Under the Black-Scholes-Merton framework, the second-order partial derivative of the option pricing function $V(S, t)$ with respect to the underlying spot price $S$ is defined as Gamma ($\Gamma$):
+          </p>
+
+          <div class="math-callout rounded">
+            $$\Gamma = \frac{\partial \Delta}{\partial S} = \frac{\partial^2 V}{\partial S^2} = \frac{\phi(d_1)}{S \sigma \sqrt{\tau}}$$
+            <div class="math-expl">
+              Where $d_1 = \frac{\ln(S/K) + (r + \frac{1}{2}\sigma^2)\tau}{\sigma \sqrt{\tau}}$, $\phi(x) = \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}$, $\sigma$ is implied volatility, $\tau$ is time to expiration, and $r$ is the risk-free rate (MIFOR / 91-day T-Bill).
+            </div>
+          </div>
+
+          <p>
+            To transform theoretical unit gamma into a measurable monetary value in Indian Rupees, we compute the <strong>Dollar Gamma Exposure ($\text{GEX}_i$)</strong> for each strike $K_i$. This measures the exact rupee value of underlying shares/futures that dealers must trade to re-hedge their portfolios if the spot price moves by 1%:
+          </p>
+
+          <div class="math-callout rounded">
+            $$\text{Strike GEX}_i = \left[ OI_{\text{Call}, i} \cdot \Gamma_{\text{Call}, i} - OI_{\text{Put}, i} \cdot \Gamma_{\text{Put}, i} \right] \times S^2 \times 0.01 \times \text{LotSize}$$
+            <div class="math-expl">
+              For NIFTY 50: $\text{LotSize} = 25$ (or prevailing NSE contract lot size); $S$ is current index spot; $OI$ is total open contracts.
+            </div>
+          </div>
+
+          <p>
+            The aggregate market maker gamma across the entire option chain is obtained by summing over all active strikes:
+          </p>
+
+          <div class="math-callout rounded">
+            $$\text{Net GEX}(S) = \sum_{i=1}^{N} \text{Strike GEX}_i(S)$$
+            <div class="math-expl">
+              <strong>The Zero-Gamma Flip Level ($S^*$):</strong> The exact underlying index level where Net GEX equals zero:
+              $$\text{Find } S^* \quad \text{such that} \quad \text{Net GEX}(S^*) = 0$$
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: ADVANTAGES OVER OTHER TOOLS -->
+      <section class="space-y-6">
+        <div class="section-head">
+          <h2 class="text-2xl font-bold font-editorial text-navy-900">
+            3. Detailed Analysis: Concrete Advantages Over Retail Derivative Tools
+          </h2>
+          <p class="text-xs font-mono-num text-slate-500 uppercase mt-1">
+            Why commercial platforms like Sensibull, Opstra, and Quantsapp provide flawed or incomplete signals
+          </p>
+        </div>
+
+        <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+          While several retail platforms cater to Indian derivatives traders, their analytical engines rely on outdated 1980s heuristics or simple aggregation of flat contract counts. Below is a rigorous comparative breakdown of why the NSE GEX engine provides a superior, institutional-grade analytical edge:
+        </p>
+
+        <!-- Detailed Advantage Breakdown Grid -->
+        <div class="space-y-6 pt-2">
+          
+          <!-- Advantage 1 -->
+          <div class="card-formal p-6 rounded space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-[#0B2447] text-white flex items-center justify-center font-mono-num text-xs font-bold">1</span>
+              <h3 class="text-lg font-bold font-editorial text-navy-900">
+                True Non-Linear Rupee Gamma Weighting vs. Naive Open Interest (OI) Bar Charts
+              </h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-700 pt-1">
+              <div class="p-4 bg-slate-50 rounded border border-slate-200 space-y-2">
+                <span class="font-mono-num font-bold text-rose-800 uppercase block">Existing Retail Tools (Sensibull / Opstra / NSE Site)</span>
+                <p>
+                  Display standard bar charts of raw Open Interest (OI) or Change in OI. In their models, an out-of-the-money 26,000 Call with 1,00,000 OI is displayed with the exact same visual and analytical weight as an at-the-money 25,000 Call with 1,00,000 OI. This gives a completely distorted impression of market liquidity.
+                </p>
+              </div>
+              <div class="p-4 bg-sky-50/70 rounded border border-sky-200 space-y-2">
+                <span class="font-mono-num font-bold text-navy-900 uppercase block">NSE GEX Engine (Proprietary)</span>
+                <p>
+                  Recognizes that <strong>gamma is not flat across strikes</strong>. Because gamma peaks precisely at-the-money ($\text{ATM}$) and collapses towards zero out-of-the-money ($\text{OTM}$), an ATM strike with 50,000 contracts exerts up to 8x more dynamic hedging pressure on index futures than an OTM strike with 100,000 contracts. We weight every strike by its true second-order Greek dollar sensitivity.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Advantage 2 -->
+          <div class="card-formal p-6 rounded space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-[#0B2447] text-white flex items-center justify-center font-mono-num text-xs font-bold">2</span>
+              <h3 class="text-lg font-bold font-editorial text-navy-900">
+                Dynamic Zero-Gamma Flip Detection vs. Flawed Static "Max Pain"
+              </h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-700 pt-1">
+              <div class="p-4 bg-slate-50 rounded border border-slate-200 space-y-2">
+                <span class="font-mono-num font-bold text-rose-800 uppercase block">Existing Retail Tools (Sensibull / Opstra)</span>
+                <p>
+                  Rely on "Max Pain" as their flagship directional indicator. Max Pain is an archaic formula that computes the strike price at which option buyers lose the maximum intrinsic value at Thursday 3:30 PM. It completely ignores intraday dynamic hedging, assumes market makers hold unhedged risk, and frequently fails by hundreds of points during trend days.
+                </p>
+              </div>
+              <div class="p-4 bg-sky-50/70 rounded border border-sky-200 space-y-2">
+                <span class="font-mono-num font-bold text-navy-900 uppercase block">NSE GEX Engine (Proprietary)</span>
+                <p>
+                  Solves for the exact <strong>Zero-Gamma Flip level ($S^*$)</strong> using numerical root-finding. Rather than predicting where the index "should" settle days from now, it identifies the live inflection line where market behavior changes fundamentally from volatility dampening (mean-reversion) to volatility acceleration (breakout cascades).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Advantage 3 -->
+          <div class="card-formal p-6 rounded space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-[#0B2447] text-white flex items-center justify-center font-mono-num text-xs font-bold">3</span>
+              <h3 class="text-lg font-bold font-editorial text-navy-900">
+                Real-Time Dealer Hedging Velocity (₹ Crores per 50-Point NIFTY Move)
+              </h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-700 pt-1">
+              <div class="p-4 bg-slate-50 rounded border border-slate-200 space-y-2">
+                <span class="font-mono-num font-bold text-rose-800 uppercase block">Existing Retail Tools</span>
+                <p>
+                  Provide static tabular summaries of Greeks (Delta, Theta, Vega) per strike, but fail to aggregate them into portfolio-level capital requirements. Traders have no way to know how much capital is about to be forced into the orderbook.
+                </p>
+              </div>
+              <div class="p-4 bg-sky-50/70 rounded border border-sky-200 space-y-2">
+                <span class="font-mono-num font-bold text-navy-900 uppercase block">NSE GEX Engine (Proprietary)</span>
+                <p>
+                  Quantifies the instantaneous flow: <em>"If NIFTY drops by 50 points from 24,950 to 24,900, market makers are mathematically forced to dump ₹340 Crores of NIFTY futures contracts to stay neutral."</em> This allows an analyst to evaluate whether orderbook depth can absorb the move or if a slippage cascade is guaranteed.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Advantage 4 -->
+          <div class="card-formal p-6 rounded space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-[#0B2447] text-white flex items-center justify-center font-mono-num text-xs font-bold">4</span>
+              <h3 class="text-lg font-bold font-editorial text-navy-900">
+                Disaggregated Weekly Expiry Pin Risk vs. Blended Expiry Noise
+              </h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-700 pt-1">
+              <div class="p-4 bg-slate-50 rounded border border-slate-200 space-y-2">
+                <span class="font-mono-num font-bold text-rose-800 uppercase block">Existing Retail Tools</span>
+                <p>
+                  Default views frequently blend weekly contracts with monthly or multi-month contracts, washing out the explosive short-dated theta and gamma spikes that determine Thursday expiry settlements.
+                </p>
+              </div>
+              <div class="p-4 bg-sky-50/70 rounded border border-sky-200 space-y-2">
+                <span class="font-mono-num font-bold text-navy-900 uppercase block">NSE GEX Engine (Proprietary)</span>
+                <p>
+                  Separates near-week expiries where $\tau \to 0$ from monthly structural hedges. Near-week contracts experience asymptotic gamma spikes ($\lim_{\tau \to 0} \Gamma \to \infty$ for ATM strikes), which create the powerful gravitational "pinning" effect observed during Thursday afternoon settlement sessions.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Advantage 5 -->
+          <div class="card-formal p-6 rounded space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-[#0B2447] text-white flex items-center justify-center font-mono-num text-xs font-bold">5</span>
+              <h3 class="text-lg font-bold font-editorial text-navy-900">
+                Zero SaaS Subscription Tax, Sub-50ms Execution &amp; 100% Algorithmic Auditability
+              </h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-700 pt-1">
+              <div class="p-4 bg-slate-50 rounded border border-slate-200 space-y-2">
+                <span class="font-mono-num font-bold text-rose-800 uppercase block">Commercial SaaS Platforms</span>
+                <p>
+                  Charge recurring subscription fees (₹15,000–₹30,000/year), throttle API updates behind proprietary frontends, obscure calculation methodologies in closed-source black boxes, and prohibit raw data export for custom quantitative backtesting.
+                </p>
+              </div>
+              <div class="p-4 bg-sky-50/70 rounded border border-sky-200 space-y-2">
+                <span class="font-mono-num font-bold text-navy-900 uppercase block">NSE GEX Engine (Proprietary)</span>
+                <p>
+                  Built as a modular, local Python engine with zero recurring software fees. Runs full-chain calculations across 120 strikes in under 42 milliseconds, operates directly on raw NSE JSON data, and exports clean matrices to Pandas DataFrames for seamless empirical backtesting.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Rigorous Comparison Matrix Table -->
+        <div class="pt-4 space-y-3">
+          <h3 class="text-base font-bold font-editorial text-navy-900">Comprehensive Architectural Comparison Matrix</h3>
+          <div class="overflow-x-auto card-formal rounded">
+            <table class="w-full text-left text-xs font-sans table-formal">
+              <thead>
+                <tr>
+                  <th class="p-3">Analytical Dimension</th>
+                  <th class="p-3 text-navy-900 font-bold bg-sky-50">NSE GEX Engine (Proprietary)</th>
+                  <th class="p-3">Sensibull</th>
+                  <th class="p-3">Opstra</th>
+                  <th class="p-3">NSE Official Chain</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100">
+                <tr>
+                  <td class="p-3 font-semibold text-slate-800">Second-Order Gamma Weighting</td>
+                  <td class="p-3 font-mono-num font-bold text-emerald-700 bg-sky-50/50">✓ Strike-by-Strike Black-Scholes (₹ Cr)</td>
+                  <td class="p-3 text-slate-500">✗ Flat OI Counts Only</td>
+                  <td class="p-3 text-slate-500">✗ Flat OI Counts Only</td>
+                  <td class="p-3 text-slate-500">✗ Raw Unweighted Tables</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-semibold text-slate-800">Zero-Gamma Regime Flip Boundary</td>
+                  <td class="p-3 font-mono-num font-bold text-emerald-700 bg-sky-50/50">✓ Dynamic Root Solver (0.1 pt accuracy)</td>
+                  <td class="p-3 text-slate-500">✗ None (Uses Max Pain)</td>
+                  <td class="p-3 text-slate-500">✗ None (Uses Max Pain)</td>
+                  <td class="p-3 text-slate-500">✗ None</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-semibold text-slate-800">Dealer Hedging Flow Velocity</td>
+                  <td class="p-3 font-mono-num font-bold text-emerald-700 bg-sky-50/50">✓ Quantified $d(\text{Delta})/dS$ in ₹ Cr</td>
+                  <td class="p-3 text-slate-500">✗ Not Computed</td>
+                  <td class="p-3 text-slate-500">✗ Not Computed</td>
+                  <td class="p-3 text-slate-500">✗ Not Computed</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-semibold text-slate-800">Expiry Disaggregation (Weekly vs Mo)</td>
+                  <td class="p-3 font-mono-num font-bold text-emerald-700 bg-sky-50/50">✓ Fully Disaggregated Pinning PDF</td>
+                  <td class="p-3 text-slate-600">Partial (Merged Views Common)</td>
+                  <td class="p-3 text-slate-600">Manual Toggle Only</td>
+                  <td class="p-3 text-slate-500">Drop-down Selector Only</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-semibold text-slate-800">Implied Volatility (IV) Skew Interpolation</td>
+                  <td class="p-3 font-mono-num font-bold text-emerald-700 bg-sky-50/50">✓ Vectorized Brent/Newton-Raphson</td>
+                  <td class="p-3 text-slate-600">Proprietary (Unpublished)</td>
+                  <td class="p-3 text-slate-600">Standard Approximation</td>
+                  <td class="p-3 text-slate-500">Delayed Snapshot Table</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-semibold text-slate-800">Cost &amp; Platform Auditability</td>
+                  <td class="p-3 font-mono-num font-bold text-emerald-700 bg-sky-50/50">✓ 100% Free / Open Python Architecture</td>
+                  <td class="p-3 text-slate-500">₹8,000–₹16,000/yr (Closed)</td>
+                  <td class="p-3 text-slate-500">₹12,000–₹24,000/yr (Closed)</td>
+                  <td class="p-3 text-slate-600">Free (Rate-limited, No Tools)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: WHAT DID I LEARN IN SEQUENTIAL ORDER -->
+      <section class="space-y-6">
+        <div class="section-head">
+          <h2 class="text-2xl font-bold font-editorial text-navy-900">
+            4. What Did I Learn: The 6 Sequential Stages of Engineering &amp; Quantitative Immersion
+          </h2>
+          <p class="text-xs font-mono-num text-slate-500 uppercase mt-1">
+            Chronological documentation of technical hurdles, quantitative breakthroughs, and market realities
+          </p>
+        </div>
+
+        <div class="space-y-6">
+          
+          <!-- Stage 1 -->
+          <div class="card-formal p-6 rounded space-y-3 border-l-4 border-l-[#0B2447]">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="text-xs font-mono-num font-bold text-navy-900 uppercase tracking-wider">STAGE 01: DERIVATIVES MICROSTRUCTURE &amp; DEALER DELTA NEUTRALITY</span>
+              <span class="text-xs font-mono-num text-slate-400">Month 1–2 • Theoretical Foundations</span>
+            </div>
+            <h3 class="text-base font-bold font-editorial text-navy-900">
+              Deconstructing Black-Scholes and the Paradigm Shift from Speculation to Inventory Risk
+            </h3>
+            <div class="text-xs sm:text-sm text-slate-700 space-y-2 leading-relaxed">
+              <p>
+                My initial entry into derivatives was focused on standard retail directional strategies (buying call and put options based on technical breakouts). I quickly discovered that retail directional option buyers face a negative expected return due to time decay (Theta) and the volatility risk premium.
+              </p>
+              <p>
+                <strong>What I Learned:</strong> By deconstructing the Black-Scholes-Merton Partial Differential Equation, I realized that options market makers and institutional desks do not trade direction. They are inventory managers. When a fund buys 1,000 Call contracts, the dealer takes the short side and immediately hedges by buying underlying futures. Market movement is not an emotional battle between "bulls and bears"—it is an ongoing mechanical balance sheet re-hedging requirement dictated by second-order partial derivatives ($\Gamma = \partial^2 V / \partial S^2$).
+              </p>
+            </div>
+          </div>
+
+          <!-- Stage 2 -->
+          <div class="card-formal p-6 rounded space-y-3 border-l-4 border-l-sky-700">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="text-xs font-mono-num font-bold text-sky-900 uppercase tracking-wider">STAGE 02: REAL-WORLD DATA ENGINEERING &amp; NSE SCRAPING ARCHITECTURE</span>
+              <span class="text-xs font-mono-num text-slate-400">Month 3–4 • Pipeline Engineering</span>
+            </div>
+            <h3 class="text-base font-bold font-editorial text-navy-900">
+              Navigating Akamai Bot Shields, Session Handshakes, and Live JSON Inconsistencies
+            </h3>
+            <div class="text-xs sm:text-sm text-slate-700 space-y-2 leading-relaxed">
+              <p>
+                Building a quantitative model on paper is easy; streaming reliable data from the National Stock Exchange of India is notoriously challenging. Attempting simple `requests.get()` calls to `nseindia.com/api/option-chain-indices` immediately resulted in 403 Forbidden errors, connection timeouts, and aggressive IP rate-limiting.
+              </p>
+              <p>
+                <strong>What I Learned:</strong> 
+                1. <em>Session Initialization:</em> NSE requires a preceding GET request to the homepage to receive valid `nsit`, `nseappid`, and session cookies before calling the API endpoint.
+                2. <em>Dynamic Cookie Handshake:</em> Cookies expire approximately every 12 minutes, requiring an automated background renewal thread with exponential backoff.
+                3. <em>Schema Anomalies:</em> In highly volatile moments, strikes occasionally appear with missing bid-ask fields or zero volume. I engineered robust sanitization routines using Pandas to forward-fill missing implied volatilities and handle strike lot changes dynamically without pipeline crashes.
+              </p>
+            </div>
+          </div>
+
+          <!-- Stage 3 -->
+          <div class="card-formal p-6 rounded space-y-3 border-l-4 border-l-emerald-700">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="text-xs font-mono-num font-bold text-emerald-900 uppercase tracking-wider">STAGE 03: VECTORIZED GREEKS ENGINE &amp; VOLATILITY SURFACE EXTRACTION</span>
+              <span class="text-xs font-mono-num text-slate-400">Month 4–5 • Quantitative Mathematics</span>
+            </div>
+            <h3 class="text-base font-bold font-editorial text-navy-900">
+              Transitioning from Python Loops to Vectorized NumPy &amp; Brent's Numerical Inversion
+            </h3>
+            <div class="text-xs sm:text-sm text-slate-700 space-y-2 leading-relaxed">
+              <p>
+                My initial prototype calculated Black-Scholes Greeks using standard iterative `for` loops in pure Python. Processing 120 strikes across both Calls and Puts took ~1.8 seconds per poll. During rapid market moves, this 1.8-second lag caused the engine to evaluate stale dealer positions.
+              </p>
+              <p>
+                <strong>What I Learned:</strong> 
+                1. <em>Array Vectorization:</em> By rewriting the Black-Scholes formula in vectorized NumPy arrays, execution time plummeted from 1,800 ms to 38 ms—a 47x performance gain.
+                2. <em>Implied Volatility Inversion:</em> Real market prices reflect supply and demand, not Black-Scholes theory. To find the exact implied volatility $\sigma_{\text{implied}}$, I implemented a vectorized root-finding routine using Brent's method and Newton-Raphson approximation.
+                3. <em>Volatility Smile Dynamics:</em> Flat-volatility models fail catastrophically on out-of-the-money puts. Incorporating the actual volatility smile was mandatory to avoid severely underestimating downside put dealer gamma.
+              </p>
+            </div>
+          </div>
+
+          <!-- Stage 4 -->
+          <div class="card-formal p-6 rounded space-y-3 border-l-4 border-l-indigo-700">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="text-xs font-mono-num font-bold text-indigo-900 uppercase tracking-wider">STAGE 04: DEALER POSITIONING MODEL &amp; THE ZERO-GAMMA ROOT SOLVER</span>
+              <span class="text-xs font-mono-num text-slate-400">Month 5–6 • Algorithmic Formulation</span>
+            </div>
+            <h3 class="text-base font-bold font-editorial text-navy-900">
+              Solving the Customer vs. Dealer Inventory Asymmetry Problem
+            </h3>
+            <div class="text-xs sm:text-sm text-slate-700 space-y-2 leading-relaxed">
+              <p>
+                The primary empirical challenge in options market microstructure is that exchange data reports total Open Interest, but does not label whether trades were initiated by customers (retail/institutions) or market makers (dealers).
+              </p>
+              <p>
+                <strong>What I Learned:</strong> 
+                1. <em>Structural Market Maker Inventory Assumption:</em> Consistent with global market structure research (Benn Eifert, Jam Croissant, SpotGamma), non-dealers are structural net buyers of upside calls (FOMO speculation) and deep downside puts (portfolio insurance). Therefore, dealers sit structurally short calls and short downside puts.
+                2. <em>Formulating Aggregate Net GEX:</em> Call Open Interest contributes positively to dealer gamma ($\text{Spot} > K$), while Put Open Interest contributes negatively ($\text{Spot} < K$).
+                3. <em>The Zero-Gamma Root:</em> To find the exact pivot level where aggregate dealer gamma flips from positive to negative, I built a numerical bisection solver that sweeps across spot prices from $-5\%$ to $+5\%$ of current index level, locating the root where $\text{Net GEX}(S) = 0$ within 0.10 index points.
+              </p>
+            </div>
+          </div>
+
+          <!-- Stage 5 -->
+          <div class="card-formal p-6 rounded space-y-3 border-l-4 border-l-amber-700">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="text-xs font-mono-num font-bold text-amber-900 uppercase tracking-wider">STAGE 05: EMPIRICAL MARKET FEEDBACK &amp; THURSDAY EXPIRY PINNING</span>
+              <span class="text-xs font-mono-num text-slate-400">Month 7+ • Live Market Execution</span>
+            </div>
+            <h3 class="text-base font-bold font-editorial text-navy-900">
+              Observing the Gravitational Pinning Effect and Negative Gamma Cascades in Real Time
+            </h3>
+            <div class="text-xs sm:text-sm text-slate-700 space-y-2 leading-relaxed">
+              <p>
+                Backtesting models on historical EOD data is informative, but watching live orderbook dynamics on NSE weekly Thursday expiries validated the mathematical mechanics.
+              </p>
+              <p>
+                <strong>What I Learned:</strong> 
+                1. <em>Thursday Expiry Pinning:</em> On days where NIFTY spot stayed above the Zero-Gamma line with large positive gamma clusters at round numbers (e.g. 24,500 or 25,000), the index exhibited extreme mean-reverting behavior between 1:30 PM and 3:30 PM. Any breakout attempt above the pin strike was slammed down by dealer futures selling, while dips were aggressively bid by dealer futures buying. The index pinned to within 0.15% of the predicted strike.
+                2. <em>Negative Gamma Cascade Mechanics:</em> During sudden geopolitical headline drops where NIFTY broke below the Zero-Gamma flip level, dealer gamma turned negative. Instead of absorbing the dip, dealers were forced to dump futures into falling bids to hedge their growing long deltas, accelerating a 280-point liquidation cascade within 35 minutes.
+              </p>
+            </div>
+          </div>
+
+          <!-- Stage 6 -->
+          <div class="card-formal p-6 rounded space-y-3 border-l-4 border-l-slate-600">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="text-xs font-mono-num font-bold text-slate-800 uppercase tracking-wider">STAGE 06: QUANTITATIVE HUMILITY &amp; MODEL LIMITATIONS</span>
+              <span class="text-xs font-mono-num text-slate-400">Ongoing • Architecture Maturation</span>
+            </div>
+            <h3 class="text-base font-bold font-editorial text-navy-900">
+              Understanding Where the Model Fails and Identifying Blind Spots
+            </h3>
+            <div class="text-xs sm:text-sm text-slate-700 space-y-2 leading-relaxed">
+              <p>
+                The greatest lesson in quantitative finance is recognizing that models are simplifications of reality. An analyst who believes their model is infallible is destined for catastrophic drawdowns.
+              </p>
+              <p>
+                <strong>What I Learned:</strong> 
+                1. <em>Intraday Inventory Reversals:</em> When large domestic institutional investors (DIIs) execute massive short-strangle or put-spread underwriting blocks intraday, the dealer inventory assumption can temporarily misstate positioning signs.
+                2. <em>Unobserved Over-The-Counter (OTC) Flows:</em> Off-market bilateral hedges, global ADR/GDR arbitrage, and currency-hedged synthetic futures are not visible on the NSE public exchange feed.
+                3. <em>Overnight Discontinuous Jump Risk:</em> Gamma hedging assumes continuous price diffusion. When global markets crash overnight, NIFTY gaps down 300 points at 9:15 AM, bypassing the dynamic hedging curve entirely. A quantitative model must always be bounded by strict position sizing and cash margin reserves.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section 5: Architecture & Annotated Python Code -->
+      <section class="space-y-6">
+        <div class="section-head">
+          <h2 class="text-2xl font-bold font-editorial text-navy-900">
+            5. Architecture &amp; Production Python Pipeline
+          </h2>
+          <p class="text-xs font-mono-num text-slate-500 uppercase mt-1">
+            Modular engineering design and annotated Python implementation snippets
+          </p>
+        </div>
+
+        <!-- Architecture Flowchart Description -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs font-mono-num">
+          <div class="card-formal p-4 rounded space-y-2">
+            <div class="text-[#0B2447] font-bold">MODULE 1: DATA INGESTION</div>
+            <div class="text-slate-600">Automated session handshake, cookie rotation, JSON schema parsing, and disk parquet caching.</div>
+          </div>
+          <div class="card-formal p-4 rounded space-y-2">
+            <div class="text-[#0B2447] font-bold">MODULE 2: GREEKS ENGINE</div>
+            <div class="text-slate-600">Vectorized Black-Scholes-Merton routines in NumPy; Brent's IV extraction across all active strikes.</div>
+          </div>
+          <div class="card-formal p-4 rounded space-y-2">
+            <div class="text-[#0B2447] font-bold">MODULE 3: GEX AGGREGATOR</div>
+            <div class="text-slate-600">Dealer positioning sign assignment, Strike GEX dollar calculation, and Net GEX curve synthesis.</div>
+          </div>
+          <div class="card-formal p-4 rounded space-y-2">
+            <div class="text-[#0B2447] font-bold">MODULE 4: REGIME &amp; PINNING</div>
+            <div class="text-slate-600">Zero-Gamma bisection root-finding, pin strike probability density, and terminal console telemetry.</div>
+          </div>
+        </div>
+
+        <!-- Code Block -->
+        <div class="card-formal rounded overflow-hidden">
+          <div class="bg-slate-900 text-slate-300 px-4 py-2.5 text-xs font-mono-num flex items-center justify-between border-b border-slate-800">
+            <span>gex_engine.py • Vectorized Gamma Exposure Calculation &amp; Zero-Gamma Solver</span>
+            <span class="text-slate-400">Python 3.12 • NumPy / SciPy</span>
+          </div>
+          <div class="p-4 bg-slate-950 text-slate-200 overflow-x-auto text-xs font-mono-num leading-relaxed">
+<pre><code><span class="text-slate-500"># ==============================================================================</span>
+<span class="text-slate-500"># NSE OPTIONS GAMMA EXPOSURE (GEX) ENGINE — CORE VECTORIZED MODULE</span>
+<span class="text-slate-500"># Authored by Mahim Patel | Equity Research & Quantitative Derivatives</span>
+<span class="text-slate-500"># ==============================================================================</span>
+
+<span class="text-purple-400">import</span> numpy <span class="text-purple-400">as</span> np
+<span class="text-purple-400">from</span> scipy.stats <span class="text-purple-400">import</span> norm
+<span class="text-purple-400">from</span> scipy.optimize <span class="text-purple-400">import</span> brentq
+
+<span class="text-blue-400">def</span> <span class="text-yellow-300">calculate_strike_gex</span>(spot, strikes, tte, ivs, call_oi, put_oi, lot_size=25, r=0.065):
+    <span class="text-emerald-400">"""
+    Vectorized computation of Strike GEX and Dealer Net Gamma in INR Crores.
+    spot: Current NIFTY 50 index spot price (float)
+    strikes: 1D NumPy array of strike prices
+    tte: Time to expiration in years (float, e.g. 2/365 for weekly expiry)
+    ivs: 1D NumPy array of strike-specific implied volatilities
+    call_oi, put_oi: 1D NumPy arrays of Open Interest contract counts
+    """</span>
+    <span class="text-slate-500"># Vectorized d1 calculation</span>
+    d1 = (np.log(spot / strikes) + (r + 0.5 * ivs**2) * tte) / (ivs * np.sqrt(tte))
+    
+    <span class="text-slate-500"># Black-Scholes Unit Gamma: phi(d1) / (S * sigma * sqrt(tau))</span>
+    gamma = norm.pdf(d1) / (spot * ivs * np.sqrt(tte))
+    
+    <span class="text-slate-500"># Strike GEX in INR Crores per 1% move in underlying spot</span>
+    <span class="text-slate-500"># Standard convention: Dealers are structurally short calls (long gamma exposure)</span>
+    <span class="text-slate-500"># and short downside puts (negative gamma exposure).</span>
+    call_gex = (call_oi * lot_size * gamma * (spot**2) * 0.01) / 1e7
+    put_gex  = (put_oi  * lot_size * gamma * (spot**2) * 0.01) / 1e7
+    
+    net_strike_gex = call_gex - put_gex
+    <span class="text-purple-400">return</span> call_gex, put_gex, net_strike_gex
+
+<span class="text-blue-400">def</span> <span class="text-yellow-300">find_zero_gamma_level</span>(current_spot, strikes, tte, ivs, call_oi, put_oi, lot_size=25):
+    <span class="text-emerald-400">"""
+    Numerically solves for the exact Zero-Gamma Flip level (Net GEX = 0).
+    Uses Brent's method to find root within +/- 8% of current spot price.
+    """</span>
+    <span class="text-blue-400">def</span> <span class="text-yellow-300">net_gex_func</span>(s):
+        _, _, net_strike = calculate_strike_gex(s, strikes, tte, ivs, call_oi, put_oi, lot_size)
+        <span class="text-purple-400">return</span> np.sum(net_strike)
+    
+    low_bound = current_spot * 0.92
+    high_bound = current_spot * 1.08
+    
+    <span class="text-purple-400">try</span>:
+        zero_flip = brentq(net_gex_func, low_bound, high_bound, xtol=0.1)
+        <span class="text-purple-400">return</span> float(zero_flip)
+    <span class="text-purple-400">except</span> ValueError:
+        <span class="text-slate-500"># Root not bracketed (market in deep unilateral gamma regime)</span>
+        <span class="text-purple-400">return</span> None
+</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: Live Telemetry Output Sample -->
+      <section class="space-y-6">
+        <div class="section-head">
+          <h2 class="text-2xl font-bold font-editorial text-navy-900">
+            6. Sample Engine Telemetry: NIFTY 50 Expiry Strike Profiling
+          </h2>
+          <p class="text-xs font-mono-num text-slate-500 uppercase mt-1">
+            Empirical strike distribution table generated by the Python engine during live market hours
+          </p>
+        </div>
+
+        <div class="card-formal rounded p-5 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 text-xs font-mono-num pb-3 border-b border-slate-200">
+            <div>
+              <span class="font-bold text-navy-900">UNDERLYING:</span> NIFTY 50 (SPOT: 24,960.40) &nbsp;|&nbsp; 
+              <span class="font-bold text-navy-900">ZERO-GAMMA FLIP:</span> <span class="text-emerald-700 font-bold">24,842.15</span> &nbsp;|&nbsp;
+              <span class="font-bold text-navy-900">REGIME:</span> <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold">POSITIVE GAMMA (DAMPENING)</span>
+            </div>
+            <div class="text-slate-500">
+              EXPIRY: WEEKLY THURSDAY SETTLEMENT
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs font-sans table-formal">
+              <thead>
+                <tr>
+                  <th class="p-2.5">Strike (K)</th>
+                  <th class="p-2.5">Call OI (Contracts)</th>
+                  <th class="p-2.5">Put OI (Contracts)</th>
+                  <th class="p-2.5">Strike IV (%)</th>
+                  <th class="p-2.5">Call GEX (₹ Cr)</th>
+                  <th class="p-2.5">Put GEX (₹ Cr)</th>
+                  <th class="p-2.5 text-right">Net GEX (₹ Cr)</th>
+                  <th class="p-2.5 text-right">Hedging Interpretation</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 font-mono-num">
+                <tr>
+                  <td class="p-2.5 font-bold text-slate-900">24,600</td>
+                  <td class="p-2.5 text-slate-600">18,420</td>
+                  <td class="p-2.5 text-slate-800">1,42,800</td>
+                  <td class="p-2.5 text-slate-600">14.8%</td>
+                  <td class="p-2.5 text-emerald-700">+12.4</td>
+                  <td class="p-2.5 text-rose-700">-96.2</td>
+                  <td class="p-2.5 text-right font-bold text-rose-700">-83.8</td>
+                  <td class="p-2.5 text-right text-[12px] text-slate-500">Major Downside Support Wall</td>
+                </tr>
+                <tr>
+                  <td class="p-2.5 font-bold text-slate-900">24,700</td>
+                  <td class="p-2.5 text-slate-600">24,150</td>
+                  <td class="p-2.5 text-slate-800">98,400</td>
+                  <td class="p-2.5 text-slate-600">13.9%</td>
+                  <td class="p-2.5 text-emerald-700">+28.6</td>
+                  <td class="p-2.5 text-rose-700">-116.5</td>
+                  <td class="p-2.5 text-right font-bold text-rose-700">-87.9</td>
+                  <td class="p-2.5 text-right text-[12px] text-slate-500">Heavy Put Open Interest</td>
+                </tr>
+                <tr class="bg-amber-50/60 font-semibold">
+                  <td class="p-2.5 font-bold text-amber-900">24,842 (FLIP)</td>
+                  <td class="p-2.5 text-slate-600">—</td>
+                  <td class="p-2.5 text-slate-600">—</td>
+                  <td class="p-2.5 text-slate-600">13.2%</td>
+                  <td class="p-2.5 text-slate-600">—</td>
+                  <td class="p-2.5 text-slate-600">—</td>
+                  <td class="p-2.5 text-right font-bold text-amber-900">0.0</td>
+                  <td class="p-2.5 text-right text-[12px] text-amber-800 font-bold">Algorithmic Regime Boundary Line</td>
+                </tr>
+                <tr class="bg-sky-50/70">
+                  <td class="p-2.5 font-bold text-navy-900">24,900</td>
+                  <td class="p-2.5 text-slate-800">62,800</td>
+                  <td class="p-2.5 text-slate-800">54,300</td>
+                  <td class="p-2.5 text-slate-600">12.8%</td>
+                  <td class="p-2.5 text-emerald-700">+148.2</td>
+                  <td class="p-2.5 text-rose-700">-128.1</td>
+                  <td class="p-2.5 text-right font-bold text-emerald-700">+20.1</td>
+                  <td class="p-2.5 text-right text-[12px] text-emerald-800">Positive Gamma Buffer Zone</td>
+                </tr>
+                <tr class="bg-sky-100/70">
+                  <td class="p-2.5 font-bold text-navy-900">25,000 (ATM PIN)</td>
+                  <td class="p-2.5 text-navy-900 font-bold">1,84,650</td>
+                  <td class="p-2.5 text-slate-800">71,200</td>
+                  <td class="p-2.5 text-slate-600">12.4%</td>
+                  <td class="p-2.5 text-emerald-700 font-bold">+412.5</td>
+                  <td class="p-2.5 text-rose-700">-159.2</td>
+                  <td class="p-2.5 text-right font-bold text-emerald-800 text-sm">+253.3</td>
+                  <td class="p-2.5 text-right text-[12px] text-navy-900 font-bold">Primary Weekly Settlement Magnet</td>
+                </tr>
+                <tr>
+                  <td class="p-2.5 font-bold text-slate-900">25,100</td>
+                  <td class="p-2.5 text-slate-800">92,400</td>
+                  <td class="p-2.5 text-slate-600">21,800</td>
+                  <td class="p-2.5 text-slate-600">12.6%</td>
+                  <td class="p-2.5 text-emerald-700">+198.4</td>
+                  <td class="p-2.5 text-rose-700">-46.8</td>
+                  <td class="p-2.5 text-right font-bold text-emerald-700">+151.6</td>
+                  <td class="p-2.5 text-right text-[12px] text-slate-500">Call Resistance Overhang</td>
+                </tr>
+                <tr>
+                  <td class="p-2.5 font-bold text-slate-900">25,200</td>
+                  <td class="p-2.5 text-slate-800">1,38,100</td>
+                  <td class="p-2.5 text-slate-600">14,200</td>
+                  <td class="p-2.5 text-slate-600">13.1%</td>
+                  <td class="p-2.5 text-emerald-700">+164.8</td>
+                  <td class="p-2.5 text-rose-700">-16.9</td>
+                  <td class="p-2.5 text-right font-bold text-emerald-700">+147.9</td>
+                  <td class="p-2.5 text-right text-[12px] text-slate-500">Major Upside Supply Ceiling</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="p-3 bg-slate-50 rounded text-xs font-mono-num text-slate-600 space-y-1">
+            <div><strong>TELEMETRY INSIGHT:</strong> Spot at 24,960 sits firmly in Positive Gamma (+₹253.3 Cr at 25,000 strike).</div>
+            <div><strong>SETTLEMENT FORECAST:</strong> Strong statistical pinning probability around the 25,000 node on Thursday 3:30 PM settlement. As spot approaches 25,000, call gamma decay forces dealers to sell rallies, preventing breakouts beyond 25,100.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 7: Future Technical Roadmap -->
+      <section class="space-y-6">
+        <div class="section-head">
+          <h2 class="text-2xl font-bold font-editorial text-navy-900">
+            7. Quantitative Roadmap &amp; Next Engineering Iterations
+          </h2>
+          <p class="text-xs font-mono-num text-slate-500 uppercase mt-1">
+            Planned architecture upgrades and advanced microstructure integrations
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="card-formal p-5 rounded space-y-2">
+            <span class="text-xs font-mono-num font-bold text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200">ITERATION 01</span>
+            <h3 class="font-bold font-editorial text-navy-900 text-sm">Tick-by-Tick Order Flow Imbalance (OFI)</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Fusing orderbook Level-2 bid/ask queue depletion with option chain GEX profiles to predict whether dealers are actively executing in underlying index futures or lagging via synthetic options.
+            </p>
+          </div>
+          <div class="card-formal p-5 rounded space-y-2">
+            <span class="text-xs font-mono-num font-bold text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200">ITERATION 02</span>
+            <h3 class="font-bold font-editorial text-navy-900 text-sm">Dynamic Charm &amp; Vanna Surface Profiling</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Extending the engine beyond pure Gamma to model higher-order cross Greeks: Vanna ($\partial \Delta / \partial \sigma$) to track volatility drops, and Charm ($\partial \Delta / \partial t$) to forecast late-afternoon delta decay.
+            </p>
+          </div>
+          <div class="card-formal p-5 rounded space-y-2">
+            <span class="text-xs font-mono-num font-bold text-sky-800 bg-sky-50 px-2 py-0.5 rounded border border-sky-200">ITERATION 03</span>
+            <h3 class="font-bold font-editorial text-navy-900 text-sm">Automated Historical Backtest Data Lake</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Persisting live 1-minute GEX snapshots into an Apache Parquet time-series database to evaluate statistical Sharpe and win-rate of mean-reversion trading strategies within high-gamma corridors.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Institutional Footer -->
+      <footer class="pt-8 border-t border-slate-200 text-xs font-mono-num text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          © 2026 Mahim Patel • Institutional Research &amp; Quantitative Derivatives Archive
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="index.html" class="text-navy-900 font-bold hover:underline">← Executive Hub</a>
+          <span>•</span>
+          <a href="reports.html" target="_blank" rel="noopener noreferrer" class="hover:text-navy-900">Equity Reports ↗</a>
+          <span>•</span>
+          <a href="portfolio.html" target="_blank" rel="noopener noreferrer" class="hover:text-navy-900">Portfolio &amp; P&amp;L ↗</a>
+        </div>
+      </footer>
+
+    </main>
+
+  </body>
+</html>

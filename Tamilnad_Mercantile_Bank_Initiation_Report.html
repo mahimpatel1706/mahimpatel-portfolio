@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tamilnad Mercantile Bank Ltd (TMB) — Institutional Equity Research Initiation</title>
+
+<!-- KaTeX LaTeX Math Typesetting Engine (Local + CDN Fallback) -->
+<link rel="stylesheet" href="vendor/katex/katex.min.css" onerror="this.onerror=null;this.href='https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css';" />
+<script defer src="vendor/katex/katex.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js';"></script>
+<script defer src="vendor/katex/auto-render.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js';" onload="window.renderKaTeX && window.renderKaTeX();"></script>
+<script>
+  function renderKaTeX() {
+    if (typeof renderMathInElement === 'function') {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '\\[', right: '\\]', display: true },
+          { left: '$', right: '$', display: false },
+          { left: '\\(', right: '\\)', display: false }
+        ],
+        ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        throwOnError: false
+      });
+    }
+  }
+  window.renderKaTeX = renderKaTeX;
+  document.addEventListener('DOMContentLoaded', renderKaTeX);
+  window.addEventListener('load', renderKaTeX);
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap');
+
+  @page {
+    size: A4 portrait;
+    margin: 12mm 14mm 14mm 14mm;
+    @bottom-right {
+      content: counter(page);
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1e293b;
+    background: #ffffff;
+    font-size: 8.5pt;
+    line-height: 1.45;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Merriweather', Georgia, serif;
+    color: #0f2b48;
+    margin-top: 0;
+    line-height: 1.25;
+  }
+
+  .page {
+    page-break-after: always;
+    break-after: page;
+    clear: both;
+    position: relative;
+    padding-bottom: 5mm;
+  }
+
+  .page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  .running-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid #0f2b48;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+    font-size: 6.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #475569;
+  }
+
+  .running-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #cbd5e1;
+    padding-top: 4px;
+    font-size: 6.5pt;
+    color: #64748b;
+  }
+
+  /* Two Column Split */
+  .two-col {
+    display: flex;
+    gap: 14px;
+  }
+
+  .col-main {
+    flex: 1.75;
+  }
+
+  .col-side {
+    flex: 1;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 8pt;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 6px 0 10px 0;
+    font-size: 7.5pt;
+  }
+
+  th {
+    background: #0f2b48;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: left;
+    padding: 4px 6px;
+    border: 1px solid #0f2b48;
+  }
+
+  th.num, td.num {
+    text-align: right;
+  }
+
+  td {
+    padding: 3.5px 6px;
+    border: 1px solid #e2e8f0;
+  }
+
+  tr:nth-child(even) {
+    background: #f8fafc;
+  }
+
+  tr.highlight {
+    background: #eff6ff;
+    font-weight: 700;
+  }
+
+  /* Badges & Callout Boxes */
+  .rating-box {
+    background: #0f2b48;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .badge-buy {
+    display: inline-block;
+    background: #10b981;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 11pt;
+    padding: 2px 14px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .callout {
+    background: #f1f5f9;
+    border-left: 3px solid #0f2b48;
+    padding: 8px 10px;
+    margin: 8px 0;
+    font-size: 8pt;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .callout-gold {
+    background: #fffbeb;
+    border-left: 3px solid #d97706;
+    padding: 8px 10px;
+    margin: 8px 0;
+    font-size: 8pt;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .callout-success {
+    background: #ecfdf5;
+    border-left: 3px solid #10b981;
+    padding: 8px 10px;
+    margin: 8px 0;
+    font-size: 8pt;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .no-break {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .section-title {
+    font-size: 11pt;
+    font-weight: 700;
+    border-bottom: 1.5px solid #0f2b48;
+    padding-bottom: 2px;
+    margin-top: 10px;
+    margin-bottom: 6px;
+    color: #0f2b48;
+  }
+
+  .sub-title {
+    font-size: 9pt;
+    font-weight: 700;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    color: #1e3a8a;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+  }
+
+  .stat-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 6px 8px;
+    text-align: center;
+  }
+
+  .stat-card .val {
+    font-size: 11pt;
+    font-weight: 800;
+    color: #0f2b48;
+  }
+
+  .stat-card .lbl {
+    font-size: 6.5pt;
+    color: #64748b;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .analyst-header {
+    background: #0f2b48;
+    color: #ffffff;
+    padding: 6px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================== -->
+<!-- PAGE 1: INSTITUTIONAL TEAR SHEET & COVER SUMMARY -->
+<!-- ============================================================== -->
+<div class="page">
+  <div class="analyst-header">
+    <div>
+      <span style="font-size: 11pt; font-weight: 800; letter-spacing: 0.5px;">INSTITUTIONAL EQUITY RESEARCH</span>
+      <span style="font-size: 7.5pt; opacity: 0.85; margin-left: 8px;">| FINANCIAL SERVICES / BANKING</span>
+    </div>
+    <div style="font-size: 7.5pt; text-align: right;">
+      <span>INITIATION REPORT | OCTOBER 2026</span>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <!-- LEFT MAIN COLUMN (65%) -->
+    <div class="col-main">
+      <div style="margin-bottom: 6px;">
+        <h1 style="font-size: 16pt; margin: 0 0 2px 0; color: #0f2b48;">Tamilnad Mercantile Bank Ltd</h1>
+        <p style="font-size: 8.5pt; font-weight: 600; color: #475569; margin: 0 0 6px 0;">NSE: TMB | BSE: 543596 | BLOOMBERG: TMB:IN | REUTERS: TMBK.BO</p>
+        <p style="font-size: 10pt; font-family: 'Merriweather', Georgia, serif; font-weight: 700; color: #1e3a8a; margin: 0 0 8px 0; line-height: 1.3;">
+          The Asset Quality Paradox: A Fortress Balance Sheet Hidden Behind Legacy Community Overhang
+        </p>
+      </div>
+
+      <div class="callout-success">
+        <strong>EXECUTIVE RECOMMENDATION: BUY (HIGH CONVICTION)</strong><br>
+        We initiate coverage on Tamilnad Mercantile Bank Ltd (TMB) with a 12-month Target Price of <strong>₹1,140.00</strong>, offering <strong>+30.7% upside</strong> from CMP of ₹872.05. TMB represents a rare, asymmetric mispricing: a Schedule-II commercial bank with an ultra-clean <strong>Gross NPA of 0.69%</strong>, <strong>CRAR of 32.33%</strong>, and <strong>RoA of 2.14%</strong>, yet trading at an unwarranted 35% valuation discount (1.35x FY26 P/B vs 2.11x for Karur Vysya Bank) due to legacy memories of its historical promoter dispute.
+      </div>
+
+      <div class="section-title">Investment Thesis: Non-Obvious Sell-Side Pillars</div>
+      
+      <p style="margin: 4px 0;">
+        <strong>1. Pristine Credit Quality Creates Valuation Disconnect:</strong> With Gross NPA at a decade-low <strong>0.73% in FY26 (0.69% in Q1 FY27)</strong>, Net NPA at <strong>0.17%</strong>, and Provision Coverage Ratio (PCR) at <strong>96.04%</strong>, TMB is cleaner than any small-to-midcap peer (vs KVB at 1.40% and CUB at 3.80%). The market discounts TMB as an opaque community lender, creating a mispricing opportunity for institutional capital.
+      </p>
+
+      <p style="margin: 4px 0;">
+        <strong>2. Gold Loan Fortress (₹24,790 Cr, 46.4% of Advances) with 53% LTV:</strong> Rather than a concentration risk, TMB's gold loan portfolio operates with conservative underwriting at an average Loan-to-Value (LTV) of <strong>~53%</strong> (vs RBI 75% cap). Our proprietary stress-test indicates that even in a severe <strong>20% gold price crash</strong>, portfolio LTV rises to only 66.25%, generating zero incremental credit losses while yielding >9.8% asset spreads.
+      </p>
+
+      <p style="margin: 4px 0;">
+        <strong>3. Granular RAM Advance Architecture (94.7%):</strong> Corporate credit is capped at just 5.34% and unsecured retail is negligible at 0.10%. Embedded in high-velocity export/manufacturing clusters in Tamil Nadu (Coimbatore engineering, Tirupur textiles, Sivakasi printing, Tuticorin port), TMB captures sticky merchant deposits and self-liquidating trade credit.
+      </p>
+
+      <p style="margin: 4px 0;">
+        <strong>4. Institutional Leadership Under Ex-SBI Chief Credit Officer:</strong> MD & CEO <strong>Salee Sukumaran Nair</strong> has instituted centralized credit processing centers (CPCs) and risk architecture, driving <strong>+32.0% YoY surge in NII</strong> and crossing the landmark ₹400 Cr+ quarterly net profit threshold in Q1 FY27 (₹411.5 Cr, +35.0% YoY).
+      </p>
+
+      <div class="section-title">Key Catalysts & Investment Risks</div>
+      <div style="font-size: 7.5pt;">
+        <strong>Catalysts (12M):</strong> (1) Consecutive quarters of ₹400 Cr+ PAT forcing sell-side consensus upgrades; (2) Inclusion in Nifty Bank / MSCI SmallCap indices; (3) Operating leverage from 44 newly added branches.<br>
+        <strong>Key Risks:</strong> (1) Single-state regional exposure (72% branches in TN); (2) Unforeseen legal headlines regarding individual legacy share transfers; (3) High competition for retail deposits.
+      </div>
+    </div>
+
+    <!-- RIGHT SIDEBAR TEAR SHEET (35%) -->
+    <div class="col-side">
+      <div class="rating-box">
+        <div style="font-size: 8pt; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.9;">INSTITUTIONAL RATING</div>
+        <div style="margin: 4px 0;"><span class="badge-buy">BUY</span></div>
+        <div style="font-size: 8.5pt; margin-top: 4px;">12M Target Price: <strong style="font-size: 11pt; color: #a7f3d0;">₹1,140.00</strong></div>
+        <div style="font-size: 7.5pt; opacity: 0.9;">Current Price: ₹872.05 | <strong>Upside: +30.7%</strong></div>
+      </div>
+
+      <div style="font-weight: 700; font-size: 8pt; margin-bottom: 4px; color: #0f2b48; border-bottom: 1px solid #cbd5e1; padding-bottom: 2px;">
+        MARKET DATA & METRICS
+      </div>
+      <table style="margin: 0 0 8px 0; font-size: 7.5pt;">
+        <tr><td>Market Cap (₹ Cr)</td><td class="num"><strong>13,809</strong> (~USD 1.65B)</td></tr>
+        <tr><td>52-Week High / Low (₹)</td><td class="num">954.20 / 420.00</td></tr>
+        <tr><td>Shares Outstanding (Cr)</td><td class="num">15.84 (158.4M)</td></tr>
+        <tr><td>Free Float / Promoter</td><td class="num"><strong>100% / 0.00%</strong></td></tr>
+        <tr><td>Avg Daily Vol (3M, '000)</td><td class="num">485.2 shares</td></tr>
+        <tr><td>Dividend Yield (FY26)</td><td class="num"><strong>1.43%</strong> (₹12.50/sh)</td></tr>
+        <tr><td>CRAR / Tier-1 Ratio</td><td class="num"><strong>32.33% / 30.8%</strong></td></tr>
+      </table>
+
+      <div style="font-weight: 700; font-size: 8pt; margin-bottom: 4px; color: #0f2b48; border-bottom: 1px solid #cbd5e1; padding-bottom: 2px;">
+        FINANCIAL SUMMARY (₹ Cr)
+      </div>
+      <table style="margin: 0 0 8px 0; font-size: 7pt;">
+        <thead>
+          <tr>
+            <th>Y/E Mar</th>
+            <th class="num">FY25A</th>
+            <th class="num">FY26A</th>
+            <th class="num">FY27E</th>
+            <th class="num">FY28E</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>NII</td><td class="num">2,301</td><td class="num">2,527</td><td class="num">3,085</td><td class="num">3,640</td></tr>
+          <tr><td>PPOP</td><td class="num">1,642</td><td class="num">1,854</td><td class="num">2,280</td><td class="num">2,710</td></tr>
+          <tr><td>PAT</td><td class="num">1,183</td><td class="num">1,338</td><td class="num">1,650</td><td class="num">1,960</td></tr>
+          <tr><td>EPS (₹)</td><td class="num">74.7</td><td class="num">84.5</td><td class="num">104.2</td><td class="num">123.8</td></tr>
+          <tr><td>BVPS (₹)</td><td class="num">559</td><td class="num">638</td><td class="num">728</td><td class="num">835</td></tr>
+          <tr class="highlight"><td>RoA (%)</td><td class="num">1.93</td><td class="num">1.93</td><td class="num">2.04</td><td class="num">2.05</td></tr>
+          <tr class="highlight"><td>RoE (%)</td><td class="num">14.2</td><td class="num">14.1</td><td class="num">15.2</td><td class="num">15.8</td></tr>
+          <tr><td>P/E (x)</td><td class="num">11.7x</td><td class="num">10.3x</td><td class="num">8.4x</td><td class="num">7.0x</td></tr>
+          <tr><td>P/B (x)</td><td class="num">1.56x</td><td class="num">1.37x</td><td class="num">1.20x</td><td class="num">1.04x</td></tr>
+        </tbody>
+      </table>
+
+      <div style="font-weight: 700; font-size: 8pt; margin-bottom: 2px; color: #0f2b48; border-bottom: 1px solid #cbd5e1; padding-bottom: 2px;">
+        VALUATION GAP VS PEERS
+      </div>
+      <div style="font-size: 7pt; line-height: 1.4; color: #475569; margin-top: 4px;">
+        • <strong>TMB:</strong> 1.35x P/B | RoA: 2.14% | GNPA: 0.69%<br>
+        • <strong>KVB:</strong> 2.11x P/B | RoA: 1.75% | GNPA: 1.40%<br>
+        • <strong>CUB:</strong> 1.99x P/B | RoA: 1.50% | GNPA: 3.80%<br>
+        <span style="color: #047857; font-weight: 700;">Conclusion: TMB delivers highest RoA with lowest risk, yet trades at a 35% discount!</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="running-footer">
+    <span>TMB | INITIATION OF COVERAGE | OCTOBER 2026</span>
+    <span>CONFIDENTIAL – FOR RECRUITER & INSTITUTIONAL REVIEW | LEAD ANALYST: MAHIM</span>
+    <span>Page 1</span>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- PAGE 2: BUSINESS MODEL & LOAN PORTFOLIO ARCHITECTURE -->
+<!-- ============================================================== -->
+<div class="page">
+  <div class="running-header">
+    <span>TAMILNAD MERCANTILE BANK LTD (NSE: TMB) | EQUITY RESEARCH</span>
+    <span>PAGE 2</span>
+  </div>
+
+  <div class="section-title">1. Company Background & Franchise Architecture</div>
+  
+  <p>
+    Founded in May 1921 as "Nadar Bank Limited" in Tuticorin (Thoothukudi), Tamil Nadu, TMB was conceived to serve the mercantile needs of the entrepreneurial Nadar trading community who faced credit rationing from large colonial banks. In November 1962, it was renamed Tamilnad Mercantile Bank Ltd to broaden its commercial identity. Today, TMB is a Schedule-II commercial bank with <strong>622 branches</strong>, 1,180+ ATMs/CRMs across 17 states and 4 union territories.
+  </p>
+
+  <div class="grid-2">
+    <div>
+      <div class="sub-title">1.1 Core Operating Verticals</div>
+      <p style="font-size: 8pt; margin: 2px 0;">
+        • <strong>MSME & Trade Finance (28.2%):</strong> Focused on cash credit, term loans, and bill discounting for textile, salt, printing, and engineering units in Tier-2/3 industrial hubs.<br>
+        • <strong>Gold & Jewel Loans (46.4%):</strong> Fully secured, short-tenure (6–12 months) retail and agricultural gold loans with an average LTV of 53%.<br>
+        • <strong>Agriculture & Allied (14.1%):</strong> Direct farmer credit, cold storage, dairy, and fisheries fulfilling Priority Sector Lending (PSL) requirements.<br>
+        • <strong>Retail & Corporate (11.3%):</strong> Granular housing and vehicle finance; corporate exposure strictly capped at 5.34%.
+      </p>
+
+      <div class="sub-title">1.2 Network Footprint & Granularity</div>
+      <p style="font-size: 8pt; margin: 2px 0;">
+        TMB added <strong>44 branches during FY26</strong> without external capital dilution. While ~72% of branches reside in Tamil Nadu, the bank has selectively expanded into high-credit-density commercial corridors in Maharashtra (Mumbai, Surat trade links), Gujarat, Andhra Pradesh, and Karnataka.
+      </p>
+    </div>
+
+    <div>
+      <div class="sub-title">1.3 Loan Portfolio Segmentation (FY26 Advances: ₹53,379 Cr)</div>
+      <!-- SVG Donut/Bar Chart -->
+      <svg width="100%" height="150" viewBox="0 0 320 150">
+        <rect width="320" height="150" fill="#f8fafc" rx="6" stroke="#e2e8f0"/>
+        <!-- Stacked Bar Representation -->
+        <text x="15" y="20" font-family="'Inter', sans-serif" font-size="8.5" font-weight="bold" fill="#0f2b48">Advances Distribution by Vertical (%)</text>
+        
+        <!-- Bar background -->
+        <rect x="15" y="32" width="290" height="24" rx="3" fill="#e2e8f0"/>
+        
+        <!-- Segments -->
+        <rect x="15" y="32" width="134.7" height="24" rx="3" fill="#f59e0b"/> <!-- Gold 46.4% -->
+        <rect x="149.7" y="32" width="81.8" height="24" fill="#3b82f6"/> <!-- MSME 28.2% -->
+        <rect x="231.5" y="32" width="40.9" height="24" fill="#10b981"/> <!-- Agri 14.1% -->
+        <rect x="272.4" y="32" width="17.1" height="24" fill="#8b5cf6"/> <!-- Retail 5.9% -->
+        <rect x="289.5" y="32" width="15.5" height="24" rx="3" fill="#64748b"/> <!-- Corp 5.3% -->
+        
+        <!-- Legend items -->
+        <circle cx="20" cy="72" r="4" fill="#f59e0b"/>
+        <text x="28" y="75" font-size="7" font-weight="600" fill="#1e293b">Gold Loans: 46.44% (₹24,790 Cr)</text>
+        
+        <circle cx="170" cy="72" r="4" fill="#3b82f6"/>
+        <text x="178" y="75" font-size="7" font-weight="600" fill="#1e293b">MSME Loans: 28.20% (₹15,053 Cr)</text>
+        
+        <circle cx="20" cy="92" r="4" fill="#10b981"/>
+        <text x="28" y="95" font-size="7" font-weight="600" fill="#1e293b">Agriculture: 14.12% (₹7,537 Cr)</text>
+        
+        <circle cx="170" cy="92" r="4" fill="#8b5cf6"/>
+        <text x="178" y="95" font-size="7" font-weight="600" fill="#1e293b">Retail & Housing: 5.90% (₹3,149 Cr)</text>
+        
+        <circle cx="20" cy="112" r="4" fill="#64748b"/>
+        <text x="28" y="115" font-size="7" font-weight="600" fill="#1e293b">Large Corporate: 5.34% (₹2,850 Cr)</text>
+
+        <rect x="15" y="125" width="290" height="18" fill="#eff6ff" rx="2"/>
+        <text x="20" y="137" font-size="6.5" font-weight="bold" fill="#1e40af">Total RAM Portfolio: 94.66% | Unsecured Advances: 0.10%</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="section-title">2. Resume Differentiator 1: The Promoter Puzzle Unpacked</div>
+  
+  <p>
+    TMB is one of India's only listed commercial banks with <strong>zero promoter shareholding (0.00%)</strong>. To understand why institutional investors historically applied a discount—and why that discount is now an opportunity—we must trace its legal history:
+  </p>
+
+  <div class="callout">
+    <strong>Chronology of the Ownership Dispute (1994–2022):</strong><br>
+    • <strong>1994 (Essar Takeover Attempt):</strong> Founding shareholders agreed to sell 67% equity to Essar Group. The Nadar community mobilized, forming the <em>Nadar Mahajana Bank Share Investors Forum</em> and pooling ₹130 Cr to buy back control.<br>
+    • <strong>2003–2007 (Foreign Consortium Intervention):</strong> NRI investor C. Sivasankaran bought the shares from Essar and subsequently sold to foreign investors (Ramesh Vangal, Katra Holdings, Standard Chartered Bank, FIH Mauritius).<br>
+    • <strong>RBI Regulatory Freeze:</strong> Under Section 12(2) of the Banking Regulation Act, 1949, RBI refused to acknowledge share transfers, ruling that the investor group was "acting in concert" to circumvent ownership caps. RBI froze voting rights on ~37.6% of the equity, triggering 15+ years of litigation in the Madras High Court and Supreme Court.<br>
+    • <strong>September 2022 (The Landmark IPO):</strong> SEBI and RBI permitted TMB to list under the status of a widely-held bank with no promoter group, raising ₹832 Cr. Legacy civil disputes regarding individual stamp duties were isolated from bank operations.
+  </div>
+
+  <table style="font-size: 7.5pt;">
+    <thead>
+      <tr>
+        <th>Governance Factor</th>
+        <th>Typical Promoter-Led Bank</th>
+        <th>Tamilnad Mercantile Bank (TMB)</th>
+        <th>Institutional Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Promoter Holding</strong></td>
+        <td>26% – 40% (Family/Group)</td>
+        <td><strong>0.00% (100% Publicly Held)</strong></td>
+        <td>No promoter family control over Board</td>
+      </tr>
+      <tr>
+        <td><strong>Related Party Risk</strong></td>
+        <td>High (Loans to promoter firms)</td>
+        <td><strong>Zero (No promoter conglomerate)</strong></td>
+        <td>Eliminates asset tunneling risk</td>
+      </tr>
+      <tr>
+        <td><strong>M&A Scarcity Value</strong></td>
+        <td>Promoter demands veto premium</td>
+        <td><strong>High (Open acquisition candidate)</strong></td>
+        <td>Unlocks acquisition optionality</td>
+      </tr>
+      <tr>
+        <td><strong>Valuation Multiple</strong></td>
+        <td>Trades at 2.0x – 2.5x P/B</td>
+        <td><strong>Trades at 1.35x P/B</strong></td>
+        <td><strong>Unwarranted 35% discount ready to unwind</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="running-footer">
+    <span>TMB | INITIATION OF COVERAGE | OCTOBER 2026</span>
+    <span>CONFIDENTIAL – FOR RECRUITER & INSTITUTIONAL REVIEW | LEAD ANALYST: MAHIM</span>
+    <span>Page 2</span>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- PAGE 3: RESUME DIFFERENTIATORS (GOLD STRESS TEST & REGIONAL MOAT) -->
+<!-- ============================================================== -->
+<div class="page">
+  <div class="running-header">
+    <span>TAMILNAD MERCANTILE BANK LTD (NSE: TMB) | EQUITY RESEARCH</span>
+    <span>PAGE 3</span>
+  </div>
+
+  <div class="section-title">3. Resume Differentiator 2: Gold Loan Portfolio Stress Test</div>
+
+  <p>
+    A recurring concern among sell-side analysts is TMB's high exposure to gold loans (₹24,790 Cr, 46.44% of advances). We conducted a proprietary macro stress-test simulating a severe <strong>20% collapse in gold spot prices</strong> to evaluate balance sheet vulnerability:
+  </p>
+
+  <div class="grid-2">
+    <div>
+      <div class="sub-title">Stress Simulation Parameters</div>
+      <p style="font-size: 7.5pt; margin: 2px 0;">
+        • <strong>Gold Advances Outstanding:</strong> ₹24,790 Crore.<br>
+        • <strong>Weighted Average LTV at Origination:</strong> <strong>53.0%</strong> (Internal policy ceiling is 70%; statutory RBI limit is 75%).<br>
+        • <strong>Implicit Collateral Value:</strong> ₹24,790 Cr / 0.53 = <strong>₹46,773 Crore</strong> of physical 22K gold jewelry stored in branch vaults.<br>
+        • <strong>Applied Stress Event:</strong> An immediate, sustained 20% decline in gold prices reduces collateral value to <strong>₹37,418 Crore</strong>.<br>
+        • <strong>Resultant Stress LTV:</strong> ₹24,790 Cr / ₹37,418 Cr = <strong>66.25%</strong>.
+      </p>
+    </div>
+
+    <div>
+      <div class="callout-gold" style="margin-top: 5px;">
+        <strong>ANALYST STRESS-TEST CONCLUSION: ZERO LOSSES</strong><br>
+        Even after an unprecedented 20% crash in physical gold prices, TMB's portfolio LTV rises to only <strong>66.25%</strong>, maintaining a <strong>33.75% equity cushion (₹12,628 Cr excess collateral)</strong>. Zero incremental provisions would be required. Gold loans remain a risk-free, high-yielding anchor asset.
+      </div>
+    </div>
+  </div>
+
+  <table style="font-size: 7.5pt; margin-top: 4px;">
+    <thead>
+      <tr>
+        <th>Gold Price Scenario</th>
+        <th class="num">Gold Price Shift</th>
+        <th class="num">Collateral Value (₹ Cr)</th>
+        <th class="num">Stress Portfolio LTV</th>
+        <th class="num">Collateral Buffer (₹ Cr)</th>
+        <th class="num">Est. Credit Loss</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Baseline (Actual)</td><td class="num">0.0%</td><td class="num">46,773</td><td class="num"><strong>53.00%</strong></td><td class="num">21,983 (47%)</td><td class="num">₹0 Cr</td></tr>
+      <tr><td>Moderate Correction</td><td class="num">-10.0%</td><td class="num">42,096</td><td class="num"><strong>58.89%</strong></td><td class="num">17,306 (41%)</td><td class="num">₹0 Cr</td></tr>
+      <tr class="highlight"><td>Severe Shock (Base Stress)</td><td class="num">-20.0%</td><td class="num">37,418</td><td class="num"><strong>66.25%</strong></td><td class="num">12,628 (34%)</td><td class="num">₹0 Cr</td></tr>
+      <tr><td>Catastrophic Crash</td><td class="num">-30.0%</td><td class="num">32,741</td><td class="num"><strong>75.72%</strong></td><td class="num">7,951 (24%)</td><td class="num">&lt; ₹15 Cr</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">4. Resume Differentiator 3: Tamil Nadu's Industrial Belt Moat vs CUB</div>
+  
+  <p>
+    Institutional investors frequently ask: <em>"Why buy TMB instead of City Union Bank (CUB)?"</em> The answer lies in economic geography and borrower credit dynamics:
+  </p>
+
+  <table style="font-size: 7.5pt;">
+    <thead>
+      <tr>
+        <th>Strategic Dimension</th>
+        <th>Tamilnad Mercantile Bank (TMB)</th>
+        <th>City Union Bank (CUB)</th>
+        <th>Strategic Implication</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Headquarters</strong></td>
+        <td>Thoothukudi (Tuticorin), Tamil Nadu</td>
+        <td>Kumbakonam, Tamil Nadu</td>
+        <td>TMB anchors port logistics; CUB anchors Kaveri delta</td>
+      </tr>
+      <tr>
+        <td><strong>Primary Regional Base</strong></td>
+        <td>Southern & Western Industrial Belt (Coimbatore, Tirupur, Sivakasi)</td>
+        <td>Central & Northern Agro-Belt (Thanjavur, Trichy delta)</td>
+        <td>TMB borrowers generate foreign exchange & high trade velocity</td>
+      </tr>
+      <tr>
+        <td><strong>Anchor Asset Class</strong></td>
+        <td><strong>Gold Loans (46.4%)</strong> + MSME (28.2%)</td>
+        <td>MSME Cash Credit Working Capital (65%+)</td>
+        <td>Gold collateral shields TMB during economic downturns</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>Gross NPA Ratio</strong></td>
+        <td><strong>0.69% (Q1 FY27) / 0.73% (FY26)</strong></td>
+        <td><strong>3.80% (FY26)</strong></td>
+        <td><strong>TMB's Gross NPA is one-fifth of CUB's!</strong></td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>Provision Coverage (PCR)</strong></td>
+        <td><strong>96.04%</strong></td>
+        <td><strong>72.00%</strong></td>
+        <td>TMB requires negligible future provisions</td>
+      </tr>
+      <tr>
+        <td><strong>Return on Assets (RoA)</strong></td>
+        <td><strong>2.14% (Q1 FY27)</strong></td>
+        <td><strong>1.50% (FY26)</strong></td>
+        <td>TMB delivers 64 bps superior balance-sheet profitability</td>
+      </tr>
+      <tr>
+        <td><strong>Capital Adequacy (CRAR)</strong></td>
+        <td><strong>32.33%</strong></td>
+        <td>22.40%</td>
+        <td>TMB can grow loans at 20% for 5 years without dilution</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>Valuation Multiple (P/B)</strong></td>
+        <td><strong>1.35x P/B</strong></td>
+        <td><strong>1.99x P/B</strong></td>
+        <td><strong>TMB trades at a 32% discount despite superior quality!</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="running-footer">
+    <span>TMB | INITIATION OF COVERAGE | OCTOBER 2026</span>
+    <span>CONFIDENTIAL – FOR RECRUITER & INSTITUTIONAL REVIEW | LEAD ANALYST: MAHIM</span>
+    <span>Page 3</span>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- PAGE 4: DETAILED FINANCIAL STATEMENTS (FY24A - FY28E) -->
+<!-- ============================================================== -->
+<div class="page">
+  <div class="running-header">
+    <span>TAMILNAD MERCANTILE BANK LTD (NSE: TMB) | EQUITY RESEARCH</span>
+    <span>PAGE 4</span>
+  </div>
+
+  <div class="section-title">5. Comprehensive Financial Statements & Projections (₹ Crore)</div>
+
+  <div class="sub-title">5.1 Income Statement Trajectory (FY24A – FY28E)</div>
+  <table style="font-size: 7pt;">
+    <thead>
+      <tr>
+        <th>Line Item (₹ Cr)</th>
+        <th class="num">FY24A</th>
+        <th class="num">FY25A</th>
+        <th class="num">FY26A</th>
+        <th class="num">FY27E</th>
+        <th class="num">FY28E</th>
+        <th class="num">CAGR (FY26-28E)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Interest Earned</td><td class="num">4,848.5</td><td class="num">5,432.1</td><td class="num">6,085.2</td><td class="num">7,240.0</td><td class="num">8,520.0</td><td class="num">18.3%</td></tr>
+      <tr><td>Interest Expended</td><td class="num">2,697.5</td><td class="num">3,131.2</td><td class="num">3,558.2</td><td class="num">4,155.0</td><td class="num">4,880.0</td><td class="num">17.1%</td></tr>
+      <tr class="highlight"><td><strong>Net Interest Income (NII)</strong></td><td class="num"><strong>2,151.0</strong></td><td class="num"><strong>2,300.9</strong></td><td class="num"><strong>2,527.0</strong></td><td class="num"><strong>3,085.0</strong></td><td class="num"><strong>3,640.0</strong></td><td class="num"><strong>19.9%</strong></td></tr>
+      <tr><td>Other / Non-Interest Income</td><td class="num">640.2</td><td class="num">708.4</td><td class="num">832.0</td><td class="num">950.0</td><td class="num">1,090.0</td><td class="num">14.5%</td></tr>
+      <tr><td>Total Net Operating Income</td><td class="num">2,791.2</td><td class="num">3,009.3</td><td class="num">3,359.0</td><td class="num">4,035.0</td><td class="num">4,730.0</td><td class="num">18.7%</td></tr>
+      <tr><td>Employee Expenses</td><td class="num">715.0</td><td class="num">812.0</td><td class="num">895.0</td><td class="num">1,040.0</td><td class="num">1,195.0</td><td class="num">15.6%</td></tr>
+      <tr><td>Other Operating Expenses</td><td class="num">503.0</td><td class="num">555.0</td><td class="num">610.0</td><td class="num">715.0</td><td class="num">825.0</td><td class="num">16.3%</td></tr>
+      <tr class="highlight"><td><strong>Pre-Provision Operating Profit (PPOP)</strong></td><td class="num"><strong>1,573.2</strong></td><td class="num"><strong>1,642.3</strong></td><td class="num"><strong>1,854.0</strong></td><td class="num"><strong>2,280.0</strong></td><td class="num"><strong>2,710.0</strong></td><td class="num"><strong>20.9%</strong></td></tr>
+      <tr><td>Provisions & Contingencies</td><td class="num">142.0</td><td class="num">61.2</td><td class="num">68.0</td><td class="num">78.0</td><td class="num">95.0</td><td class="num">18.2%</td></tr>
+      <tr><td>Profit Before Tax (PBT)</td><td class="num">1,431.2</td><td class="num">1,581.1</td><td class="num">1,786.0</td><td class="num">2,202.0</td><td class="num">2,615.0</td><td class="num">21.0%</td></tr>
+      <tr><td>Tax Expense</td><td class="num">359.2</td><td class="num">398.5</td><td class="num">448.5</td><td class="num">552.0</td><td class="num">655.0</td><td class="num">20.9%</td></tr>
+      <tr class="highlight"><td><strong>Profit After Tax (PAT)</strong></td><td class="num"><strong>1,072.0</strong></td><td class="num"><strong>1,182.6</strong></td><td class="num"><strong>1,337.6</strong></td><td class="num"><strong>1,650.0</strong></td><td class="num"><strong>1,960.0</strong></td><td class="num"><strong>21.0%</strong></td></tr>
+      <tr class="highlight"><td><strong>Diluted EPS (₹)</strong></td><td class="num"><strong>67.70</strong></td><td class="num"><strong>74.68</strong></td><td class="num"><strong>84.47</strong></td><td class="num"><strong>104.20</strong></td><td class="num"><strong>123.75</strong></td><td class="num"><strong>21.0%</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-title">5.2 Balance Sheet Snapshot (FY24A – FY28E)</div>
+  <table style="font-size: 7pt;">
+    <thead>
+      <tr>
+        <th>Balance Sheet Item (₹ Cr)</th>
+        <th class="num">FY24A</th>
+        <th class="num">FY25A</th>
+        <th class="num">FY26A</th>
+        <th class="num">FY27E</th>
+        <th class="num">FY28E</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Equity Share Capital</td><td class="num">158.4</td><td class="num">158.4</td><td class="num">158.4</td><td class="num">158.4</td><td class="num">158.4</td></tr>
+      <tr><td>Reserves & Surplus</td><td class="num">7,604.6</td><td class="num">8,691.6</td><td class="num">9,951.6</td><td class="num">11,371.6</td><td class="num">13,061.6</td></tr>
+      <tr class="highlight"><td><strong>Total Net Worth</strong></td><td class="num"><strong>7,763.0</strong></td><td class="num"><strong>8,850.0</strong></td><td class="num"><strong>10,110.0</strong></td><td class="num"><strong>11,530.0</strong></td><td class="num"><strong>13,220.0</strong></td></tr>
+      <tr><td>Total Deposits</td><td class="num">49,515.0</td><td class="num">53,689.0</td><td class="num">61,712.0</td><td class="num">73,440.0</td><td class="num">87,400.0</td></tr>
+      <tr><td><em>— of which CASA Deposits</em></td><td class="num">13,914.0</td><td class="num">14,174.0</td><td class="num">17,341.0</td><td class="num">21,300.0</td><td class="num">26,220.0</td></tr>
+      <tr><td>Borrowings & Other Liabilities</td><td class="num">1,172.0</td><td class="num">1,351.0</td><td class="num">1,978.0</td><td class="num">2,130.0</td><td class="num">2,380.0</td></tr>
+      <tr class="highlight"><td><strong>Total Liabilities & Equity</strong></td><td class="num"><strong>58,450.0</strong></td><td class="num"><strong>63,890.0</strong></td><td class="num"><strong>74,800.0</strong></td><td class="num"><strong>88,100.0</strong></td><td class="num"><strong>103,500.0</strong></td></tr>
+      <tr><td>Cash & Balances with RBI/Banks</td><td class="num">4,006.0</td><td class="num">4,206.0</td><td class="num">5,021.0</td><td class="num">5,800.0</td><td class="num">6,840.0</td></tr>
+      <tr><td>Investments (SLR + Non-SLR)</td><td class="num">14,210.0</td><td class="num">15,100.0</td><td class="num">17,450.0</td><td class="num">20,200.0</td><td class="num">23,500.0</td></tr>
+      <tr class="highlight"><td><strong>Gross Advances</strong></td><td class="num"><strong>39,734.0</strong></td><td class="num"><strong>43,984.0</strong></td><td class="num"><strong>53,379.0</strong></td><td class="num"><strong>64,050.0</strong></td><td class="num"><strong>76,860.0</strong></td></tr>
+      <tr><td>Fixed & Other Assets</td><td class="num">500.0</td><td class="num">600.0</td><td class="num">950.0</td><td class="num">1,050.0</td><td class="num">1,200.0</td></tr>
+      <tr class="highlight"><td><strong>Total Balance Sheet Assets</strong></td><td class="num"><strong>58,450.0</strong></td><td class="num"><strong>63,890.0</strong></td><td class="num"><strong>74,800.0</strong></td><td class="num"><strong>88,100.0</strong></td><td class="num"><strong>103,500.0</strong></td></tr>
+      <tr><td><strong>Book Value Per Share (₹)</strong></td><td class="num"><strong>490.2</strong></td><td class="num"><strong>558.7</strong></td><td class="num"><strong>638.3</strong></td><td class="num"><strong>728.0</strong></td><td class="num"><strong>834.6</strong></td></tr>
+    </tbody>
+  </table>
+
+  <!-- NII & PAT Trend Chart SVG -->
+  <div style="margin-top: 6px;">
+    <svg width="100%" height="110" viewBox="0 0 520 110">
+      <rect width="520" height="110" fill="#f8fafc" rx="4" stroke="#e2e8f0"/>
+      <text x="15" y="16" font-family="'Inter', sans-serif" font-size="8" font-weight="bold" fill="#0f2b48">Earnings Compounding: Net Interest Income vs Net Profit (₹ Cr)</text>
+      
+      <!-- Bars for FY24, FY25, FY26, FY27E, FY28E -->
+      <!-- FY24: NII 2151, PAT 1072 -->
+      <rect x="50" y="35" width="22" height="55" fill="#3b82f6" rx="2"/>
+      <rect x="74" y="62" width="22" height="28" fill="#10b981" rx="2"/>
+      <text x="56" y="100" font-size="6.5" fill="#64748b">FY24A</text>
+      
+      <!-- FY25: NII 2301, PAT 1183 -->
+      <rect x="145" y="32" width="22" height="58" fill="#3b82f6" rx="2"/>
+      <rect x="169" y="59" width="22" height="31" fill="#10b981" rx="2"/>
+      <text x="151" y="100" font-size="6.5" fill="#64748b">FY25A</text>
+
+      <!-- FY26: NII 2527, PAT 1338 -->
+      <rect x="240" y="27" width="22" height="63" fill="#3b82f6" rx="2"/>
+      <rect x="264" y="55" width="22" height="35" fill="#10b981" rx="2"/>
+      <text x="246" y="100" font-size="6.5" fill="#64748b">FY26A</text>
+
+      <!-- FY27E: NII 3085, PAT 1650 -->
+      <rect x="335" y="20" width="22" height="70" fill="#2563eb" rx="2"/>
+      <rect x="359" y="47" width="22" height="43" fill="#059669" rx="2"/>
+      <text x="341" y="100" font-size="6.5" font-weight="bold" fill="#1e40af">FY27E</text>
+
+      <!-- FY28E: NII 3640, PAT 1960 -->
+      <rect x="430" y="12" width="22" height="78" fill="#1d4ed8" rx="2"/>
+      <rect x="454" y="40" width="22" height="50" fill="#047857" rx="2"/>
+      <text x="436" y="100" font-size="6.5" font-weight="bold" fill="#1e40af">FY28E</text>
+
+      <!-- Legend -->
+      <rect x="360" y="8" width="8" height="6" fill="#3b82f6"/>
+      <text x="372" y="13" font-size="6.5" fill="#1e293b">Net Interest Income</text>
+      <rect x="445" y="8" width="8" height="6" fill="#10b981"/>
+      <text x="457" y="13" font-size="6.5" fill="#1e293b">Net Profit (PAT)</text>
+    </svg>
+  </div>
+
+  <div class="running-footer">
+    <span>TMB | INITIATION OF COVERAGE | OCTOBER 2026</span>
+    <span>CONFIDENTIAL – FOR RECRUITER & INSTITUTIONAL REVIEW | LEAD ANALYST: MAHIM</span>
+    <span>Page 4</span>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- PAGE 5: RATIO ANALYSIS, NIM DECOMPOSITION & RATE SENSITIVITY -->
+<!-- ============================================================== -->
+<div class="page">
+  <div class="running-header">
+    <span>TAMILNAD MERCANTILE BANK LTD (NSE: TMB) | EQUITY RESEARCH</span>
+    <span>PAGE 5</span>
+  </div>
+
+  <div class="section-title">6. Key Banking Ratios & NIM Rate-Cut Sensitivity</div>
+
+  <table style="font-size: 7.5pt;">
+    <thead>
+      <tr>
+        <th>Performance Ratio (%)</th>
+        <th class="num">FY24A</th>
+        <th class="num">FY25A</th>
+        <th class="num">FY26A</th>
+        <th class="num">FY27E</th>
+        <th class="num">FY28E</th>
+        <th>Analytical Takeaway</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight"><td><strong>Net Interest Margin (NIM)</strong></td><td class="num"><strong>4.02%</strong></td><td class="num"><strong>3.90%</strong></td><td class="num"><strong>3.95%</strong></td><td class="num"><strong>4.15%</strong></td><td class="num"><strong>4.10%</strong></td><td>Reached 4.29% in Q1 FY27; high gold yields support margin</td></tr>
+      <tr><td>Yield on Advances</td><td class="num">9.42%</td><td class="num">9.58%</td><td class="num">9.68%</td><td class="num">9.75%</td><td class="num">9.65%</td><td>Weighted by high-spread MSME & Gold book</td></tr>
+      <tr><td>Cost of Deposits</td><td class="num">5.25%</td><td class="num">5.58%</td><td class="num">5.62%</td><td class="num">5.48%</td><td class="num">5.35%</td><td>Peaked in FY26; downward repricing begins in FY27</td></tr>
+      <tr><td>Credit-to-Deposit (CD) Ratio</td><td class="num">80.2%</td><td class="num">81.9%</td><td class="num">86.5%</td><td class="num">87.2%</td><td class="num">87.9%</td><td>Prudent liquidity with zero reliance on wholesale market</td></tr>
+      <tr><td>CASA Ratio</td><td class="num">28.1%</td><td class="num">26.4%</td><td class="num">28.1%</td><td class="num">29.0%</td><td class="num">30.0%</td><td>Grew +16.9% YoY in Q1 FY27 via merchant CASA thrust</td></tr>
+      <tr><td>Cost-to-Income Ratio</td><td class="num">43.6%</td><td class="num">45.4%</td><td class="num">44.8%</td><td class="num">43.5%</td><td class="num">42.8%</td><td>Operating leverage kicking in as branches mature</td></tr>
+      <tr class="highlight"><td><strong>Gross NPA Ratio</strong></td><td class="num"><strong>1.44%</strong></td><td class="num"><strong>1.25%</strong></td><td class="num"><strong>0.73%</strong></td><td class="num"><strong>0.65%</strong></td><td class="num"><strong>0.60%</strong></td><td>Decade low (0.69% in Q1 FY27); cleanest among midcap banks</td></tr>
+      <tr class="highlight"><td><strong>Net NPA Ratio</strong></td><td class="num"><strong>0.46%</strong></td><td class="num"><strong>0.38%</strong></td><td class="num"><strong>0.18%</strong></td><td class="num"><strong>0.15%</strong></td><td class="num"><strong>0.14%</strong></td><td>Virtually non-existent credit losses (0.17% in Q1 FY27)</td></tr>
+      <tr><td>Provision Coverage Ratio (PCR)</td><td class="num">90.1%</td><td class="num">94.3%</td><td class="num">95.8%</td><td class="num">96.5%</td><td class="num">96.5%</td><td>Industry-leading coverage cushion (96.04% in Q1 FY27)</td></tr>
+      <tr><td>Credit Cost</td><td class="num">0.31%</td><td class="num">0.10%</td><td class="num">0.09%</td><td class="num">0.10%</td><td class="num">0.10%</td><td>Lowest provisioning drag in peer universe</td></tr>
+      <tr class="highlight"><td><strong>Return on Assets (RoA)</strong></td><td class="num"><strong>1.90%</strong></td><td class="num"><strong>1.93%</strong></td><td class="num"><strong>1.93%</strong></td><td class="num"><strong>2.04%</strong></td><td class="num"><strong>2.05%</strong></td><td>Reached 2.14% in Q1 FY27; elite banking decile</td></tr>
+      <tr class="highlight"><td><strong>Return on Equity (RoE)</strong></td><td class="num"><strong>14.8%</strong></td><td class="num"><strong>14.2%</strong></td><td class="num"><strong>14.1%</strong></td><td class="num"><strong>15.2%</strong></td><td class="num"><strong>15.8%</strong></td><td>Diluted by 32% CRAR; underlying core operational RoE >17%</td></tr>
+      <tr><td>CRAR (Total Capital Adequacy)</td><td class="num">26.15%</td><td class="num">32.71%</td><td class="num">32.33%</td><td class="num">29.50%</td><td class="num">27.20%</td><td>Massive equity cushion supporting 5-year loan growth</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">7. Resume Differentiator 4: NIM Sensitivity in an RBI Rate-Cut Cycle</div>
+  
+  <p>
+    As the Reserve Bank of India initiates an easing monetary cycle, market consensus assumes banking NIMs will uniformly compress. Our asset-liability duration analysis reveals that **TMB is actually liability-sensitive, making rate cuts MARGIN-ACCRETIVE**:
+  </p>
+
+  <div class="grid-2">
+    <div>
+      <div class="sub-title">Asset-Liability Re-Pricing Breakdown</div>
+      <p style="font-size: 7.5pt;">
+        • <strong>EBLR / Repo-Linked Loans (~38% of Book):</strong> Reprice downward immediately upon rate cut.<br>
+        • <strong>MCLR Loans (~18% of Book):</strong> Reprice on a lag over 6 to 12 months.<br>
+        • <strong>Fixed / Bullet Repayment Loans (~44% of Book):</strong> Dominated by Gold Loans (46.4% of total advances) which carry fixed rates (9.5–11.5%) and do NOT contract automatically.<br>
+        • <strong>Term Deposits (~72% of Deposits):</strong> Average maturity of 12–15 months. High-cost deposits mobilized at 7.25–7.50% during FY25 reprice down by 30–50 bps upon maturity.
+      </p>
+    </div>
+
+    <div>
+      <div class="callout-success">
+        <strong>QUANTIFIED SCENARIO: 50 BPS RBI RATE CUT</strong><br>
+        • <strong>Yield on Advances Impact:</strong> -18 bps contraction across interest-earning assets.<br>
+        • <strong>Cost of Funds Impact:</strong> -24 bps reduction as term deposits roll over.<br>
+        • <strong>Net NIM Impact:</strong> <strong>+6 bps EXPANSION!</strong><br>
+        • <strong>Estimated Annualized PAT Benefit:</strong> <strong>+₹38.5 Crore (~+2.3% EPS accretion)</strong>. Rate cuts are positive for TMB.
+      </div>
+    </div>
+  </div>
+
+  <div class="running-footer">
+    <span>TMB | INITIATION OF COVERAGE | OCTOBER 2026</span>
+    <span>CONFIDENTIAL – FOR RECRUITER & INSTITUTIONAL REVIEW | LEAD ANALYST: MAHIM</span>
+    <span>Page 5</span>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- PAGE 6: MULTI-METHOD VALUATION & TARGET PRICE DERIVATION -->
+<!-- ============================================================== -->
+<div class="page">
+  <div class="running-header">
+    <span>TAMILNAD MERCANTILE BANK LTD (NSE: TMB) | EQUITY RESEARCH</span>
+    <span>PAGE 6</span>
+  </div>
+
+  <div class="section-title">8. Multi-Method Valuation & Target Price Formulation</div>
+
+  <p>
+    We value TMB using three independent methodologies: <strong>Justified Price-to-Book (P/B)</strong>, <strong>Relative P/E Multiple</strong>, and a <strong>Residual Income (Excess Returns) Model</strong>.
+  </p>
+
+  <div class="callout">
+    <strong>COST OF EQUITY (CAPM) BENCHMARKING:</strong>
+    <div style="margin: 4px 0 6px 0;">
+      $$\text{Cost of Equity (CoE)} = R_f + \beta \times \text{ERP} = 6.80\% + (0.85 \times 5.50\%) = \mathbf{11.48\% \approx 11.50\%}$$
+    </div>
+    <div style="font-size: 7.2pt; color: #475569; margin-top: 3px;">
+      Where Risk-Free Rate ($R_f$) = 6.80% (10-Year Indian Benchmark G-Sec); Beta ($\beta$) = 0.85 (defensive balance sheet, low volatility); Equity Risk Premium ($\text{ERP}$) = 5.50%; Sustainable Terminal Growth Rate ($g$) = 6.50%.
+    </div>
+  </div>
+
+  <div class="grid-3" style="margin-top: 6px;">
+    <div class="stat-card">
+      <div class="lbl">METHOD 1: JUSTIFIED P/B (50%)</div>
+      <div class="val">₹1,165.00</div>
+      <p style="font-size: 6.5pt; color: #475569; margin: 2px 0;">Gordon Growth: P/B = (RoE - g)/(CoE - g) = 1.60x applied to FY27E BVPS ₹728.00</p>
+    </div>
+
+    <div class="stat-card">
+      <div class="lbl">METHOD 2: RELATIVE P/E (30%)</div>
+      <div class="val">₹1,094.00</div>
+      <p style="font-size: 6.5pt; color: #475569; margin: 2px 0;">10.5x FY27E EPS of ₹104.20 (10% discount to peer median P/E of 11.5x)</p>
+    </div>
+
+    <div class="stat-card">
+      <div class="lbl">METHOD 3: RESIDUAL INCOME (20%)</div>
+      <div class="val">₹1,150.00</div>
+      <p style="font-size: 6.5pt; color: #475569; margin: 2px 0;">Current BVPS (₹638.30) + 5-Yr PV of Excess ROE over CoE (₹218.40) + Terminal Value (₹293.30)</p>
+    </div>
+  </div>
+
+  <div class="sub-title" style="margin-top: 10px;">8.1 Blended 12-Month Target Price Derivation</div>
+  <table style="font-size: 7.5pt;">
+    <thead>
+      <tr>
+        <th>Valuation Methodology</th>
+        <th class="num">Weight</th>
+        <th class="num">Model Implied Price (₹)</th>
+        <th class="num">Weighted Contribution (₹)</th>
+        <th>Key Valuation Anchor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Justified Price-to-Book (P/B)</strong></td>
+        <td class="num">50%</td>
+        <td class="num">₹1,165.00</td>
+        <td class="num">₹582.50</td>
+        <td>1.60x Justified P/B on FY27E BVPS of ₹728.00</td>
+      </tr>
+      <tr>
+        <td><strong>Relative P/E Multiple</strong></td>
+        <td class="num">30%</td>
+        <td class="num">₹1,094.00</td>
+        <td class="num">₹328.20</td>
+        <td>10.5x FY27E EPS of ₹104.20 (10% peer discount)</td>
+      </tr>
+      <tr>
+        <td><strong>Residual Income Model</strong></td>
+        <td class="num">20%</td>
+        <td class="num">₹1,150.00</td>
+        <td class="num">₹230.00</td>
+        <td>Excess economic returns over 11.50% CoE</td>
+      </tr>
+      <tr class="highlight" style="font-size: 8.5pt;">
+        <td><strong>FINAL BLENDED 12-MONTH TARGET PRICE</strong></td>
+        <td class="num"><strong>100%</strong></td>
+        <td class="num"><strong>₹1,140.70</strong></td>
+        <td class="num"><strong>₹1,140.00</strong></td>
+        <td><strong>POTENTIAL UPSIDE: +30.7% (BUY)</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="sub-title">8.2 Two-Way Sensitivity Matrix: Target Price vs NIM & Credit Cost</div>
+  <table style="font-size: 7.5pt;">
+    <thead>
+      <tr>
+        <th>NIM (%) \ Credit Cost (%)</th>
+        <th class="num">0.05% (Bull Case)</th>
+        <th class="num">0.10% (Base FY27E)</th>
+        <th class="num">0.20% (Mild Stress)</th>
+        <th class="num">0.35% (Severe Macro Stress)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>4.30% (High Margin Trajectory)</strong></td>
+        <td class="num">₹1,265</td>
+        <td class="num">₹1,240</td>
+        <td class="num">₹1,195</td>
+        <td class="num">₹1,125</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>4.15% (Base Estimate FY27E)</strong></td>
+        <td class="num">₹1,165</td>
+        <td class="num"><strong>₹1,140 (BASE)</strong></td>
+        <td class="num">₹1,095</td>
+        <td class="num">₹1,030</td>
+      </tr>
+      <tr>
+        <td><strong>3.95% (FY26 Reported Level)</strong></td>
+        <td class="num">₹1,085</td>
+        <td class="num">₹1,060</td>
+        <td class="num">₹1,015</td>
+        <td class="num">₹955</td>
+      </tr>
+      <tr>
+        <td><strong>3.70% (Severe Competitive Drag)</strong></td>
+        <td class="num">₹990</td>
+        <td class="num">₹965</td>
+        <td class="num">₹920</td>
+        <td class="num">₹865</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="font-size: 7pt; color: #475569; margin-top: 4px;">
+    <em>Sensitivity Takeaway:</em> Even under our severe stress case (NIM contracting to 3.70% and Credit Cost spiking 3.5x to 0.35%), TMB's fair value settles at ₹865—virtually matching CMP. Downside risk is strictly limited, offering asymmetric upside.
+  </p>
+
+  <div class="running-footer">
+    <span>TMB | INITIATION OF COVERAGE | OCTOBER 2026</span>
+    <span>CONFIDENTIAL – FOR RECRUITER & INSTITUTIONAL REVIEW | LEAD ANALYST: MAHIM</span>
+    <span>Page 6</span>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- PAGE 7: PEER MATRIX & MANAGEMENT SCORECARD -->
+<!-- ============================================================== -->
+<div class="page">
+  <div class="running-header">
+    <span>TAMILNAD MERCANTILE BANK LTD (NSE: TMB) | EQUITY RESEARCH</span>
+    <span>PAGE 7</span>
+  </div>
+
+  <div class="section-title">9. Comprehensive Peer Benchmarking Matrix</div>
+
+  <table style="font-size: 7pt;">
+    <thead>
+      <tr>
+        <th>Bank Name</th>
+        <th>Ticker</th>
+        <th class="num">CMP (₹)</th>
+        <th class="num">MCap (₹ Cr)</th>
+        <th class="num">NIM (%)</th>
+        <th class="num">GNPA (%)</th>
+        <th class="num">NNPA (%)</th>
+        <th class="num">PCR (%)</th>
+        <th class="num">RoA (%)</th>
+        <th class="num">CRAR (%)</th>
+        <th class="num">TTM P/B</th>
+        <th class="num">TTM P/E</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight">
+        <td><strong>⭐ TMB</strong></td>
+        <td><strong>TMB</strong></td>
+        <td class="num"><strong>872.05</strong></td>
+        <td class="num"><strong>13,809</strong></td>
+        <td class="num"><strong>4.29%</strong></td>
+        <td class="num"><strong>0.69%</strong></td>
+        <td class="num"><strong>0.17%</strong></td>
+        <td class="num"><strong>96.0%</strong></td>
+        <td class="num"><strong>2.14%</strong></td>
+        <td class="num"><strong>32.3%</strong></td>
+        <td class="num"><strong>1.35x</strong></td>
+        <td class="num"><strong>9.5x</strong></td>
+      </tr>
+      <tr>
+        <td>Karur Vysya Bank</td>
+        <td>KVB</td>
+        <td class="num">224.50</td>
+        <td class="num">17,950</td>
+        <td class="num">4.26%</td>
+        <td class="num">1.40%</td>
+        <td class="num">0.19%</td>
+        <td class="num">94.2%</td>
+        <td class="num">1.75%</td>
+        <td class="num">16.8%</td>
+        <td class="num"><strong>2.11x</strong></td>
+        <td class="num">11.5x</td>
+      </tr>
+      <tr>
+        <td>City Union Bank</td>
+        <td>CUB</td>
+        <td class="num">168.00</td>
+        <td class="num">12,450</td>
+        <td class="num">3.78%</td>
+        <td class="num">3.80%</td>
+        <td class="num">1.45%</td>
+        <td class="num">72.0%</td>
+        <td class="num">1.50%</td>
+        <td class="num">22.4%</td>
+        <td class="num"><strong>1.99x</strong></td>
+        <td class="num">16.3x</td>
+      </tr>
+      <tr>
+        <td>CSB Bank</td>
+        <td>CSBBANK</td>
+        <td class="num">345.00</td>
+        <td class="num">5,980</td>
+        <td class="num">4.50%</td>
+        <td class="num">1.30%</td>
+        <td class="num">0.35%</td>
+        <td class="num">91.5%</td>
+        <td class="num">1.65%</td>
+        <td class="num">24.1%</td>
+        <td class="num">1.30x</td>
+        <td class="num">8.0x</td>
+      </tr>
+      <tr>
+        <td>South Indian Bank</td>
+        <td>SIB</td>
+        <td class="num">27.80</td>
+        <td class="num">7,260</td>
+        <td class="num">3.30%</td>
+        <td class="num">3.50%</td>
+        <td class="num">1.10%</td>
+        <td class="num">78.5%</td>
+        <td class="num">0.95%</td>
+        <td class="num">16.5%</td>
+        <td class="num">0.92x</td>
+        <td class="num">8.2x</td>
+      </tr>
+      <tr>
+        <td>DCB Bank</td>
+        <td>DCBBANK</td>
+        <td class="num">132.00</td>
+        <td class="num">4,120</td>
+        <td class="num">3.60%</td>
+        <td class="num">3.20%</td>
+        <td class="num">1.15%</td>
+        <td class="num">76.0%</td>
+        <td class="num">0.90%</td>
+        <td class="num">16.6%</td>
+        <td class="num">0.88x</td>
+        <td class="num">8.2x</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">10. Management Quality & Corporate Governance Scorecard</div>
+
+  <table style="font-size: 7.5pt;">
+    <thead>
+      <tr>
+        <th>Governance Dimension</th>
+        <th class="num">Score (1-5)</th>
+        <th>Analytical Justification & Evidence</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Capital Allocation Discipline</strong></td>
+        <td class="num"><strong>5 / 5</strong></td>
+        <td>Maintained CRAR >32%; consistent dividend expansion (₹12.50/sh); self-funded organic branch expansion without equity dilution.</td>
+      </tr>
+      <tr>
+        <td><strong>Asset Quality Underwriting</strong></td>
+        <td class="num"><strong>5 / 5</strong></td>
+        <td>Decade-low Gross NPA (0.69%) and Net NPA (0.17%) with 96% PCR; 98%+ secured collateral base; zero corporate credit slippages.</td>
+      </tr>
+      <tr>
+        <td><strong>Guidance Delivery & Accuracy</strong></td>
+        <td class="num"><strong>4 / 5</strong></td>
+        <td>Consistently achieved stated loan growth targets (>20%) and RoA objectives (>1.9%) over the last 6 quarters.</td>
+      </tr>
+      <tr>
+        <td><strong>Investor Disclosures & Communications</strong></td>
+        <td class="num"><strong>4 / 5</strong></td>
+        <td>Professional concall interactions and segment disclosures introduced post-IPO under institutional management.</td>
+      </tr>
+      <tr>
+        <td><strong>Board Independence & Controls</strong></td>
+        <td class="num"><strong>4 / 5</strong></td>
+        <td>Independent directors chair key audit & risk committees; RBI-vetted executive leadership; zero promoter-directed loans.</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>OVERALL MANAGEMENT RATING</strong></td>
+        <td class="num"><strong>4.4 / 5.0</strong></td>
+        <td><strong>EXEMPLARY (Top Tier in Small & Mid-Cap Indian Banking)</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <strong>MANAGEMENT COMMENTARY — CONCALL HIGHLIGHTS (MD & CEO Salee Sukumaran Nair):</strong><br>
+    <em>"We will not compromise on credit quality to chase reckless balance sheet growth. Our RAM portfolio represents 94.66% of advances, and we are deepening our footprint in our core industrial clusters while expanding our gold loan book with strict LTV discipline. TMB has entered a new era of institutional governance, operating with centralized credit processing and modern risk architecture."</em>
+  </div>
+
+  <div class="running-footer">
+    <span>TMB | INITIATION OF COVERAGE | OCTOBER 2026</span>
+    <span>CONFIDENTIAL – FOR RECRUITER & INSTITUTIONAL REVIEW | LEAD ANALYST: MAHIM</span>
+    <span>Page 7</span>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- PAGE 8: RISKS, INVESTMENT CONCLUSION & CERTIFICATIONS -->
+<!-- ============================================================== -->
+<div class="page">
+  <div class="running-header">
+    <span>TAMILNAD MERCANTILE BANK LTD (NSE: TMB) | EQUITY RESEARCH</span>
+    <span>PAGE 8</span>
+  </div>
+
+  <div class="section-title">11. Investment Risks Matrix</div>
+
+  <table style="font-size: 7.5pt;">
+    <thead>
+      <tr>
+        <th>Risk Factor</th>
+        <th>Probability</th>
+        <th>Impact</th>
+        <th>Mitigating Factors & Structural Defenses</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1. Single-State Concentration</strong></td>
+        <td>High</td>
+        <td>Medium</td>
+        <td>Tamil Nadu GSDP grows at 14% with diversified auto/textile/port economy; bank is expanding branches across Western India.</td>
+      </tr>
+      <tr>
+        <td><strong>2. Gold Loan Regulatory Scrutiny</strong></td>
+        <td>Medium</td>
+        <td>Low</td>
+        <td>TMB operates at 53% LTV (well below RBI 75% cap); physical gold stored securely in branch vaults.</td>
+      </tr>
+      <tr>
+        <td><strong>3. Agricultural Weather Cyclicality</strong></td>
+        <td>Medium</td>
+        <td>Low</td>
+        <td>Agri loans (14%) are heavily weighted to allied activities (dairy, cold chain, fisheries) rather than rainfed single crops.</td>
+      </tr>
+      <tr>
+        <td><strong>4. Deposit Rate Competition</strong></td>
+        <td>Medium</td>
+        <td>Medium</td>
+        <td>Entrenched community relationships and expanding CASA (28.1%) provide low-cost funding; CD ratio at 86.5% ensures liquidity.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">12. Investment Conclusion & Rating Box</div>
+
+  <p>
+    TMB represents a compelling, asymmetric investment setup: <strong>an institutional-quality regional franchise with the asset quality of HDFC Bank, the capital adequacy of a sovereign fund, and the valuation multiple of a stressed public sector lender</strong>.
+  </p>
+
+  <div class="rating-box" style="margin: 10px 0; padding: 12px;">
+    <div style="font-size: 9pt; text-transform: uppercase; letter-spacing: 1px;">FINAL RESEARCH RECOMMENDATION</div>
+    <div style="margin: 6px 0;"><span class="badge-buy" style="font-size: 14pt; padding: 4px 20px;">BUY</span></div>
+    <div style="font-size: 11pt; font-weight: 700; color: #a7f3d0;">12-MONTH TARGET PRICE: ₹1,140.00 | POTENTIAL UPSIDE: +30.7%</div>
+    <div style="font-size: 8pt; opacity: 0.9; margin-top: 4px;">CURRENT MARKET PRICE: ₹872.05 | RISK PROFILE: DEFENSIVE / MEDIUM RISK</div>
+  </div>
+
+  <div class="section-title" style="margin-top: 14px;">13. Research Analyst Disclosures & Certifications</div>
+
+  <div style="font-size: 6.5pt; color: #475569; line-height: 1.4;">
+    <strong>Analyst Certification:</strong> I, Mahim, author and lead research analyst, certify that the views expressed in this initiation report accurately reflect personal views regarding Tamilnad Mercantile Bank Ltd (TMB) and its securities. The analysis is prepared in compliance with SEBI (Research Analysts) Regulations, 2014 and NISM Series XV standards. The analyst has not received any compensation from the subject company in the preceding 12 months and holds zero financial interest in the equity securities of TMB.<br><br>
+    <strong>Institutional Disclaimer:</strong> This publication is prepared strictly for educational, institutional, and recruiting evaluation purposes. It does not constitute personal financial advice or a retail solicitation to purchase or sell securities. Past performance is not indicative of future returns. Stock investments are subject to market risks.
+  </div>
+
+  <div class="running-footer">
+    <span>TMB | INITIATION OF COVERAGE | OCTOBER 2026</span>
+    <span>CONFIDENTIAL – FOR RECRUITER & INSTITUTIONAL REVIEW | LEAD ANALYST: MAHIM</span>
+    <span>Page 8</span>
+  </div>
+</div>
+
+</body>
+</html>
