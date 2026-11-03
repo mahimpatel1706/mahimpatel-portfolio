@@ -280,11 +280,11 @@
               <div class="flex items-center justify-between mb-2">
                 <span class="stat-label">Quant Architecture</span>
               </div>
-              <div class="stat-value font-editorial">NSE GEX Engine</div>
-              <div class="stat-sub">Options Dealer Gamma Profiler</div>
+              <div class="stat-value font-editorial">Sundial GEX</div>
+              <div class="stat-sub">10,628 LOC • FastAPI + Next.js 14</div>
             </div>
             <p class="stat-desc">
-              Proprietary Python model parsing live NSE option chains to profile dealer gamma flips, volatility regimes, and expiry pin levels.
+              Full-stack real-time NSE options dealer Gamma Exposure (GEX) terminal with Hedge-Band Gamma, Put-Call parity forwards, and 401-point vectorized flip solver.
             </p>
           </div>
 
@@ -1402,10 +1402,10 @@
           <div>
             <div class="text-xs uppercase font-mono-num tracking-widest text-[#0B2447] font-bold">Section 05 • Quantitative Systems</div>
             <h2 class="text-3xl sm:text-4xl font-bold font-editorial text-navy-900 mt-1">
-              Quantitative Engineering: NSE Options Gamma Exposure (GEX) Engine
+              Quantitative Engineering: Sundial (<code>NSE_GAMMA_DEX</code>) Terminal
             </h2>
             <p class="text-slate-600 mt-2 text-sm sm:text-base">
-              Algorithmic options market structure profiler analyzing dealer delta hedging dynamics, zero-gamma pivot levels, and weekly expiry pinning on the National Stock Exchange of India.
+              A 10,628-line, 48-file full-stack real-time NSE options dealer Gamma Exposure (GEX) and market microstructure platform (Python FastAPI ASGI backend + Next.js 14 TypeScript terminal).
             </p>
           </div>
           <div class="flex items-center gap-2">
@@ -1420,16 +1420,16 @@
           
           <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-200">
             <div>
-              <span class="text-xs font-mono-num text-sky-800 font-bold uppercase tracking-wider">PROPRIETARY QUANTITATIVE SYSTEM</span>
+              <span class="text-xs font-mono-num text-sky-800 font-bold uppercase tracking-wider">PROPRIETARY FULL-STACK QUANTITATIVE TERMINAL • 10,628 LOC (48 FILES)</span>
               <h3 class="text-2xl font-bold font-editorial text-navy-900 mt-1">
-                NSE Options Gamma Exposure (GEX) &amp; Volatility Surface Profiler
+                Sundial (<code>NSE_GAMMA_DEX</code>): Real-Time Dealer Gamma Exposure &amp; Strategy Copilot
               </h3>
             </div>
             <div class="flex flex-wrap items-center gap-2 text-xs font-mono-num">
-              <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 border border-slate-200 font-semibold">Python 3.12</span>
-              <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 border border-slate-200 font-semibold">NumPy / SciPy</span>
-              <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 border border-slate-200 font-semibold">NSE Real-Time API</span>
-              <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 border border-slate-200 font-semibold">&lt; 42ms Latency</span>
+              <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 border border-slate-200 font-semibold">Python FastAPI (5,732 LOC)</span>
+              <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 border border-slate-200 font-semibold">Next.js 14 TS (4,896 LOC)</span>
+              <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 border border-slate-200 font-semibold">Hedge-Band $\Gamma_{\text{band}}$</span>
+              <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 border border-slate-200 font-semibold">~1.5ms 2D Flip Matrix</span>
             </div>
           </div>
 
@@ -1438,72 +1438,72 @@
             <div class="space-y-3">
               <h4 class="font-bold text-navy-900 font-editorial text-base">The Structural Problem in Modern Equity Analysis</h4>
               <p>
-                Traditional fundamental equity research treats stock prices as determined purely by fundamental earnings releases, while technical analysis relies on lagging indicator curves. Both ignore the massive institutional plumbing of modern derivatives: <strong>options market makers (dealers) must continuously delta-hedge their portfolios</strong>.
+                Traditional fundamental equity research treats stock prices as determined purely by quarterly earnings, while classical technical analysis relies on lagging indicator curves. Both ignore the massive institutional plumbing of Indian derivatives: <strong>NSE index option turnover routinely exceeds cash market turnover by 100x–400x, and options market makers (dealers) must continuously delta-hedge their books</strong>.
               </p>
               <p>
-                When retail and institutional participants buy calls and puts, options dealers take the opposite side. To remain delta-neutral, dealers are forced to buy and sell the underlying cash market in mechanical, mathematically predictable patterns dictated by Gamma ($\Gamma = \partial^2 V / \partial S^2$).
+                Sundial ingests live multi-expiry NSE option chains every 20 seconds via <code>curl_cffi</code> Chrome-124 TLS impersonation, extracts synthetic futures forwards via Put-Call Parity ($F = \text{median}(K + e^{rT}(C_{\text{mid}} - P_{\text{mid}}))$), and computes exact dealer futures hedging requirements in ₹ Crores per 1% move across NIFTY (lot 65), BANKNIFTY (lot 30), FINNIFTY (lot 60), and MIDCPNIFTY (lot 120).
               </p>
             </div>
             <div class="space-y-3">
               <h4 class="font-bold text-navy-900 font-editorial text-base">The GEX Mechanism: Positive vs Negative Gamma Regimes</h4>
               <div class="p-3.5 rounded bg-emerald-50 border border-emerald-200 text-xs text-emerald-900 space-y-1">
-                <strong class="block font-mono-num font-bold"><span class="dot dot-pos" aria-hidden="true"></span>POSITIVE GAMMA REGIME (Spot &gt; Zero Gamma Flip):</strong>
-                <p>Dealers are forced to buy dips and sell rallies to maintain delta neutrality. This acts as a structural shock absorber, dampening realized volatility and causing mean-reverting price action around high-gamma strikes.</p>
+                <strong class="block font-mono-num font-bold"><span class="dot dot-pos" aria-hidden="true"></span>POSITIVE GAMMA REGIME (Spot &gt; 401-Pt Gamma Flip $S^*$):</strong>
+                <p>Dealers are forced to buy dips and sell rallies to maintain delta neutrality. This acts as a structural shock absorber, compressing realized volatility and pinning the index toward dominant Call/Put Walls.</p>
               </div>
               <div class="p-3.5 rounded bg-rose-50 border border-rose-200 text-xs text-rose-900 space-y-1">
-                <strong class="block font-mono-num font-bold"><span class="dot dot-neg" aria-hidden="true"></span>NEGATIVE GAMMA REGIME (Spot &lt; Zero Gamma Flip):</strong>
-                <p>Dealers are forced to sell as spot falls and buy as spot rises. This dynamic hedging feedback loop accelerates market momentum, triggering aggressive liquidation cascades and tail-risk expansion.</p>
+                <strong class="block font-mono-num font-bold"><span class="dot dot-neg" aria-hidden="true"></span>NEGATIVE GAMMA REGIME (Spot &lt; 401-Pt Gamma Flip $S^*$):</strong>
+                <p>Dealers are forced to sell index futures as spot falls and buy as spot rises. This pro-cyclical hedging feedback loop accelerates momentum, triggering rapid intraday liquidation cascades.</p>
               </div>
             </div>
           </div>
 
-          <!-- Concrete Advantages Over Standard First-Order OI Heuristics -->
+          <!-- Concrete Engineering Pillars & Advantages -->
           <div class="pt-2 space-y-4">
             <div class="section-head">
-              <h4 class="font-bold text-navy-900 font-editorial text-base">Analytical Advantages Over Standard First-Order Open Interest (OI) Heuristics</h4>
-              <p class="text-xs text-slate-500 font-mono-num">How second-order Greek weighting extends conventional option chain and Max-Pain analysis</p>
+              <h4 class="font-bold text-navy-900 font-editorial text-base">Core Quantitative &amp; Systems Engineering Pillars Built in Sundial</h4>
+              <p class="text-xs text-slate-500 font-mono-num">How Sundial's Phase-1 production architecture advances beyond static Open Interest bars and textbook point-gamma scripts</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs font-sans">
               <div class="p-4 rounded bg-slate-50 border border-slate-200 space-y-2">
-                <div class="font-mono-num font-bold text-[#0B2447]">1. TRUE NON-LINEAR RUPEE GAMMA</div>
+                <div class="font-mono-num font-bold text-[#0B2447]">1. 0DTE-SAFE HEDGE-BAND GAMMA ($\Gamma_{\text{band}}$)</div>
                 <p class="text-slate-600 leading-relaxed">
-                  Standard option chain charts plot raw Open Interest bars, treating an OTM 26,000 Call identically to an ATM 25,000 Call. The GEX engine weights every contract by its exact Black-Scholes second-order partial derivative, computing true rupee hedging capital (₹ Cr / 1% move).
+                  Textbook point gamma $\phi(d_1)/(S\sigma\sqrt{T})$ explodes toward $\infty$ on expiry afternoon as $T \to 0$. Sundial computes finite-difference delta across a $\pm 0.5\%$ spot corridor ($\Gamma_{\text{band}} = (\Delta_{\text{up}} - \Delta_{\text{dn}})/(2hS)$), keeping 0DTE afternoon GEX mathematically bounded.
                 </p>
               </div>
 
               <div class="p-4 rounded bg-slate-50 border border-slate-200 space-y-2">
-                <div class="font-mono-num font-bold text-[#0B2447]">2. DYNAMIC ZERO-GAMMA FLIP PIVOT</div>
+                <div class="font-mono-num font-bold text-[#0B2447]">2. PUT-CALL PARITY IMPLIED FORWARD ($F$)</div>
                 <p class="text-slate-600 leading-relaxed">
-                  Instead of relying solely on static expiry "Max Pain", the GEX engine numerically solves for the dynamic Zero-Gamma Flip level ($S^*$), pinpointing the threshold where market behavior shifts from volatility dampening to volatility expansion.
+                  Extracts the implied futures forward $F$ from the 3 nearest ATM strikes using bid-ask midpoints and derives per-expiry continuous carry $b = \ln(F/S)/T$, eliminating cash-to-futures basis distortion, backed by a 50-iteration vectorized Newton-Raphson IV solver.
                 </p>
               </div>
 
               <div class="p-4 rounded bg-slate-50 border border-slate-200 space-y-2">
-                <div class="font-mono-num font-bold text-[#0B2447]">3. DEALER HEDGING VELOCITY (₹ CR / 50 PTS)</div>
+                <div class="font-mono-num font-bold text-[#0B2447]">3. 2D VECTORIZED 401-PT FLIP MATRIX</div>
                 <p class="text-slate-600 leading-relaxed">
-                  Calculates the instantaneous derivative $d(\text{Delta})/dS$, revealing the exact crore value of futures contracts market makers are mathematically forced to trade on a 50-point underlying move.
+                  Instead of summing static GEX bars, Sundial broadcasts a 2D NumPy matrix of shape <code>(401, N_strikes)</code> across $[0.95S, 1.05S]$ to re-evaluate ~56,000 option positions simultaneously in ~1.5 ms, secant-interpolating the exact dynamic Zero-Gamma Flip $S^*$.
                 </p>
               </div>
 
               <div class="p-4 rounded bg-slate-50 border border-slate-200 space-y-2">
-                <div class="font-mono-num font-bold text-[#0B2447]">4. WEEKLY EXPIRY PINNING DISAGGREGATION</div>
+                <div class="font-mono-num font-bold text-[#0B2447]">4. SCALE-FREE GEX RATIO &amp; 4-DTE Z-SCORES</div>
                 <p class="text-slate-600 leading-relaxed">
-                  Disaggregates near-week expiries where $\tau \to 0$ from monthly structural hedges, preventing noise and isolating the massive gamma cluster magnets that govern Thursday 3:30 PM settlements.
+                  Computes bounded $\text{GEX Ratio} = \text{Net}/\text{Gross} \in [-1, +1]$ and benchmarks readings against a 20-session rolling history stratified into <code>0DTE</code>, <code>1DTE</code>, <code>2-3DTE</code>, and <code>4+DTE</code> buckets, driving a 5-tier Strategy Copilot.
                 </p>
               </div>
 
               <div class="p-4 rounded bg-slate-50 border border-slate-200 space-y-2">
-                <div class="font-mono-num font-bold text-[#0B2447]">5. VECTORIZED SUB-50MS EXECUTION</div>
+                <div class="font-mono-num font-bold text-[#0B2447]">5. SUB-STRIKE SVG OVERLAY &amp; O(1) WS HUB</div>
                 <p class="text-slate-600 leading-relaxed">
-                  Written in vectorized NumPy/SciPy arrays with Brent's numerical inversion, processing 120+ strikes across Calls and Puts in under 42ms with full algorithmic auditability.
+                  Pre-serializes WebSocket payloads in $O(1)$ across connected Next.js 14 clients. Custom <code>fractionalIndex()</code> + Recharts <code>usePlotArea()</code> SVG math renders exact sub-strike <code>SPOT</code> and <code>FLIP</code> lines between categorical strike bars.
                 </p>
               </div>
 
               <div class="p-4 rounded bg-slate-50 border border-slate-200 space-y-2">
-                <div class="font-mono-num font-bold text-[#0B2447]">6. CUSTOM QUANTITATIVE DATA LAKE</div>
+                <div class="font-mono-num font-bold text-[#0B2447]">6. 22-COL RECORDER &amp; 10x CRISIS DVR REPLAY</div>
                 <p class="text-slate-600 leading-relaxed">
-                  Streams directly to local Apache Parquet time-series tables, enabling custom historical backtesting of mean-reversion and regime-breakout strategies alongside existing analytics suites.
+                  Persists intraday ticks to 22-column CSVs, JSONL streams, and automated EOD Markdown scorecards, while streaming historical crisis sessions (June 4 Election Crash, Aug 5 Carry Unwind) at 1x–10x DVR speeds.
                 </p>
               </div>
             </div>
@@ -1513,49 +1513,49 @@
           <div class="pt-2 space-y-4">
             <div class="section-head">
               <h4 class="font-bold text-navy-900 font-editorial text-base">What Did I Learn: The 6 Sequential Stages of Engineering &amp; Quantitative Immersion</h4>
-              <p class="text-xs text-slate-500 font-mono-num">Chronological progression of technical breakthroughs and market microstructure lessons</p>
+              <p class="text-xs text-slate-500 font-mono-num">Chronological progression from Black-Scholes theory to a 10,628-line full-stack institutional terminal</p>
             </div>
 
             <div class="space-y-3 text-xs sm:text-sm text-slate-700">
               <div class="p-3.5 bg-slate-50 rounded border-l-[#0B2447] space-y-1">
-                <strong class="font-mono-num text-navy-900 block font-bold">STAGE 01: DERIVATIVES MICROSTRUCTURE &amp; DEALER DELTA NEUTRALITY (Month 1–2)</strong>
+                <strong class="font-mono-num text-navy-900 block font-bold">STAGE 01: DERIVATIVES MICROSTRUCTURE &amp; DEALER DELTA NEUTRALITY</strong>
                 <p class="text-xs text-slate-600 leading-relaxed">
-                  Transitioned from retail directional guessing to understanding that options desks are inventory managers. Market movement is not an emotional battle—it is a continuous mechanical re-hedging flow governed by second-order Greeks ($\Gamma = \partial^2 V / \partial S^2$).
+                  Transitioned from directional option views to understanding that market makers are delta-neutral inventory managers whose mechanical futures hedging flows are governed by second-order Greeks ($\Gamma = \partial^2 V / \partial S^2$).
                 </p>
               </div>
 
               <div class="p-3.5 bg-slate-50 rounded border-l-sky-700 space-y-1">
-                <strong class="font-mono-num text-navy-900 block font-bold">STAGE 02: REAL-WORLD DATA ENGINEERING &amp; NSE PIPELINE RESILIENCE (Month 3–4)</strong>
+                <strong class="font-mono-num text-navy-900 block font-bold">STAGE 02: AKAMAI JA3 TLS IMPERSONATION &amp; 3-TIER COLD-START RESILIENCE</strong>
                 <p class="text-xs text-slate-600 leading-relaxed">
-                  Solved NSE's strict Akamai bot protections, 403 Forbidden blocks, and dynamic cookie expiration (every 12 minutes). Engineered automated session-handshake routines and local disk caching to prevent pipeline dropouts.
+                  Engineered <code>NSEDataFetcher</code> using <code>curl_cffi</code> (<code>chrome124</code> TLS impersonation), automated cookie lifecycle management, 15-minute expiry caching, and a 3-tier fallback pipeline inside non-blocking <code>asyncio.to_thread</code> workers.
                 </p>
               </div>
 
               <div class="p-3.5 bg-slate-50 rounded border-l-emerald-700 space-y-1">
-                <strong class="font-mono-num text-navy-900 block font-bold">STAGE 03: VECTORIZED GREEKS ENGINE &amp; VOLATILITY SMILE EXTRACTION (Month 4–5)</strong>
+                <strong class="font-mono-num text-navy-900 block font-bold">STAGE 03: DISCRETE HEDGE-BAND GAMMA ($\Gamma_{\text{band}}$) &amp; PUT-CALL PARITY FORWARDS</strong>
                 <p class="text-xs text-slate-600 leading-relaxed">
-                  Replaced slow Python `for` loops with vectorized NumPy array broadcasting, reducing execution latency from 1,800 ms to 38 ms. Implemented Brent's method to invert implied volatility surfaces across 120 strikes.
+                  Eliminated 0DTE afternoon point-gamma blowups via finite-difference Hedge-Band Gamma ($h=0.005$) and anchored Black-Scholes to the implied futures forward curve $F$ and continuous carry rate $b = \ln(F/S)/T$.
                 </p>
               </div>
 
               <div class="p-3.5 bg-slate-50 rounded border-l-indigo-700 space-y-1">
-                <strong class="font-mono-num text-navy-900 block font-bold">STAGE 04: DEALER POSITIONING MODEL &amp; ZERO-GAMMA BISECTION SOLVER (Month 5–6)</strong>
+                <strong class="font-mono-num text-navy-900 block font-bold">STAGE 04: 2D VECTORIZED 401-POINT FLIP MATRIX &amp; NEXT.JS 14 TERMINAL</strong>
                 <p class="text-xs text-slate-600 leading-relaxed">
-                  Formulated the institutional positioning assumption (dealers short upside calls and downside puts). Built a numerical root solver that sweeps spot prices from -5% to +5% to identify the Zero-Gamma crossover within 0.1 index points.
+                  Broadcasted 56,000 option re-pricings across a <code>(401, N)</code> spot grid in ~1.5 ms with secant root interpolation, paired with a 4,896-line Next.js 14 terminal featuring sub-strike SVG overlays and 1s UI render throttling.
                 </p>
               </div>
 
               <div class="p-3.5 bg-slate-50 rounded border-l-amber-700 space-y-1">
-                <strong class="font-mono-num text-navy-900 block font-bold">STAGE 05: LIVE MARKET EMPIRICAL FEEDBACK &amp; THURSDAY EXPIRY PINNING (Month 7+)</strong>
+                <strong class="font-mono-num text-navy-900 block font-bold">STAGE 05: CRISIS DVR REPLAY &amp; EMPIRICAL EXPIRY PINNING VALIDATION</strong>
                 <p class="text-xs text-slate-600 leading-relaxed">
-                  Empirically observed Thursday afternoon pinning where NIFTY stayed within ±0.15% of the primary gamma wall. Documented violent negative gamma cascades where breaking below the Zero-Gamma line triggered 280-point liquidation drops in under 35 minutes.
+                  Built a multi-speed DVR replay engine and comparative backtester, verifying afternoon positive-gamma pinning corridors ($\pm 0.15\%$) and negative-gamma futures liquidation cascades during historical market shocks.
                 </p>
               </div>
 
               <div class="p-3.5 bg-slate-50 rounded border-l-slate-600 space-y-1">
-                <strong class="font-mono-num text-navy-900 block font-bold">STAGE 06: QUANTITATIVE HUMILITY &amp; MODEL LIMITATIONS (Ongoing)</strong>
+                <strong class="font-mono-num text-navy-900 block font-bold">STAGE 06: QUANTITATIVE HUMILITY &amp; PRIVATE PHASE-2 MICROSTRUCTURE R&amp;D</strong>
                 <p class="text-xs text-slate-600 leading-relaxed">
-                  Recognized model blind spots: unrecorded institutional OTC block strangles, off-market bilateral hedges, and overnight gap-risk hedging failure. Reinforcing that quantitative models must always be bounded by strict position sizing and cash reserves.
+                  Recognized where baseline dealer polarity and static expiry models require NSE-specific calibration—leading to four proprietary Phase-2 microstructure advancements maintained in my private research repository for live institutional walkthroughs.
                 </p>
               </div>
             </div>
@@ -1564,8 +1564,8 @@
           <!-- Action Bar to Dedicated Project Page -->
           <div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded bg-slate-50 border border-slate-200">
             <div>
-              <div class="text-sm font-bold font-editorial text-navy-900">Want to inspect the full mathematical derivations and Python codebase?</div>
-              <div class="text-xs text-slate-500 font-mono-num">Complete technical report with formulas, architecture diagrams, and sample terminal telemetry.</div>
+              <div class="text-sm font-bold font-editorial text-navy-900">Want to inspect the 48-file architecture census, mathematical proofs, and production Python code?</div>
+              <div class="text-xs text-slate-500 font-mono-num">Complete technical dossier with Hedge-Band Gamma derivations, 2D flip matrix code, and live NIFTY telemetry.</div>
             </div>
             <a href="projects.html" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded bg-[#0B2447] text-white hover:bg-navy-800 text-xs font-mono-num font-bold shadow-sm transition-colors whitespace-nowrap text-center">
               View Full Technical Dossier (projects.html) ↗
