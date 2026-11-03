@@ -242,19 +242,19 @@
         </div>
       </section>
 
-      <!-- Section 3: ADVANTAGES OVER OTHER TOOLS -->
+      <!-- Section 3: ANALYTICAL ADVANTAGES OVER FIRST-ORDER HEURISTICS -->
       <section class="space-y-6">
         <div class="section-head">
           <h2 class="text-2xl font-bold font-editorial text-navy-900">
-            3. Detailed Analysis: Concrete Advantages Over Retail Derivative Tools
+            3. Detailed Analysis: Second-Order GEX Modeling vs. First-Order OI Heuristics
           </h2>
           <p class="text-xs font-mono-num text-slate-500 uppercase mt-1">
-            Why commercial platforms like Sensibull, Opstra, and Quantsapp provide flawed or incomplete signals
+            How strike-level dollar gamma weighting extends standard Open Interest bar charts and static Max-Pain models
           </p>
         </div>
 
         <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
-          While several retail platforms cater to Indian derivatives traders, their analytical engines rely on outdated 1980s heuristics or simple aggregation of flat contract counts. Below is a rigorous comparative breakdown of why the NSE GEX engine provides a superior, institutional-grade analytical edge:
+          Conventional option chain workflows typically rely on flat contract counts (Open Interest bars) or static expiry settlement heuristics ("Max Pain"). Below is a methodological breakdown of how a second-order Greek engine complements standard options analytics suites by quantifying dynamic dealer hedging requirements:
         </p>
 
         <!-- Detailed Advantage Breakdown Grid -->
@@ -265,20 +265,20 @@
             <div class="flex items-center gap-2">
               <span class="w-6 h-6 rounded-full bg-[#0B2447] text-white flex items-center justify-center font-mono-num text-xs font-bold">1</span>
               <h3 class="text-lg font-bold font-editorial text-navy-900">
-                True Non-Linear Rupee Gamma Weighting vs. Naive Open Interest (OI) Bar Charts
+                True Non-Linear Rupee Gamma Weighting vs. Flat Open Interest (OI) Bar Charts
               </h3>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-700 pt-1">
               <div class="p-4 bg-slate-50 rounded border border-slate-200 space-y-2">
-                <span class="font-mono-num font-bold text-rose-800 uppercase block">Existing Retail Tools (Sensibull / Opstra / NSE Site)</span>
+                <span class="font-mono-num font-bold text-rose-800 uppercase block">Standard First-Order OI Charts</span>
                 <p>
-                  Display standard bar charts of raw Open Interest (OI) or Change in OI. In their models, an out-of-the-money 26,000 Call with 1,00,000 OI is displayed with the exact same visual and analytical weight as an at-the-money 25,000 Call with 1,00,000 OI. This gives a completely distorted impression of market liquidity.
+                  Display bar charts of raw Open Interest (OI) or Change in OI. In a flat contract model, an out-of-the-money 26,000 Call with 1,00,000 OI is given the exact same visual weight as an at-the-money 25,000 Call with 1,00,000 OI, even though their immediate intraday hedging impact differs drastically.
                 </p>
               </div>
               <div class="p-4 bg-sky-50/70 rounded border border-sky-200 space-y-2">
-                <span class="font-mono-num font-bold text-navy-900 uppercase block">NSE GEX Engine (Proprietary)</span>
+                <span class="font-mono-num font-bold text-navy-900 uppercase block">NSE GEX Engine (Second-Order Greeks)</span>
                 <p>
-                  Recognizes that <strong>gamma is not flat across strikes</strong>. Because gamma peaks precisely at-the-money ($\text{ATM}$) and collapses towards zero out-of-the-money ($\text{OTM}$), an ATM strike with 50,000 contracts exerts up to 8x more dynamic hedging pressure on index futures than an OTM strike with 100,000 contracts. We weight every strike by its true second-order Greek dollar sensitivity.
+                  Recognizes that <strong>gamma is not flat across strikes</strong>. Because gamma peaks precisely at-the-money ($\text{ATM}$) and decays rapidly out-of-the-money ($\text{OTM}$), an ATM strike with 50,000 contracts exerts up to 8x more dynamic hedging pressure on index futures than an OTM strike with 100,000 contracts. Every strike is weighted by its true second-order dollar sensitivity.
                 </p>
               </div>
             </div>
@@ -289,20 +289,20 @@
             <div class="flex items-center gap-2">
               <span class="w-6 h-6 rounded-full bg-[#0B2447] text-white flex items-center justify-center font-mono-num text-xs font-bold">2</span>
               <h3 class="text-lg font-bold font-editorial text-navy-900">
-                Dynamic Zero-Gamma Flip Detection vs. Flawed Static "Max Pain"
+                Dynamic Zero-Gamma Flip Detection vs. Static Expiry "Max Pain"
               </h3>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-700 pt-1">
               <div class="p-4 bg-slate-50 rounded border border-slate-200 space-y-2">
-                <span class="font-mono-num font-bold text-rose-800 uppercase block">Existing Retail Tools (Sensibull / Opstra)</span>
+                <span class="font-mono-num font-bold text-rose-800 uppercase block">Static Max-Pain Heuristics</span>
                 <p>
-                  Rely on "Max Pain" as their flagship directional indicator. Max Pain is an archaic formula that computes the strike price at which option buyers lose the maximum intrinsic value at Thursday 3:30 PM. It completely ignores intraday dynamic hedging, assumes market makers hold unhedged risk, and frequently fails by hundreds of points during trend days.
+                  Max Pain computes the static strike price at which option buyers lose the maximum intrinsic value at Thursday 3:30 PM settlement. While useful as a broad expiry reference, it does not model continuous intraday delta-hedging flows or volatility regime shifts during trend days.
                 </p>
               </div>
               <div class="p-4 bg-sky-50/70 rounded border border-sky-200 space-y-2">
-                <span class="font-mono-num font-bold text-navy-900 uppercase block">NSE GEX Engine (Proprietary)</span>
+                <span class="font-mono-num font-bold text-navy-900 uppercase block">NSE GEX Engine (Second-Order Greeks)</span>
                 <p>
-                  Solves for the exact <strong>Zero-Gamma Flip level ($S^*$)</strong> using numerical root-finding. Rather than predicting where the index "should" settle days from now, it identifies the live inflection line where market behavior changes fundamentally from volatility dampening (mean-reversion) to volatility acceleration (breakout cascades).
+                  Solves for the exact <strong>Zero-Gamma Flip level ($S^*$)</strong> using numerical root-finding. Rather than only estimating terminal expiry value, it identifies the live intraday inflection boundary where dealer hedging shifts from volatility dampening (mean-reversion) to volatility acceleration (breakout cascades).
                 </p>
               </div>
             </div>
@@ -318,15 +318,15 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-700 pt-1">
               <div class="p-4 bg-slate-50 rounded border border-slate-200 space-y-2">
-                <span class="font-mono-num font-bold text-rose-800 uppercase block">Existing Retail Tools</span>
+                <span class="font-mono-num font-bold text-rose-800 uppercase block">Strike-Level Greek Tables</span>
                 <p>
-                  Provide static tabular summaries of Greeks (Delta, Theta, Vega) per strike, but fail to aggregate them into portfolio-level capital requirements. Traders have no way to know how much capital is about to be forced into the orderbook.
+                  Standard option chains display unit Greeks (Delta, Theta, Vega, Gamma) per single option contract, requiring manual aggregation to estimate total institutional hedging notional across the chain.
                 </p>
               </div>
               <div class="p-4 bg-sky-50/70 rounded border border-sky-200 space-y-2">
-                <span class="font-mono-num font-bold text-navy-900 uppercase block">NSE GEX Engine (Proprietary)</span>
+                <span class="font-mono-num font-bold text-navy-900 uppercase block">NSE GEX Engine (Second-Order Greeks)</span>
                 <p>
-                  Quantifies the instantaneous flow: <em>"If NIFTY drops by 50 points from 24,950 to 24,900, market makers are mathematically forced to dump ₹340 Crores of NIFTY futures contracts to stay neutral."</em> This allows an analyst to evaluate whether orderbook depth can absorb the move or if a slippage cascade is guaranteed.
+                  Quantifies the instantaneous aggregate flow: <em>"If NIFTY drops by 50 points from 24,950 to 24,900, market makers are mathematically required to sell ₹340 Crores of NIFTY futures contracts to remain delta-neutral."</em> This links options positioning directly to underlying futures orderbook depth.
                 </p>
               </div>
             </div>
@@ -337,20 +337,20 @@
             <div class="flex items-center gap-2">
               <span class="w-6 h-6 rounded-full bg-[#0B2447] text-white flex items-center justify-center font-mono-num text-xs font-bold">4</span>
               <h3 class="text-lg font-bold font-editorial text-navy-900">
-                Disaggregated Weekly Expiry Pin Risk vs. Blended Expiry Noise
+                Disaggregated Weekly Expiry Pin Risk vs. Blended Multi-Expiry Views
               </h3>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-700 pt-1">
               <div class="p-4 bg-slate-50 rounded border border-slate-200 space-y-2">
-                <span class="font-mono-num font-bold text-rose-800 uppercase block">Existing Retail Tools</span>
+                <span class="font-mono-num font-bold text-rose-800 uppercase block">Blended Multi-Expiry Chains</span>
                 <p>
-                  Default views frequently blend weekly contracts with monthly or multi-month contracts, washing out the explosive short-dated theta and gamma spikes that determine Thursday expiry settlements.
+                  Blending weekly contracts with monthly or quarterly contracts equally can obscure the sharp short-dated theta and gamma spikes that dominate Thursday afternoon expiry settlements.
                 </p>
               </div>
               <div class="p-4 bg-sky-50/70 rounded border border-sky-200 space-y-2">
-                <span class="font-mono-num font-bold text-navy-900 uppercase block">NSE GEX Engine (Proprietary)</span>
+                <span class="font-mono-num font-bold text-navy-900 uppercase block">NSE GEX Engine (Second-Order Greeks)</span>
                 <p>
-                  Separates near-week expiries where $\tau \to 0$ from monthly structural hedges. Near-week contracts experience asymptotic gamma spikes ($\lim_{\tau \to 0} \Gamma \to \infty$ for ATM strikes), which create the powerful gravitational "pinning" effect observed during Thursday afternoon settlement sessions.
+                  Separates near-week expiries where $\tau \to 0$ from monthly structural hedges. Near-week contracts experience asymptotic gamma spikes ($\lim_{\tau \to 0} \Gamma \to \infty$ for ATM strikes), isolating the gravitational "pinning" effect observed during Thursday afternoon settlement sessions.
                 </p>
               </div>
             </div>
@@ -361,20 +361,20 @@
             <div class="flex items-center gap-2">
               <span class="w-6 h-6 rounded-full bg-[#0B2447] text-white flex items-center justify-center font-mono-num text-xs font-bold">5</span>
               <h3 class="text-lg font-bold font-editorial text-navy-900">
-                Zero SaaS Subscription Tax, Sub-50ms Execution &amp; 100% Algorithmic Auditability
+                Modular Python Architecture, Sub-50ms Execution &amp; Data Lake Export
               </h3>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-700 pt-1">
               <div class="p-4 bg-slate-50 rounded border border-slate-200 space-y-2">
-                <span class="font-mono-num font-bold text-rose-800 uppercase block">Commercial SaaS Platforms</span>
+                <span class="font-mono-num font-bold text-rose-800 uppercase block">Frontend-Only Web Views</span>
                 <p>
-                  Charge recurring subscription fees (₹15,000–₹30,000/year), throttle API updates behind proprietary frontends, obscure calculation methodologies in closed-source black boxes, and prohibit raw data export for custom quantitative backtesting.
+                  Browser-based option chain views are built for visual inspection during market hours, making it difficult to export raw time-series matrices for programmatic backtesting or integration with systematic trading signals.
                 </p>
               </div>
               <div class="p-4 bg-sky-50/70 rounded border border-sky-200 space-y-2">
-                <span class="font-mono-num font-bold text-navy-900 uppercase block">NSE GEX Engine (Proprietary)</span>
+                <span class="font-mono-num font-bold text-navy-900 uppercase block">NSE GEX Engine (Second-Order Greeks)</span>
                 <p>
-                  Built as a modular, local Python engine with zero recurring software fees. Runs full-chain calculations across 120 strikes in under 42 milliseconds, operates directly on raw NSE JSON data, and exports clean matrices to Pandas DataFrames for seamless empirical backtesting.
+                  Built as a modular, vectorized Python engine that runs full-chain calculations across 120 strikes in under 42 milliseconds and exports clean matrices to Pandas DataFrames and Parquet files—ready to plug into existing charting and analytics platforms.
                 </p>
               </div>
             </div>
@@ -384,31 +384,31 @@
 
         <!-- Rigorous Comparison Matrix Table -->
         <div class="pt-4 space-y-3">
-          <h3 class="text-base font-bold font-editorial text-navy-900">Comprehensive Architectural Comparison Matrix</h3>
+          <h3 class="text-base font-bold font-editorial text-navy-900">Methodological Comparison Matrix</h3>
           <div class="overflow-x-auto card-formal rounded">
             <table class="w-full text-left text-xs font-sans table-formal">
               <thead>
                 <tr>
                   <th class="p-3">Analytical Dimension</th>
-                  <th class="p-3 text-navy-900 font-bold bg-sky-50">NSE GEX Engine (Proprietary)</th>
-                  <th class="p-3">Sensibull</th>
-                  <th class="p-3">Opstra</th>
-                  <th class="p-3">NSE Official Chain</th>
+                  <th class="p-3 text-navy-900 font-bold bg-sky-50">NSE GEX Engine (Second-Order Model)</th>
+                  <th class="p-3">Standard OI Bar Charts</th>
+                  <th class="p-3">Static Max-Pain Models</th>
+                  <th class="p-3">NSE Raw Option Chain</th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-slate-100">
                 <tr>
                   <td class="p-3 font-semibold text-slate-800">Second-Order Gamma Weighting</td>
                   <td class="p-3 font-mono-num font-bold text-emerald-700 bg-sky-50/50">✓ Strike-by-Strike Black-Scholes (₹ Cr)</td>
-                  <td class="p-3 text-slate-500">✗ Flat OI Counts Only</td>
-                  <td class="p-3 text-slate-500">✗ Flat OI Counts Only</td>
+                  <td class="p-3 text-slate-500">✗ Flat Contract Counts Only</td>
+                  <td class="p-3 text-slate-500">✗ Intrinsic Expiry Value Only</td>
                   <td class="p-3 text-slate-500">✗ Raw Unweighted Tables</td>
                 </tr>
                 <tr>
                   <td class="p-3 font-semibold text-slate-800">Zero-Gamma Regime Flip Boundary</td>
                   <td class="p-3 font-mono-num font-bold text-emerald-700 bg-sky-50/50">✓ Dynamic Root Solver (0.1 pt accuracy)</td>
-                  <td class="p-3 text-slate-500">✗ None (Uses Max Pain)</td>
-                  <td class="p-3 text-slate-500">✗ None (Uses Max Pain)</td>
+                  <td class="p-3 text-slate-500">✗ Highest Call/Put OI Strikes</td>
+                  <td class="p-3 text-slate-500">✗ Static Settlement Strike</td>
                   <td class="p-3 text-slate-500">✗ None</td>
                 </tr>
                 <tr>
@@ -420,24 +420,24 @@
                 </tr>
                 <tr>
                   <td class="p-3 font-semibold text-slate-800">Expiry Disaggregation (Weekly vs Mo)</td>
-                  <td class="p-3 font-mono-num font-bold text-emerald-700 bg-sky-50/50">✓ Fully Disaggregated Pinning PDF</td>
-                  <td class="p-3 text-slate-600">Partial (Merged Views Common)</td>
-                  <td class="p-3 text-slate-600">Manual Toggle Only</td>
+                  <td class="p-3 font-mono-num font-bold text-emerald-700 bg-sky-50/50">✓ Disaggregated Pinning Profile</td>
+                  <td class="p-3 text-slate-600">Single-Expiry Bar View</td>
+                  <td class="p-3 text-slate-600">Single-Expiry Calculation</td>
                   <td class="p-3 text-slate-500">Drop-down Selector Only</td>
                 </tr>
                 <tr>
                   <td class="p-3 font-semibold text-slate-800">Implied Volatility (IV) Skew Interpolation</td>
                   <td class="p-3 font-mono-num font-bold text-emerald-700 bg-sky-50/50">✓ Vectorized Brent/Newton-Raphson</td>
-                  <td class="p-3 text-slate-600">Proprietary (Unpublished)</td>
-                  <td class="p-3 text-slate-600">Standard Approximation</td>
+                  <td class="p-3 text-slate-600">Not Applied to OI Bars</td>
+                  <td class="p-3 text-slate-600">Not Applied (Intrinsic Only)</td>
                   <td class="p-3 text-slate-500">Delayed Snapshot Table</td>
                 </tr>
                 <tr>
-                  <td class="p-3 font-semibold text-slate-800">Cost &amp; Platform Auditability</td>
-                  <td class="p-3 font-mono-num font-bold text-emerald-700 bg-sky-50/50">✓ 100% Free / Open Python Architecture</td>
-                  <td class="p-3 text-slate-500">₹8,000–₹16,000/yr (Closed)</td>
-                  <td class="p-3 text-slate-500">₹12,000–₹24,000/yr (Closed)</td>
-                  <td class="p-3 text-slate-600">Free (Rate-limited, No Tools)</td>
+                  <td class="p-3 font-semibold text-slate-800">Time-Series Backtest Export</td>
+                  <td class="p-3 font-mono-num font-bold text-emerald-700 bg-sky-50/50">✓ Native Pandas / Parquet Pipeline</td>
+                  <td class="p-3 text-slate-500">Visual Inspection Only</td>
+                  <td class="p-3 text-slate-500">Point-in-Time Snapshot</td>
+                  <td class="p-3 text-slate-600">Rate-limited JSON Snapshot</td>
                 </tr>
               </tbody>
             </table>
